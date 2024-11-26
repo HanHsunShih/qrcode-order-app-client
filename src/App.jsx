@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import MenuPage from "./pages/MenuPage/MenuPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/menu" />
+          <Route path="/menu" element={<MenuPage />} />
           <Route path="/menu/:product_id" />
           <Route path="/cart/:customer_id" />
           <Route path="/order" />
