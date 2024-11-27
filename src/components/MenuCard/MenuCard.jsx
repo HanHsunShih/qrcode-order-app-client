@@ -1,4 +1,5 @@
 import "./MenuCard.scss";
+import { Link } from "react-router-dom";
 
 export default function MenuCard({ productsInfoArr }) {
   return (
@@ -10,6 +11,14 @@ export default function MenuCard({ productsInfoArr }) {
               <h3>{productInfo.product_name}</h3>
               <p>£{productInfo.price_gbp}</p>
               <p>{productInfo.description}</p>
+              <p>
+                <Link
+                  to={`/menu/${productInfo.id}`}
+                  state={{ scrollPosition: window.scrollY }}
+                >
+                  read more...
+                </Link>
+              </p>
             </div>
           );
         } else {
@@ -18,6 +27,14 @@ export default function MenuCard({ productsInfoArr }) {
               <h3>{productInfo.product_name}</h3>
               <p>£{productInfo.price_gbp}</p>
               <p>{productInfo.description}</p>
+              <p>
+                <Link
+                  to={`/menu/${productInfo.id}`}
+                  state={{ scrollPosition: window.scrollY }}
+                >
+                  read more...
+                </Link>
+              </p>
             </div>
           );
         }
