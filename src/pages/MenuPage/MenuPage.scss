@@ -1,0 +1,9 @@
+@use "../../styles/_partials/typography" as *;
+@use "../../styles/_partials/variables" as *;
+@use "../../styles/_partials/mixin" as *;
+
+.menu-page {
+  &__title {
+    @include flex;
+  }
+}

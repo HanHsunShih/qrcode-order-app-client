@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Lora";
+  src: url("../../assets/fonts/Lora-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Lora-Italic";
+  src: url("../../assets/fonts/Lora-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Quattrocento";
+  src: url("../../assets/fonts/Quattrocento-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Quattrocento-Bold";
+  src: url("../../assets/fonts/Quattrocento-Bold.ttf");
+}
+
+// body {
+//   font-family: Quattrocento, Arial, Helvetica, sans-serif;
+// }
+
+h1 {
+  font-family: Quattrocento;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-family: Quattrocento;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+h3 {
+  font-family: Quattrocento-Bold;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+p {
+  font-family: Lora;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}

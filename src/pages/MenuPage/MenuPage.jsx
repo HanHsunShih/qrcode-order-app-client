@@ -36,7 +36,7 @@ export default function MenuPage() {
 
   return (
     <>
-      <h1>Menu</h1>
+      <h1 className="menu-page__title">Menu</h1>
       {productsInfo.length > 0 ? (
         <MenuCard productsInfoArr={productsInfo} />
       ) : (

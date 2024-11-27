@@ -1,9 +1,29 @@
-.menuCard-box {
-  &__drinks {
-    background-color: yellow;
+@use "../../styles/_partials/typography" as *;
+@use "../../styles/_partials/variables" as *;
+@use "../../styles/_partials/mixin" as *;
+
+.menuCard {
+  &-box {
+    padding: 1.5rem;
+    @include flex($justify: space-between);
+    margin: 1rem;
+    border-radius: 25px;
+    gap: 1rem;
+
+    &__drinks {
+      background-color: $color5;
+    }
+
+    &__food {
+      background-color: $color4;
+    }
   }
 
-  &__food {
-    background-color: green;
+  &__bt {
+    padding: 1rem;
+    border-style: none;
+    border-radius: 20px;
+    background-color: $color1;
+    color: $color6;
   }
 }
