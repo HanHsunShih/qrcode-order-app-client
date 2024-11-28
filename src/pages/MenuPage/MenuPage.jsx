@@ -36,12 +36,15 @@ export default function MenuPage() {
 
   return (
     <>
-      <h1 className="menu-page__title">Menu</h1>
-      {productsInfo.length > 0 ? (
-        <MenuCard productsInfoArr={productsInfo} />
-      ) : (
-        <p>loading...</p>
-      )}
+      <main className="menu-page__box">
+        <h2 className="menu-page__cart">Cart</h2>
+        <h1 className="menu-page__title">Menu</h1>
+        {productsInfo.length > 0 ? (
+          <MenuCard productsInfoArr={productsInfo} />
+        ) : (
+          <p>loading...</p>
+        )}
+      </main>
     </>
   );
 }

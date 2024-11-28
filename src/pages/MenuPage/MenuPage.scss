@@ -3,7 +3,22 @@
 @use "../../styles/_partials/mixin" as *;
 
 .menu-page {
+  &__box {
+    position: relative;
+  }
+
   &__title {
     @include flex;
+  }
+
+  &__cart {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    background-color: $color3;
+    padding: 1rem;
+    border-radius: 15px;
   }
 }
