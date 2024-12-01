@@ -1,0 +1,55 @@
+@use "../../styles/_partials/typography" as *;
+@use "../../styles/_partials/variables" as *;
+@use "../../styles/_partials/mixin" as *;
+
+.home-page {
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    padding: 5rem 0;
+  }
+
+  &__top-box {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__top-bt {
+    @include button;
+    @include h3;
+  }
+
+  &__middle-box {
+    @include flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__table-number {
+    width: 50vw;
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 3px rgb(86, 86, 86);
+    @include p;
+
+    &-label {
+      @include h2;
+    }
+  }
+
+  &__bottom-box {
+    @include flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__bottom-bt {
+    @include flex;
+    @include h3;
+    @include button;
+    width: 100%;
+  }
+}

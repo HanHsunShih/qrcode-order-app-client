@@ -2,11 +2,17 @@ import "./MenuPage.scss";
 import { useState, useEffect } from "react";
 import MenuCard from "../../components/MenuCard/MenuCard";
 import { getAllProducts } from "../../../utils/apiUtils.mjs";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function MenuPage() {
-  const [productsInfo, setProductsInfo] = useState([]); //array
-  const location = useLocation();
+export default function MenuPage({
+  handleAddToCart,
+  // handleNavigateToCart,
+  cartCount,
+  cartInfo,
+}) {
+  const [productsInfo, setProductsInfo] = useState([]);
+  const navigate = useNavigate();
+  const { userId } = useParams;
 
   const menuRender = async () => {
     try {
@@ -22,13 +28,10 @@ export default function MenuPage() {
     }
   };
 
-  useEffect(() => {
-    console.log("location.state :");
-    console.log(location.state);
-    if (location.state?.scrollPosition !== undefined) {
-      window.scrollTo(0, location.state.scrollPosition);
-    }
-  }, [location.state]);
+  const handleNavigateToCart = (event) => {
+    event.preventDefault();
+    navigate(`/cart/${userId}`, { state: { cartInfo } });
+  };
 
   useEffect(() => {
     menuRender();
@@ -37,10 +40,25 @@ export default function MenuPage() {
   return (
     <>
       <main className="menu-page__box">
-        <h2 className="menu-page__cart">Cart</h2>
-        <h1 className="menu-page__title">Menu</h1>
+        <button onClick={handleNavigateToCart}>
+          <h2 className="menu-page__cart">Cart {cartCount}</h2>
+        </button>
+        <button
+          className="menu-page__go-back-bt"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <p>←</p>
+        </button>
+        <div className="menu-page__top-box">
+          <h1 className="menu-page__title">Menu</h1>
+        </div>
         {productsInfo.length > 0 ? (
-          <MenuCard productsInfoArr={productsInfo} />
+          <MenuCard
+            productsInfoArr={productsInfo}
+            handleAddToCart={handleAddToCart}
+          />
         ) : (
           <p>loading...</p>
         )}

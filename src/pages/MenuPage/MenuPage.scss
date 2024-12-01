@@ -7,6 +7,15 @@
     position: relative;
   }
 
+  &__top-box {
+    @include flex;
+  }
+
+  &__go-back-bt {
+    @include button;
+    justify-content: flex-start;
+  }
+
   &__title {
     @include flex;
   }

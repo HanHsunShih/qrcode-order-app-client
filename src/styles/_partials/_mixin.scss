@@ -1,3 +1,6 @@
+@use "../../styles/_partials/typography" as *;
+@use "../../styles/_partials/variables" as *;
+
 //Media query
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
@@ -11,9 +14,40 @@
   }
 }
 
-//Mobile Text Style
 @mixin flex($justify: center, $align: center) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
+}
+
+@mixin button {
+  display: inline-block;
+  background-color: $color3;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  border: none;
+}
+
+@mixin h1 {
+  font-family: Quattrocento;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+@mixin h2 {
+  font-family: Quattrocento;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+@mixin h3 {
+  font-family: Quattrocento-Bold;
+  font-size: 1rem;
+  line-height: 2.5rem;
+}
+
+@mixin p {
+  font-family: Lora;
+  font-size: 1rem;
+  line-height: 1.8rem;
 }
