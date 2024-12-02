@@ -5,14 +5,18 @@ import HomePage from "./pages/HomePage/HomePage";
 import MenuPage from "./pages/MenuPage/MenuPage";
 import SingleProductPage from "./pages/SingleProductPage/SingleProductPage";
 import CartPage from "./pages/CartPage/CartPage";
+import PaymentPage from "./pages/PaymentPage/PaymentPage";
+import PaymentSuccessPage from "./pages/PaymentSuccessPage/PaymentSuccessPage";
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
   const [cartInfo, setCartInfo] = useState([]);
 
   const handleAddToCart = (product) => {
-    setCartCount(cartCount + 1);
     setCartInfo((preCartInfo) => [...preCartInfo, product]);
+  };
+
+  const handleCartReset = () => {
+    setCartInfo([]);
   };
 
   return (
@@ -25,9 +29,8 @@ function App() {
             element={
               <MenuPage
                 handleAddToCart={handleAddToCart}
-                // handleNavigateToCart={handleNavigateToCart}
-                cartCount={cartCount}
                 cartInfo={cartInfo}
+                handleCartReset={handleCartReset}
               />
             }
           />
@@ -36,19 +39,28 @@ function App() {
             element={
               <MenuPage
                 handleAddToCart={handleAddToCart}
-                // handleNavigateToCart={handleNavigateToCart}
-                cartCount={cartCount}
                 cartInfo={cartInfo}
+                handleCartReset={handleCartReset}
               />
             }
           />
           <Route
             path="/menu/:userId/:product_id"
-            element={<SingleProductPage />}
+            element={
+              <SingleProductPage
+                cartInfo={cartInfo}
+                setCartInfo={setCartInfo}
+              />
+            }
           />
-          <Route path="/cart/:userId" element={<CartPage />} />
+          <Route
+            path="/cart/:userId"
+            element={<CartPage cartInfo={cartInfo} setCartInfo={setCartInfo} />}
+          />
           <Route path="/order" />
           <Route path="/order/:userId" />
+          <Route path="/payment/:userId" element={<PaymentPage />} />
+          <Route path="/paymentSuccess" element={<PaymentSuccessPage />} />
         </Routes>
       </BrowserRouter>
     </>

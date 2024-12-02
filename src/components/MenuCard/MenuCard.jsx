@@ -1,8 +1,10 @@
+import { useState } from "react";
 import "./MenuCard.scss";
 import { Link, useParams } from "react-router-dom";
 
 export default function MenuCard({ productsInfoArr, handleAddToCart }) {
   const { userId } = useParams();
+
   return (
     <>
       <div>
@@ -29,8 +31,7 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
                   onClick={() => handleAddToCart(productInfo)}
                   className="menuCard__bt"
                 >
-                  {" "}
-                  <h3> + </h3>{" "}
+                  <h3> + </h3>
                 </button>
               </div>
             </article>

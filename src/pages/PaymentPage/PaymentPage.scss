@@ -2,8 +2,10 @@
 @use "../../styles/_partials/variables" as *;
 @use "../../styles/_partials/mixin" as *;
 
-.cart-page {
-  &__box {
+.payment-page {
+  &__bt-box {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 }

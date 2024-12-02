@@ -2,17 +2,16 @@ import "./MenuPage.scss";
 import { useState, useEffect } from "react";
 import MenuCard from "../../components/MenuCard/MenuCard";
 import { getAllProducts } from "../../../utils/apiUtils.mjs";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function MenuPage({
   handleAddToCart,
-  // handleNavigateToCart,
-  cartCount,
   cartInfo,
+  handleCartReset,
 }) {
   const [productsInfo, setProductsInfo] = useState([]);
   const navigate = useNavigate();
-  const { userId } = useParams;
+  const { userId } = useParams();
 
   const menuRender = async () => {
     try {
@@ -28,11 +27,6 @@ export default function MenuPage({
     }
   };
 
-  const handleNavigateToCart = (event) => {
-    event.preventDefault();
-    navigate(`/cart/${userId}`, { state: { cartInfo } });
-  };
-
   useEffect(() => {
     menuRender();
   }, []);
@@ -40,16 +34,17 @@ export default function MenuPage({
   return (
     <>
       <main className="menu-page__box">
-        <button onClick={handleNavigateToCart}>
-          <h2 className="menu-page__cart">Cart {cartCount}</h2>
-        </button>
+        <Link to={`/cart/${userId}`} className="menu-page__cart">
+          Cart {cartInfo.length}
+        </Link>
         <button
           className="menu-page__go-back-bt"
           onClick={() => {
-            navigate(-1);
+            handleCartReset();
+            navigate(`/`);
           }}
         >
-          <p>←</p>
+          ←
         </button>
         <div className="menu-page__top-box">
           <h1 className="menu-page__title">Menu</h1>

@@ -1,38 +1,46 @@
 import "./CartPage.scss";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function CartPage() {
+export default function CartPage({ cartInfo, setCartInfo }) {
   const navigate = useNavigate();
-  const { state } = useLocation();
-
-  const cartProductsInfo = state?.cartInfo || [];
 
   let totalPrice = 0;
-  for (let i = 0; i < cartProductsInfo.length; i++) {
-    totalPrice += cartProductsInfo[i].price_gbp;
+  for (let i = 0; i < cartInfo.length; i++) {
+    totalPrice += parseFloat(cartInfo[i].price_gbp);
   }
+  const formattedTotalPrice = totalPrice.toFixed(2);
+
+  const handlePayClick = (event) => {
+    event.preventDefault();
+
+    navigate("/payment/:userId", { state: formattedTotalPrice });
+  };
+
+  const handleDelete = (indexToDelete) => {
+    const updatedCart = cartInfo.filter(
+      (pruduct, index) => index !== indexToDelete
+    );
+    setCartInfo(updatedCart);
+  };
 
   return (
     <>
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        ←
-      </button>
+      <Link to={-1}>←</Link>
       <p>Your Order</p>
-      {cartProductsInfo.map((cartProductInfo, index) => {
+      {cartInfo.map((item, index) => {
         return (
-          <div key={index}>
-            <p>{cartProductInfo.product_name}</p>
-            <p>{cartProductInfo.price_gbp}</p>
+          <div key={index} className="cart-page__box">
+            <div className="cart-page__box-left">
+              <p>{item.product_name}</p>
+              <p>{item.price_gbp}</p>
+            </div>
+            <button onClick={() => handleDelete(index)}>Delete</button>
           </div>
         );
       })}
       <p>total price</p>
-      <p>{totalPrice}</p>
-      <button>pay</button>
+      <p>£ {formattedTotalPrice}</p>
+      <button onClick={handlePayClick}>pay</button>
     </>
   );
 }
