@@ -21,9 +21,7 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
                 <p>£{productInfo.price_gbp}</p>
                 <p>{productInfo.description}</p>
                 <p>
-                  <Link to={`/menu/${userId}/${productInfo.id}`}>
-                    read more...
-                  </Link>
+                  <Link to={`/menu/${productInfo.id}`}>read more...</Link>
                 </p>
               </div>
               <div>

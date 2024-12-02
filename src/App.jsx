@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
@@ -7,9 +7,12 @@ import SingleProductPage from "./pages/SingleProductPage/SingleProductPage";
 import CartPage from "./pages/CartPage/CartPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage/PaymentSuccessPage";
+import OrdersPage from "./pages/OrdersPage/OrdersPage";
 
 function App() {
-  const [cartInfo, setCartInfo] = useState([]);
+  const [cartInfo, setCartInfo] = useState(
+    JSON.parse(localStorage.getItem("cartInfo")) || []
+  );
 
   const handleAddToCart = (product) => {
     setCartInfo((preCartInfo) => [...preCartInfo, product]);
@@ -18,6 +21,10 @@ function App() {
   const handleCartReset = () => {
     setCartInfo([]);
   };
+
+  useEffect(() => {
+    localStorage.setItem("cartInfo", JSON.stringify(cartInfo));
+  }, [cartInfo]);
 
   return (
     <>
@@ -35,17 +42,7 @@ function App() {
             }
           />
           <Route
-            path="/menu/:userId"
-            element={
-              <MenuPage
-                handleAddToCart={handleAddToCart}
-                cartInfo={cartInfo}
-                handleCartReset={handleCartReset}
-              />
-            }
-          />
-          <Route
-            path="/menu/:userId/:product_id"
+            path="/menu/:product_id"
             element={
               <SingleProductPage
                 cartInfo={cartInfo}
@@ -54,13 +51,12 @@ function App() {
             }
           />
           <Route
-            path="/cart/:userId"
+            path="/cart"
             element={<CartPage cartInfo={cartInfo} setCartInfo={setCartInfo} />}
           />
-          <Route path="/order" />
-          <Route path="/order/:userId" />
-          <Route path="/payment/:userId" element={<PaymentPage />} />
-          <Route path="/paymentSuccess" element={<PaymentSuccessPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/payment-success" element={<PaymentSuccessPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
         </Routes>
       </BrowserRouter>
     </>

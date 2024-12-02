@@ -34,9 +34,6 @@ export default function MenuPage({
   return (
     <>
       <main className="menu-page__box">
-        <Link to={`/cart/${userId}`} className="menu-page__cart">
-          Cart {cartInfo.length}
-        </Link>
         <button
           className="menu-page__go-back-bt"
           onClick={() => {
@@ -57,6 +54,9 @@ export default function MenuPage({
         ) : (
           <p>loading...</p>
         )}
+        <Link to="/cart" className="menu-page__cart">
+          Cart {cartInfo.length}
+        </Link>
       </main>
     </>
   );

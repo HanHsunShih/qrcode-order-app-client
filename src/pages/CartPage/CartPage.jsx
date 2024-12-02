@@ -13,7 +13,7 @@ export default function CartPage({ cartInfo, setCartInfo }) {
   const handlePayClick = (event) => {
     event.preventDefault();
 
-    navigate("/payment/:userId", { state: formattedTotalPrice });
+    navigate("/payment", { state: formattedTotalPrice });
   };
 
   const handleDelete = (indexToDelete) => {

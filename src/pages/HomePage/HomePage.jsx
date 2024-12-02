@@ -16,9 +16,9 @@ export default function HomePage() {
       return;
     }
 
-    const userId = uuidv4();
+    // const userId = uuidv4();
     setErrorMessage("");
-    navigate(`/menu/${userId}`);
+    navigate(`/menu`);
   };
 
   const handleTableNumberChange = (event) => {
