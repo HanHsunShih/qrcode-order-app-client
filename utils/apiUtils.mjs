@@ -19,3 +19,12 @@ export const getProductById = async (productId) => {
     console.error("Error fetching single product data" + error);
   }
 };
+
+export const getAllOrders = async () => {
+  try {
+    const response = await axios.get(`${api_url}/api/order`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching orders data, error: " + error);
+  }
+};

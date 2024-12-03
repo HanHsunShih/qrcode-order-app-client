@@ -13,6 +13,7 @@ function App() {
   const [cartInfo, setCartInfo] = useState(
     JSON.parse(localStorage.getItem("cartInfo")) || []
   );
+  const [tableNumber, setTableNumber] = useState("");
 
   const handleAddToCart = (product) => {
     setCartInfo((preCartInfo) => [...preCartInfo, product]);
@@ -20,6 +21,7 @@ function App() {
 
   const handleCartReset = () => {
     setCartInfo([]);
+    setTableNumber("");
   };
 
   useEffect(() => {
@@ -30,7 +32,15 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+              <HomePage
+                tableNumber={tableNumber}
+                setTableNumber={setTableNumber}
+              />
+            }
+          />
           <Route
             path="/menu"
             element={
@@ -52,9 +62,21 @@ function App() {
           />
           <Route
             path="/cart"
-            element={<CartPage cartInfo={cartInfo} setCartInfo={setCartInfo} />}
+            element={
+              <CartPage
+                cartInfo={cartInfo}
+                setCartInfo={setCartInfo}
+                tableNumber={tableNumber}
+                setTableNumber={setTableNumber}
+              />
+            }
           />
-          <Route path="/payment" element={<PaymentPage />} />
+          <Route
+            path="/payment"
+            element={
+              <PaymentPage tableNumber={tableNumber} cartInfo={cartInfo} />
+            }
+          />
           <Route path="/payment-success" element={<PaymentSuccessPage />} />
           <Route path="/orders" element={<OrdersPage />} />
         </Routes>

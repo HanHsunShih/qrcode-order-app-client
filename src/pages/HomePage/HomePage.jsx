@@ -1,22 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./HomePage.scss";
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
-export default function HomePage() {
-  const [tableNumber, setTableNumber] = useState("");
+export default function HomePage({ tableNumber, setTableNumber }) {
+  // const [tableNumber, setTableNumber] = useState("");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    console.log("tableNumber = ");
+    console.log(tableNumber);
+
     if (isNaN(tableNumber) || tableNumber < 0 || tableNumber > 20) {
       setErrorMessage("It is not a valid table number😓");
       return;
     }
 
-    // const userId = uuidv4();
     setErrorMessage("");
     navigate(`/menu`);
   };
