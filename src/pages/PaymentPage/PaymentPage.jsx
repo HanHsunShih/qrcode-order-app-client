@@ -14,14 +14,37 @@ export default function Payment({ tableNumber, cartInfo }) {
   };
 
   const handlePaymentClick = async () => {
-    // post request to /api/order
-    // payload/request body: { table_number: 5, products: [{}, {}]}
     try {
-      const response = await axios.post(`${baseUrl}/api/order`, payload);
-      console.log(payload);
+      const itemCounts = {};
+      const orderedProducts = payload.products;
+
+      console.log("orderedProducts = ");
+      console.log(orderedProducts);
+
+      const result = orderedProducts.reduce((accumulator, currentProduct) => {
+        const existingProduct = accumulator.find(
+          (item) => item.id === currentProduct.id
+        );
+
+        if (!existingProduct) {
+          accumulator.push({ ...currentProduct, quantity: 1 });
+        } else {
+          existingProduct.quantity++;
+        }
+
+        return accumulator;
+      }, []);
+
+      const newPayLoad = { ...payload, products: result };
+
+      console.log("newPayLoad = ");
+      console.log(newPayLoad);
+
+      const response = await axios.post(`${baseUrl}/api/order`, newPayLoad);
+
       navigate("/payment-success");
     } catch (error) {
-      console.log("Can not post new order: " + error);
+      console.log("🥀Can not post new order: " + error);
     }
   };
   return (

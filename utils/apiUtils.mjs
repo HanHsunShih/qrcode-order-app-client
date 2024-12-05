@@ -20,11 +20,29 @@ export const getProductById = async (productId) => {
   }
 };
 
-export const getAllOrders = async () => {
+export const getProcessingOrders = async () => {
   try {
     const response = await axios.get(`${api_url}/api/order`);
     return response.data;
   } catch (error) {
     console.error("Error fetching orders data, error: " + error);
+  }
+};
+
+export const changeStatus = async (statusChange) => {
+  try {
+    const response = await axios.put(`${api_url}/api/order`, statusChange);
+    return response.data;
+  } catch (error) {
+    console.log(`Error changing status, error: ${error}`);
+  }
+};
+
+export const getCompletedOrders = async () => {
+  try {
+    const response = await axios.get(`${api_url}/api/order/history`);
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching completed orders data, error: " + error);
   }
 };

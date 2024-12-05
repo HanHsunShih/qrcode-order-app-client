@@ -1,12 +1,15 @@
 import "./OrdersPage.scss";
-import { getAllOrders } from "../../../utils/apiUtils.mjs";
+import { getProcessingOrders, changeStatus } from "../../../utils/apiUtils.mjs";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
+  const [completedOrderId, setCompletedOrderId] = useState({});
+
   const ordersRender = async () => {
     try {
-      const allOrders = await getAllOrders();
+      const allOrders = await getProcessingOrders();
       setOrders(allOrders);
       return allOrders;
     } catch (error) {
@@ -14,8 +17,19 @@ export default function OrdersPage() {
     }
   };
 
-  console.log("orders =");
-  console.log(orders);
+  const handleClick = async (orderID) => {
+    try {
+      console.log("🥰");
+      setCompletedOrderId((completedOrderId.order_id = orderID));
+
+      await changeStatus(completedOrderId);
+      ordersRender();
+
+      return;
+    } catch (error) {
+      console.log(`Failed invoking fn error: ${error}`);
+    }
+  };
 
   useEffect(() => {
     ordersRender();
@@ -24,13 +38,31 @@ export default function OrdersPage() {
   return (
     <>
       <p>orders waiting: </p>
+      <Link to="/history">
+        <button>Order History</button>
+      </Link>
+
       {orders ? (
         orders.map((order) => {
           return (
-            <>
-              <p> {order.table_number} </p>
-              <p>{order.product_name}</p>
-            </>
+            <div key={order[0]} className="order-box">
+              <p>order Id: {order[0]}</p>
+              {order[1].map((item, i) => {
+                return (
+                  <p key={i}>
+                    {item.product_name} x {item.quantity}
+                  </p>
+                );
+              })}
+              <button
+                name="status"
+                onClick={() => {
+                  handleClick(order[0]);
+                }}
+              >
+                Complete
+              </button>
+            </div>
           );
         })
       ) : (

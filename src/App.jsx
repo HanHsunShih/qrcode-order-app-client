@@ -8,6 +8,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage/PaymentSuccessPage";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
+import HistoryPage from "./pages/HistoryPage/HistoryPage";
 
 function App() {
   const [cartInfo, setCartInfo] = useState(
@@ -79,6 +80,7 @@ function App() {
           />
           <Route path="/payment-success" element={<PaymentSuccessPage />} />
           <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/history" element={<HistoryPage />} />
         </Routes>
       </BrowserRouter>
     </>
