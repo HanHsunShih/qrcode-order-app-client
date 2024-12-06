@@ -3,6 +3,7 @@
 @use "../../styles/_partials/mixin" as *;
 
 .payment-page {
+  padding: 2rem;
   &__bt-box {
     display: flex;
     flex-direction: column;

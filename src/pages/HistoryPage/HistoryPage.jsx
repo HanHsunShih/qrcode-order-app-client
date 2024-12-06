@@ -22,31 +22,34 @@ export default function HistoryPage() {
   }, []);
 
   return (
-    <>
+    <main className="order-history">
       <Link to={-1}>
         <button>←</button>
       </Link>
       <p>Order History:</p>
+
       {completedOrders ? (
         completedOrders.map((completedOrder) => {
           return (
-            <div key={completedOrder[0]} className="order-box">
-              <p>order Id: {completedOrder[0]}</p>
-              {completedOrder[1].map((item, i) => {
-                return (
-                  <>
-                    <p key={i}>
-                      {item.product_name} x {item.quantity}
-                    </p>
-                  </>
-                );
-              })}
-            </div>
+            <section className="order-history__box">
+              <div key={completedOrder[0]} className="order-box">
+                <p>order Id: {completedOrder[0]}</p>
+                {completedOrder[1].map((item, i) => {
+                  return (
+                    <>
+                      <p key={i}>
+                        {item.product_name} x {item.quantity}
+                      </p>
+                    </>
+                  );
+                })}
+              </div>
+            </section>
           );
         })
       ) : (
         <p>loading...</p>
       )}
-    </>
+    </main>
   );
 }

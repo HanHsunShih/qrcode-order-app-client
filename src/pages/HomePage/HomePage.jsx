@@ -1,6 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./HomePage.scss";
 import { useState } from "react";
+import turtlePoster from "../../assets/media/home-page-poster-seaturtle.png";
+import turtleVideo from "../../assets/media/home-page-video-seaturtle.mp4";
+import cavePoster from "../../assets/media/home-page-poster-cave.png";
+import caveVideo from "../../assets/media/home-page-video-cave.mov";
 
 export default function HomePage({ tableNumber, setTableNumber }) {
   // const [tableNumber, setTableNumber] = useState("");
@@ -28,11 +32,23 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   return (
     <>
       <main className="home-page__box">
+        <video
+          muted
+          className="home-page__bg-video"
+          autoPlay
+          loop
+          poster={turtlePoster}
+          controls
+        >
+          <source src={turtleVideo} type="video/mp4" />
+        </video>
         <div className="home-page__top-box">
-          <button className="home-page__top-bt">Admin</button>
+          <Link to="/orders">
+            <h2 className="home-page__top-bt">Admin</h2>
+          </Link>
         </div>
-        <section className="home-page__middle-box">
-          <form onSubmit={handleSubmit}>
+        <section>
+          <form onSubmit={handleSubmit} className="home-page__middle-box">
             <label
               className="home-page__table-number-label"
               name="table_number"
@@ -53,8 +69,8 @@ export default function HomePage({ tableNumber, setTableNumber }) {
           </form>
         </section>
         <section className="home-page__bottom-box">
-          <Link to="/menu">
-            <h3 className="home-page__bottom-bt">Browse the Menu</h3>
+          <Link to="/menu" className="home-page__bottom-bt">
+            <h2>Browse the Menu</h2>
           </Link>
         </section>
       </main>

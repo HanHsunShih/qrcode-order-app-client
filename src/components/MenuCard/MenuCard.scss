@@ -5,18 +5,42 @@
 .menuCard {
   &-box {
     padding: 1.5rem;
-    @include flex($justify: space-between);
     margin: 1rem;
     border-radius: 25px;
     gap: 1rem;
 
     &__drinks {
-      background-color: $color5;
+      background: linear-gradient(
+        180deg,
+        #c6bfdf 0%,
+        $color3 30%,
+        $color3 100%
+      );
     }
 
     &__food {
-      background-color: $color4;
+      background: linear-gradient(
+        180deg,
+        $color4 0%,
+        $color3 30%,
+        $color3 100%
+      );
     }
+  }
+
+  &__product-box {
+    gap: 1rem;
+    @include flex($justify: space-between);
+
+    &-right {
+      @include flex;
+      gap: 1rem;
+    }
+  }
+
+  &__image {
+    width: 20vw;
+    border-radius: 20px;
   }
 
   &__bt {
@@ -24,6 +48,10 @@
     border-style: none;
     border-radius: 20px;
     background-color: $color1;
-    color: $color6;
+    color: $color2;
+  }
+
+  &__link {
+    text-decoration: underline;
   }
 }

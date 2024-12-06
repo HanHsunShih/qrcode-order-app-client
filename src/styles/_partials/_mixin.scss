@@ -22,8 +22,13 @@
 
 @mixin button {
   display: inline-block;
-  background-color: $color3;
-  padding: 0.5rem 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(186, 216, 255, 1) 0%,
+    rgb(202, 218, 248) 50%,
+    rgba(186, 216, 255, 1) 100%
+  );
+  padding: 1rem 1.5rem;
   border-radius: 15px;
   border: none;
 }

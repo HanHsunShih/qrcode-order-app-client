@@ -36,7 +36,7 @@ export default function OrdersPage() {
   }, []);
 
   return (
-    <>
+    <main className="order-page">
       <p>orders waiting: </p>
       <Link to="/history">
         <button>Order History</button>
@@ -45,7 +45,7 @@ export default function OrdersPage() {
       {orders ? (
         orders.map((order) => {
           return (
-            <div key={order[0]} className="order-box">
+            <div key={order[0]} className="order-page__box">
               <p>order Id: {order[0]}</p>
               {order[1].map((item, i) => {
                 return (
@@ -68,6 +68,6 @@ export default function OrdersPage() {
       ) : (
         <p>loading...</p>
       )}
-    </>
+    </main>
   );
 }

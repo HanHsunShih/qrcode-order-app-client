@@ -3,12 +3,22 @@
 @use "../../styles/_partials/mixin" as *;
 
 .menu-page {
-  &__box {
-    position: relative;
+  &__ig-icon {
+    width: 10vw;
   }
 
   &__top-box {
     @include flex;
+  }
+
+  &__box {
+    position: relative;
+    padding: 2rem;
+  }
+
+  &__top-box {
+    @include flex($justify: space-between);
+    padding-bottom: 2rem;
   }
 
   &__go-back-bt {
@@ -19,6 +29,9 @@
 
   &__title {
     @include flex;
+    font-size: 4rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
   }
 
   &__cart {
@@ -27,8 +40,9 @@
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
-    background-color: $color3;
-    padding: 1rem;
+    background-color: $color1;
+    padding: 1.5rem;
     border-radius: 15px;
+    color: $color2;
   }
 }

@@ -2,8 +2,9 @@
 @use "../../styles/_partials/variables" as *;
 @use "../../styles/_partials/mixin" as *;
 
-.order {
-  &-box {
+.order-page {
+  padding: 2rem;
+  &__box {
     background-color: $color3;
     margin: 1rem;
   }

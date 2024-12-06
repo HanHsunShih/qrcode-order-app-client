@@ -1,5 +1,66 @@
-.product-page {
+@use "../../styles/_partials/typography" as *;
+@use "../../styles/_partials/variables" as *;
+@use "../../styles/_partials/mixin" as *;
+@use "../../styles/_partials/resets.scss";
+
+.single-product-page {
+  &__box {
+    background-color: $color2;
+    // background: linear-gradient(180deg, $color5 0%, $color3 100%);
+    padding: 2rem;
+    height: 100vh;
+  }
+
+  &__product-title {
+    padding: 2rem 0;
+  }
+
+  &__content {
+    @include flex;
+    flex-direction: column;
+  }
+
+  &__image {
+    width: 70vw;
+    border-radius: 30px;
+  }
+
+  &__description {
+    text-align: center;
+  }
+
+  &__text-area {
+    margin: 1rem;
+    padding: 1rem;
+    @include p;
+    background-color: $color3;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 15px;
+  }
+
+  &__purchase-count {
+    padding: 1rem 1.5rem;
+  }
+
+  &__bt {
+    @include button;
+    justify-content: flex-start;
+    cursor: pointer;
+    background-color: $color2;
+
+    &-cart {
+      margin: 2rem 0;
+      width: 80%;
+    }
+  }
+
   &__bt-box {
+    @include flex;
+    flex-direction: column;
+  }
+
+  &__count-box {
     display: flex;
   }
 }

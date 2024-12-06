@@ -3,12 +3,24 @@
 @use "../../styles/_partials/mixin" as *;
 
 .home-page {
+  &__bg-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
   &__box {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     height: 100vh;
-    padding: 5rem 0;
+    padding: 5rem 2rem;
   }
 
   &__top-box {
@@ -18,25 +30,28 @@
 
   &__top-bt {
     @include button;
-    @include h3;
+    @include h2;
   }
 
   &__middle-box {
     @include flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   &__table-number {
-    width: 50vw;
-    height: 3rem;
+    width: 80%;
+    height: 4rem;
     border-radius: 10px;
     border: none;
     box-shadow: 0px 0px 3px rgb(86, 86, 86);
-    @include p;
+    @include h3;
+    font-size: 1.5rem;
+    text-align: center;
 
     &-label {
-      @include h2;
+      @include h1;
+      // color: $color2;
     }
   }
 
@@ -48,8 +63,10 @@
 
   &__bottom-bt {
     @include flex;
-    @include h3;
+    @include h2;
     @include button;
-    width: 100%;
+    width: 80%;
+    color: $color6;
+    text-align: center;
   }
 }

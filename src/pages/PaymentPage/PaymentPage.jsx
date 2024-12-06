@@ -48,7 +48,7 @@ export default function Payment({ tableNumber, cartInfo }) {
     }
   };
   return (
-    <>
+    <main className="payment-page">
       <button
         onClick={() => {
           navigate(-1);
@@ -63,6 +63,6 @@ export default function Payment({ tableNumber, cartInfo }) {
         <button>LinePay</button>
         <button onClick={handlePaymentClick}>Pay At Counter</button>
       </div>
-    </>
+    </main>
   );
 }

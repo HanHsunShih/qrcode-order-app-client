@@ -1,3 +1,7 @@
 @use "../../styles/_partials/typography" as *;
 @use "../../styles/_partials/variables" as *;
 @use "../../styles/_partials/mixin" as *;
+
+.payment-success-page {
+  padding: 2rem;
+}

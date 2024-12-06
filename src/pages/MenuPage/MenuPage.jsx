@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import MenuCard from "../../components/MenuCard/MenuCard";
 import { getAllProducts } from "../../../utils/apiUtils.mjs";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import igIcon from "../../assets/images/instagram.png";
 
 export default function MenuPage({
   handleAddToCart,
@@ -34,18 +35,23 @@ export default function MenuPage({
   return (
     <>
       <main className="menu-page__box">
-        <button
-          className="menu-page__go-back-bt"
-          onClick={() => {
-            handleCartReset();
-            navigate(`/`);
-          }}
-        >
-          ←
-        </button>
         <div className="menu-page__top-box">
-          <h1 className="menu-page__title">Menu</h1>
+          <button
+            className="menu-page__go-back-bt"
+            onClick={() => {
+              handleCartReset();
+              navigate(`/`);
+            }}
+          >
+            <h3>←</h3>
+          </button>
+          <Link to="https://www.instagram.com/seaward.m.plan_coffee.diving/?hl=zh-tw">
+            <img className="menu-page__ig-icon" src={igIcon} alt="" />
+          </Link>
         </div>
+
+        <h1 className="menu-page__title">Menu</h1>
+
         {productsInfo.length > 0 ? (
           <MenuCard
             productsInfoArr={productsInfo}
@@ -55,7 +61,7 @@ export default function MenuPage({
           <p>loading...</p>
         )}
         <Link to="/cart" className="menu-page__cart">
-          Cart {cartInfo.length}
+          <h1>Cart {cartInfo.length}</h1>
         </Link>
       </main>
     </>

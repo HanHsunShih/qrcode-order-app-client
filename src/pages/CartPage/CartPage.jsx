@@ -9,8 +9,9 @@ export default function CartPage({
   setTableNumber,
 }) {
   const navigate = useNavigate();
-  const [message, setMessage] = useState("");
+  const [tableMessage, setTableMessage] = useState("");
   const [showTableInput, setShowTableInput] = useState(false);
+  const [paymentMessage, setPaymentessage] = useState("");
 
   let totalPrice = 0;
   for (let i = 0; i < cartInfo.length; i++) {
@@ -19,12 +20,15 @@ export default function CartPage({
   const formattedTotalPrice = totalPrice.toFixed(2);
 
   const handlePayClick = () => {
-    if (tableNumber === "") {
-      setMessage("Please enter your table number");
+    if (formattedTotalPrice === "0.00") {
+      setPaymentessage("You haven't order anything😳");
+      return;
+    } else if (tableNumber === "") {
+      setTableMessage("Please enter your table number🍽️");
       setShowTableInput(true);
       return;
     } else if (isNaN(tableNumber) || tableNumber < 0 || tableNumber > 20) {
-      setMessage("Please enter your table number");
+      setTableMessage("Please enter the right table number🍽️");
       setShowTableInput(true);
       return;
     }
@@ -39,36 +43,52 @@ export default function CartPage({
   };
 
   const handleTableNumberChange = (event) => {
-    setMessage("");
+    setTableMessage("");
     setTableNumber(event.target.value);
   };
 
   return (
-    <>
-      <Link to={-1}>←</Link>
-      <p>Your Order</p>
-      {cartInfo.map((item, index) => {
-        return (
-          <div key={index} className="cart-page__box">
-            <div className="cart-page__box-left">
-              <p>{item.product_name}</p>
-              <p>{item.price_gbp}</p>
+    <main className="cart-page">
+      <Link to="/menu" className="cart-page__bt">
+        <h3>←</h3>
+      </Link>
+      <div className="cart-page__box">
+        <h1 className="cart-page__title">Your Cart</h1>
+        {cartInfo.map((item, index) => {
+          return (
+            <div key={index} className="cart-page__box-small">
+              <div className="cart-page__box-left">
+                <h3>{item.product_name}</h3>
+                <p>£ {item.price_gbp}</p>
+              </div>
+              <button
+                className="cart-page__bt"
+                onClick={() => handleDelete(index)}
+              >
+                <h3>Delete</h3>
+              </button>
             </div>
-            <button onClick={() => handleDelete(index)}>Delete</button>
-          </div>
-        );
-      })}
-      <p>total price</p>
-      <p>£ {formattedTotalPrice}</p>
-      {showTableInput && (
-        <input
-          type="number"
-          value={tableNumber}
-          onChange={handleTableNumberChange}
-        ></input>
-      )}
-      {message && <p>{message}</p>}
-      <button onClick={handlePayClick}>pay</button>
-    </>
+          );
+        })}
+        <p>total price</p>
+        <p>£ {formattedTotalPrice}</p>
+        {showTableInput && (
+          <input
+            type="number"
+            value={tableNumber}
+            onChange={handleTableNumberChange}
+            className="cart-page__table-number-input"
+          ></input>
+        )}
+        {tableMessage && <p>{tableMessage}</p>}
+        {paymentMessage && <p>{paymentMessage}</p>}
+        <button
+          className="cart-page__bt cart-page__bt-pay"
+          onClick={handlePayClick}
+        >
+          <h3>Pay</h3>
+        </button>
+      </div>
+    </main>
   );
 }
