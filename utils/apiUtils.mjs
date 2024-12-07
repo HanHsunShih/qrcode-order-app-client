@@ -20,9 +20,13 @@ export const getProductById = async (productId) => {
   }
 };
 
-export const getProcessingOrders = async () => {
+export const getProcessingOrders = async (authToken) => {
   try {
-    const response = await axios.get(`${api_url}/api/order`);
+    const response = await axios.get(`${api_url}/api/order`, {
+      headers: {
+        authorisation: `Bearer ${authToken}`,
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Error fetching orders data, error: " + error);
@@ -44,5 +48,22 @@ export const getCompletedOrders = async () => {
     return response.data;
   } catch (error) {
     console.log("Error fetching completed orders data, error: " + error);
+  }
+};
+
+export const creatNewUser = async (Data) => {
+  try {
+    await axios.post(`${api_url}/api/users/register`, Data);
+  } catch (error) {
+    console.log("Error creating new user, error: " + error);
+  }
+};
+
+export const login = async (data) => {
+  try {
+    const response = await axios.post(`${api_url}/api/users/login`, data);
+    return response;
+  } catch (error) {
+    console.log(`Error login, error: ${error}`);
   }
 };

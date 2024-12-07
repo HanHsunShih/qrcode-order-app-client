@@ -1,21 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./HomePage.scss";
 import { useState } from "react";
+
 import turtlePoster from "../../assets/media/home-page-poster-seaturtle.png";
 import turtleVideo from "../../assets/media/home-page-video-seaturtle.mp4";
 import cavePoster from "../../assets/media/home-page-poster-cave.png";
 import caveVideo from "../../assets/media/home-page-video-cave.mov";
+import Login from "../../components/LogIn/LogIn";
 
 export default function HomePage({ tableNumber, setTableNumber }) {
-  // const [tableNumber, setTableNumber] = useState("");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const [adminPopUp, setAdminPopUp] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    console.log("tableNumber = ");
-    console.log(tableNumber);
 
     if (isNaN(tableNumber) || tableNumber < 0 || tableNumber > 20) {
       setErrorMessage("It is not a valid table number😓");
@@ -26,11 +25,16 @@ export default function HomePage({ tableNumber, setTableNumber }) {
     navigate(`/menu`);
   };
 
+  const handleLogIn = () => {
+    setAdminPopUp(!adminPopUp);
+  };
+
   const handleTableNumberChange = (event) => {
     setTableNumber(event.target.value);
   };
   return (
     <>
+      {adminPopUp && <Login />}
       <main className="home-page__box">
         <video
           muted
@@ -42,11 +46,9 @@ export default function HomePage({ tableNumber, setTableNumber }) {
         >
           <source src={turtleVideo} type="video/mp4" />
         </video>
-        <div className="home-page__top-box">
-          <Link to="/orders">
-            <h2 className="home-page__top-bt">Admin</h2>
-          </Link>
-        </div>
+        <button className="home-page__top-bt" onClick={handleLogIn}>
+          Admin
+        </button>
         <section>
           <form onSubmit={handleSubmit} className="home-page__middle-box">
             <label

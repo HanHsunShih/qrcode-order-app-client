@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function OrdersPage() {
+  const authToken = localStorage.getItem("authToken");
+
   const [orders, setOrders] = useState([]);
   const [completedOrderId, setCompletedOrderId] = useState({});
 
-  const ordersRender = async () => {
+  const ordersRender = async (authToken) => {
     try {
-      const allOrders = await getProcessingOrders();
+      const allOrders = await getProcessingOrders(authToken);
       setOrders(allOrders);
       return allOrders;
     } catch (error) {
