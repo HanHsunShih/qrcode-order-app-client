@@ -3,28 +3,48 @@
 @use "../../styles/_partials/mixin" as *;
 
 .menuCard {
+  &__type {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: $color3;
+    white-space: nowrap;
+    border-radius: 10px;
+    border: none;
+    @include p;
+
+    &-active {
+      border: $color1;
+    }
+
+    &-scroller {
+      display: flex;
+      overflow-x: auto;
+      padding: 2rem 0;
+      position: sticky;
+      top: 0;
+      background-color: $color7;
+    }
+  }
+
   &-box {
-    padding: 1.5rem;
+    // padding: 1.5rem;
     margin: 1rem;
     border-radius: 25px;
     gap: 1rem;
+  }
 
-    &__drinks {
-      background: linear-gradient(
-        180deg,
-        #c6bfdf 0%,
-        $color3 30%,
-        $color3 100%
-      );
+  &__product {
+    &-type {
+      padding: 2rem 0;
     }
 
-    &__food {
-      background: linear-gradient(
-        180deg,
-        $color4 0%,
-        $color3 30%,
-        $color3 100%
-      );
+    &-box {
+      padding: 1rem 0;
+      border-bottom: 1px solid $color3;
+    }
+
+    &-name {
+      padding: 1rem 0;
     }
   }
 

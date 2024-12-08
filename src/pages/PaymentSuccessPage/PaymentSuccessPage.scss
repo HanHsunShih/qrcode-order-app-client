@@ -4,4 +4,23 @@
 
 .payment-success-page {
   padding: 2rem;
+
+  &__box {
+    @include flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  &__back-bt {
+    @include button;
+  }
+
+  &__message {
+    padding: 2rem 0;
+    // color: $color2;
+  }
+
+  &__home-bt {
+    @include button;
+  }
 }

@@ -78,7 +78,10 @@ function App() {
               <PaymentPage tableNumber={tableNumber} cartInfo={cartInfo} />
             }
           />
-          <Route path="/payment-success" element={<PaymentSuccessPage />} />
+          <Route
+            path="/payment-success"
+            element={<PaymentSuccessPage setCartInfo={setCartInfo} />}
+          />
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/history" element={<HistoryPage />} />
         </Routes>

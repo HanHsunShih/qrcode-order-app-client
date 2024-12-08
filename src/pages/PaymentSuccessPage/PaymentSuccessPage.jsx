@@ -1,31 +1,43 @@
-import { useNavigate } from "react-router-dom";
 import "./PaymentSuccessPage.scss";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import cavePoster from "../../assets/media/home-page-poster-cave.png";
+import caveVideo from "../../assets/media/home-page-video-cave.mov";
 
-export default function PaymentSuccessPage() {
+export default function PaymentSuccessPage({ setCartInfo }) {
   const navigate = useNavigate();
 
   const handleCartReset = () => {
     setCartInfo([]);
-    setTableNumber("");
   };
   return (
     <main className="payment-success-page">
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
+      <video
+        muted
+        className="home-page__bg-video"
+        autoPlay
+        loop
+        poster={cavePoster}
+        controls
       >
-        ←
-      </button>
-      <p>Your payment is Success</p>
-      <button
-        onClick={() => {
-          navigate("/menu");
-          handleCartReset();
-        }}
-      >
-        Back to home page
-      </button>
+        <source src={caveVideo} type="video/mp4" />
+      </video>
+      {/* <Link to="/menu ">
+        <h3 className="payment-success-page__back-bt">←</h3>
+      </Link> */}
+      <div className="payment-success-page__box">
+        <h3 className="payment-success-page__message">
+          Your payment is Success
+        </h3>
+        <button
+          className="payment-success-page__home-bt"
+          onClick={() => {
+            navigate("/menu");
+            handleCartReset();
+          }}
+        >
+          <h3>Back to home page</h3>
+        </button>
+      </div>
     </main>
   );
 }

@@ -20,13 +20,17 @@
   align-items: $align;
 }
 
-@mixin button {
+@mixin button($bg-color: null) {
   display: inline-block;
-  background: linear-gradient(
-    90deg,
-    rgba(186, 216, 255, 1) 0%,
-    rgb(202, 218, 248) 50%,
-    rgba(186, 216, 255, 1) 100%
+  background: if(
+    $bg-color != null,
+    $bg-color,
+    linear-gradient(
+      90deg,
+      rgba(186, 216, 255, 1) 0%,
+      rgb(202, 218, 248) 50%,
+      rgba(186, 216, 255, 1) 100%
+    )
   );
   padding: 1rem 1.5rem;
   border-radius: 15px;

@@ -1,11 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./HomePage.scss";
 import { useState } from "react";
-
 import turtlePoster from "../../assets/media/home-page-poster-seaturtle.png";
 import turtleVideo from "../../assets/media/home-page-video-seaturtle.mp4";
-import cavePoster from "../../assets/media/home-page-poster-cave.png";
-import caveVideo from "../../assets/media/home-page-video-cave.mov";
 import Login from "../../components/LogIn/LogIn";
 
 export default function HomePage({ tableNumber, setTableNumber }) {
