@@ -13,9 +13,39 @@
     padding: 2rem 0;
   }
 
+  &__dropdown {
+    &-menu {
+      appearance: none; /* For most browsers */
+      -webkit-appearance: none; /* For Safari */
+      width: 200px; /* Adjust as needed */
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid green;
+      border-radius: 5px;
+      background-color: red;
+      color: pink;
+      cursor: pointer;
+      transition: border-color 0.3s, box-shadow 0.3s;
+
+      &:focus {
+        border-color: yellow;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+    }
+
+    &-option {
+      font-size: 14px;
+      padding: 5px;
+      background-color: #fff;
+      color: purple;
+      cursor: pointer;
+    }
+  }
+
   &__box {
     padding: 1rem;
     background-color: $color3;
     margin-bottom: 1rem;
+    border-radius: 20px;
   }
 }

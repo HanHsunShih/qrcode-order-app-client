@@ -27,6 +27,9 @@ export const getProcessingOrders = async (authToken) => {
         authorisation: `Bearer ${authToken}`,
       },
     });
+
+    console.log("response.data = ");
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching orders data, error: " + error);

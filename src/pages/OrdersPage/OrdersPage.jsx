@@ -13,19 +13,23 @@ export default function OrdersPage() {
     try {
       const allOrders = await getProcessingOrders(authToken);
       setOrders(allOrders);
+      console.log("allOrders = ");
+      console.log(allOrders);
+
       return allOrders;
     } catch (error) {
       console.error("Error invoking getAllOrders" + error);
     }
   };
 
-  const handleClick = async (orderID) => {
+  const handleCompleteClick = async (orderID) => {
     try {
       console.log("🥰");
       setCompletedOrderId((completedOrderId.order_id = orderID));
 
       await changeStatus(completedOrderId);
-      ordersRender();
+      // ordersRender();
+      location.reload();
 
       return;
     } catch (error) {
@@ -37,8 +41,16 @@ export default function OrdersPage() {
     ordersRender();
   }, []);
 
-  console.log("orders = ");
-  console.log(orders);
+  function formatIsoDate(isoDate) {
+    const date = new Date(isoDate);
+
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    return `${hours}:${minutes}`;
+  }
 
   return (
     <main className="order-page">
@@ -54,7 +66,8 @@ export default function OrdersPage() {
           return (
             <div key={order[0]} className="order-page__box">
               <div className="order-page__box-left">
-                <p>order Id: {order[0]}</p>
+                <p>table: {order[1][0].table_number}</p>
+                <p>ordered time: {formatIsoDate(order[1][0].created_at)}</p>
                 {order[1].map((item, i) => {
                   return (
                     <p key={i}>
@@ -67,7 +80,7 @@ export default function OrdersPage() {
                 className="order-page__complete-bt"
                 name="status"
                 onClick={() => {
-                  handleClick(order[0]);
+                  handleCompleteClick(order[0]);
                 }}
               >
                 Complete
