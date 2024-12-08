@@ -29,9 +29,14 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const handleTableNumberChange = (event) => {
     setTableNumber(event.target.value);
   };
+
+  const handleCancelLogIn = () => {
+    setAdminPopUp(false);
+  };
+
   return (
     <>
-      {adminPopUp && <Login />}
+      {adminPopUp && <Login handleCancelLogIn={handleCancelLogIn} />}
       <main className="home-page__box">
         <video
           muted
@@ -43,9 +48,11 @@ export default function HomePage({ tableNumber, setTableNumber }) {
         >
           <source src={turtleVideo} type="video/mp4" />
         </video>
-        <button className="home-page__top-bt" onClick={handleLogIn}>
-          Admin
-        </button>
+        <div className="home-page__admin-box">
+          <button className="home-page__top-bt" onClick={handleLogIn}>
+            Admin
+          </button>
+        </div>
         <section>
           <form onSubmit={handleSubmit} className="home-page__middle-box">
             <label

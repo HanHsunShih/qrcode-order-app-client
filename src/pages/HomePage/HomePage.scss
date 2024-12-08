@@ -23,6 +23,10 @@
     padding: 5rem 2rem;
   }
 
+  &__admin-box {
+    @include flex($justify: flex-end);
+  }
+
   &__top-box {
     display: flex;
     justify-content: flex-end;

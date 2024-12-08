@@ -4,6 +4,15 @@
 
 .order-history {
   padding: 2rem;
+
+  &__back-bt {
+    @include button;
+  }
+
+  &__title {
+    padding: 2rem 0;
+  }
+
   &__box {
     padding: 1rem;
     background-color: $color3;

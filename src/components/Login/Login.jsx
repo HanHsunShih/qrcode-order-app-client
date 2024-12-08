@@ -3,7 +3,7 @@ import "./Login.scss";
 import { login } from "../../../utils/apiUtils.mjs";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ handleCancelLogIn }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
@@ -39,16 +39,41 @@ export default function Login() {
   };
 
   return (
-    <>
-      <p>Login</p>
-      <form onSubmit={submitForm}>
-        <label htmlFor="name">user name:</label>
-        <input type="text" name="name" onChange={handleChange} />
-        <label htmlFor="password">password:</label>
-        <input type="text" name="password" onChange={handleChange} />
-        {errorMessage && <p>{errorMessage}</p>}
-        <button>Login</button>
+    <section className="login">
+      <h1 className="login__title">Login</h1>
+      <form className="login__form-box" onSubmit={submitForm}>
+        <div className="login__form-box-samll">
+          <label htmlFor="name">
+            <h3 className="login__form-label">user name:</h3>
+          </label>
+          <input
+            className="login__form-input"
+            type="text"
+            name="name"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="login__form-box-samll">
+          <label htmlFor="password">
+            <h3 className="login__form-label">password:</h3>
+          </label>
+          <input
+            className="login__form-input"
+            type="text"
+            name="password"
+            onChange={handleChange}
+          />
+        </div>
+        {errorMessage && <p className="login__form-message">{errorMessage}</p>}
+        <div>
+          <button className="login__form-bt">
+            <h3>Login</h3>
+          </button>
+          <button className="login__form-bt" onClick={handleCancelLogIn}>
+            <h3>Cancel</h3>
+          </button>
+        </div>
       </form>
-    </>
+    </section>
   );
 }

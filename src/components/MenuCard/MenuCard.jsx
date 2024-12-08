@@ -9,7 +9,7 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
   const handleScrollerClick = (i) => {
     const element = document.getElementById(`section${i}`);
     const offset =
-      parseFloat(getComputedStyle(document.documentElement).fontSize) * 8; // 將 2rem 轉為 px
+      parseFloat(getComputedStyle(document.documentElement).fontSize) * 9; // 將 2rem 轉為 px
     const yPosition =
       element.getBoundingClientRect().top + window.scrollY - offset;
 

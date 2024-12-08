@@ -37,26 +37,34 @@ export default function OrdersPage() {
     ordersRender();
   }, []);
 
+  console.log("orders = ");
+  console.log(orders);
+
   return (
     <main className="order-page">
-      <p>orders waiting: </p>
+      <h1 className="order-page__title">Orders Waiting: </h1>
       <Link to="/history">
-        <button>Order History</button>
+        <button className="order-page__history-bt">
+          <h2>Order History</h2>
+        </button>
       </Link>
 
       {orders ? (
         orders.map((order) => {
           return (
             <div key={order[0]} className="order-page__box">
-              <p>order Id: {order[0]}</p>
-              {order[1].map((item, i) => {
-                return (
-                  <p key={i}>
-                    {item.product_name} x {item.quantity}
-                  </p>
-                );
-              })}
+              <div className="order-page__box-left">
+                <p>order Id: {order[0]}</p>
+                {order[1].map((item, i) => {
+                  return (
+                    <p key={i}>
+                      {item.product_name} x {item.quantity}
+                    </p>
+                  );
+                })}
+              </div>
               <button
+                className="order-page__complete-bt"
                 name="status"
                 onClick={() => {
                   handleClick(order[0]);

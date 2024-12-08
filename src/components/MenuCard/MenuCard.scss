@@ -18,17 +18,18 @@
 
     &-scroller {
       display: flex;
-      overflow-x: auto;
+      overflow-x: scroll;
       padding: 2rem 0;
       position: sticky;
       top: 0;
       background-color: $color7;
+      margin: -2rem;
     }
   }
 
   &-box {
     // padding: 1.5rem;
-    margin: 1rem;
+    // margin: 1rem;
     border-radius: 25px;
     gap: 1rem;
   }

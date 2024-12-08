@@ -1,3 +1,62 @@
 @use "../../styles/_partials/typography" as *;
 @use "../../styles/_partials/variables" as *;
 @use "../../styles/_partials/mixin" as *;
+
+.login {
+  background-color: $color1;
+  padding: 2rem;
+  @include flex;
+  flex-direction: column;
+  position: absolute;
+  width: 80vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+
+  &__title {
+    padding: 1rem 0;
+    color: $color3;
+    font-size: 3rem;
+  }
+
+  &__form {
+    &-box {
+      @include flex;
+      flex-direction: column;
+
+      &-samll {
+        // display: flexbox;
+        // gap: 10rem;
+        padding: 1rem 0;
+      }
+    }
+
+    &-label {
+      @include flex;
+      color: $color3;
+      font-size: 2rem;
+      padding: 1rem 0;
+    }
+
+    &-input {
+      width: 15rem;
+      height: 3rem;
+      border-radius: 10px;
+      border: none;
+      padding: 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    &-message {
+      color: $color2;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    &-bt {
+      @include button;
+      margin: 1rem;
+    }
+  }
+}

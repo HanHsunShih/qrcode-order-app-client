@@ -23,10 +23,10 @@ export default function HistoryPage() {
 
   return (
     <main className="order-history">
-      <Link to={-1}>
-        <button>←</button>
+      <Link to={-1} className="order-history__back-bt">
+        <h3>←</h3>
       </Link>
-      <p>Order History:</p>
+      <h1 className="order-history__title">Order History:</h1>
 
       {completedOrders ? (
         completedOrders.map((completedOrder) => {

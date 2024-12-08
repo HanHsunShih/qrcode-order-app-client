@@ -26,7 +26,7 @@ export default function PaymentSuccessPage({ setCartInfo }) {
       </Link> */}
       <div className="payment-success-page__box">
         <h3 className="payment-success-page__message">
-          Your payment is Success
+          Your payment is Success🎉
         </h3>
         <button
           className="payment-success-page__home-bt"

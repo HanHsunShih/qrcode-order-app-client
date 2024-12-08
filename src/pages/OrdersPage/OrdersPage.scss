@@ -4,8 +4,24 @@
 
 .order-page {
   padding: 2rem;
+
+  &__title {
+    padding: 2rem 0;
+  }
+
+  &__history-bt {
+    @include button;
+  }
+
   &__box {
     background-color: $color3;
-    margin: 1rem;
+    padding: 1rem;
+    margin: 2rem 0;
+    @include flex($justify: space-between);
+    border-radius: 10px;
+  }
+
+  &__complete-bt {
+    @include button($bg-color: $color2);
   }
 }

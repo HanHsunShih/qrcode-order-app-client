@@ -20,7 +20,7 @@
   align-items: $align;
 }
 
-@mixin button($bg-color: null) {
+@mixin button($bg-color: null, $opacity: 1) {
   display: inline-block;
   background: if(
     $bg-color != null,
