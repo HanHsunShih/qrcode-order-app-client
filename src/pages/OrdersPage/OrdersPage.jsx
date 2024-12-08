@@ -13,8 +13,6 @@ export default function OrdersPage() {
     try {
       const allOrders = await getProcessingOrders(authToken);
       setOrders(allOrders);
-      console.log("allOrders = ");
-      console.log(allOrders);
 
       return allOrders;
     } catch (error) {
@@ -24,11 +22,10 @@ export default function OrdersPage() {
 
   const handleCompleteClick = async (orderID) => {
     try {
-      console.log("🥰");
       setCompletedOrderId((completedOrderId.order_id = orderID));
 
       await changeStatus(completedOrderId);
-      // ordersRender();
+
       location.reload();
 
       return;
@@ -54,7 +51,7 @@ export default function OrdersPage() {
 
   return (
     <main className="order-page">
-      <h1 className="order-page__title">Orders Waiting: </h1>
+      <h1 className="order-page__title">Waiting Orders: </h1>
       <Link to="/history">
         <button className="order-page__history-bt">
           <h2>Order History</h2>

@@ -15,22 +15,21 @@
 
   &__dropdown {
     &-menu {
-      appearance: none; /* For most browsers */
-      -webkit-appearance: none; /* For Safari */
       width: 200px; /* Adjust as needed */
       padding: 10px;
       font-size: 16px;
-      border: 1px solid green;
       border-radius: 5px;
-      background-color: red;
-      color: pink;
+      background-color: $color3;
+      border: none;
+      color: $color6;
       cursor: pointer;
       transition: border-color 0.3s, box-shadow 0.3s;
-
+      margin-bottom: 2rem;
       &:focus {
         border-color: yellow;
         box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
       }
+      @include h3;
     }
 
     &-option {
@@ -45,7 +44,11 @@
   &__box {
     padding: 1rem;
     background-color: $color3;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border-radius: 20px;
+  }
+
+  &__ordered-date {
+    border-bottom: 1px solid $color2;
   }
 }

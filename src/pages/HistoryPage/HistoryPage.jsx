@@ -67,9 +67,6 @@ export default function HistoryPage() {
     const today = new Date();
     const sevenDaysAgo = new Date();
 
-    console.log("today = ");
-    console.log(today);
-
     sevenDaysAgo.setDate(today.getDate() - 7);
 
     const formattedSevenDaysAgo = sevenDaysAgo.toISOString().split("T")[0];
@@ -132,7 +129,7 @@ export default function HistoryPage() {
           return (
             <section key={renderedOrder[0]} className="order-history__box">
               <div className="order-box">
-                <p>
+                <p className="order-history__ordered-date">
                   ordered date: {formatIsoDate(renderedOrder[1][0].created_at)}
                 </p>
                 {renderedOrder[1].map((item, i) => {

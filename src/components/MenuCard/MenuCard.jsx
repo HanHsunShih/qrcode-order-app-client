@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./MenuCard.scss";
 import { Link, useParams } from "react-router-dom";
 
 export default function MenuCard({ productsInfoArr, handleAddToCart }) {
+  const menuRef = useRef(null);
   const [activeType, setActiveType] = useState(false);
   const types = [...new Set(productsInfoArr.map((product) => product.type))];
 
-  const handleScrollerClick = (i) => {
+  const handleScrollerToProduct = (i) => {
     const element = document.getElementById(`section${i}`);
     const offset =
-      parseFloat(getComputedStyle(document.documentElement).fontSize) * 9; // 將 2rem 轉為 px
+      parseFloat(getComputedStyle(document.documentElement).fontSize) * 9;
     const yPosition =
       element.getBoundingClientRect().top + window.scrollY - offset;
 
@@ -17,13 +18,30 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
       top: yPosition,
       behavior: "smooth",
     });
+  };
 
-    // setActiveType(!activeType);
+  const handleScrollToTag = (tagIndex) => {
+    console.log("menuRef = ");
+    console.log(menuRef);
+
+    console.log("menuRef.current = ");
+    console.log(menuRef.current);
+
+    if (menuRef.current) {
+      const tags = menuRef.current.children;
+      const targetTag = tags[tagIndex];
+
+      targetTag.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
   };
 
   return (
     <>
-      <div className="menuCard__type-scroller">
+      <div className="menuCard__type-scroller" ref={menuRef}>
         {types.map((type, i) => {
           return (
             <button
@@ -32,7 +50,9 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
                 activeType === true ? "menuCard__type-active" : ""
               }`}
               onClick={() => {
-                handleScrollerClick(i);
+                handleScrollerToProduct(i);
+
+                setTimeout(() => handleScrollToTag(i), 1000);
               }}
             >
               {type}

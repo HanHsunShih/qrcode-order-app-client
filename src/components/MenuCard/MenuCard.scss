@@ -24,6 +24,20 @@
       top: 0;
       background-color: $color7;
       margin: -2rem;
+      box-sizing: content-box;
+
+      ::-webkit-scrollbar {
+        height: 8px; /* 滾動條的高度 */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #ccc; /* 滾動條的顏色 */
+        border-radius: 4px; /* 滾動條圓角 */
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent; /* 滾動條軌道顏色 */
+      }
     }
   }
 

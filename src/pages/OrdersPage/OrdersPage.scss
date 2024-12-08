@@ -23,5 +23,6 @@
 
   &__complete-bt {
     @include button($bg-color: $color2);
+    @include h3;
   }
 }
