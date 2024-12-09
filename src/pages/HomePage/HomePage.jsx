@@ -37,7 +37,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
 
   return (
     <>
-      <SignUp />
+      {/* <SignUp /> */}
       {adminPopUp && <Login handleCancelLogIn={handleCancelLogIn} />}
       <main className="home-page__box">
         <video
