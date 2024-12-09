@@ -39,24 +39,24 @@
 
 @mixin h1 {
   font-family: Quattrocento;
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: 2rem;
+  line-height: 2rem;
 }
 
 @mixin h2 {
   font-family: Quattrocento;
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 @mixin h3 {
   font-family: Quattrocento-Bold;
   font-size: 1rem;
-  line-height: 2.5rem;
+  line-height: 1.5rem;
 }
 
 @mixin p {
   font-family: Lora;
   font-size: 1rem;
-  line-height: 1.8rem;
+  line-height: 1.5rem;
 }

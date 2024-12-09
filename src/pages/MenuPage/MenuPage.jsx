@@ -17,8 +17,14 @@ export default function MenuPage({
   const { userId } = useParams();
 
   const location = useLocation();
-  const initialScrollPosition = location.state?.scrollPosition || 0;
+  const initialScrollPosition = location.state ? location.state : 0;
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
+
+  console.log("location.state = ");
+  console.log(location.state);
+
+  console.log("initialScrollPosition = ");
+  console.log(initialScrollPosition);
 
   const menuRender = async () => {
     try {

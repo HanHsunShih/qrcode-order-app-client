@@ -19,7 +19,7 @@
     &-scroller {
       display: flex;
       overflow-x: scroll;
-      padding: 2rem 0;
+      padding: 0 0 0.5rem 0;
       position: sticky;
       top: 0;
       background-color: $color7;
@@ -27,16 +27,16 @@
       box-sizing: content-box;
 
       ::-webkit-scrollbar {
-        height: 8px; /* 滾動條的高度 */
+        height: 8px;
       }
 
       ::-webkit-scrollbar-thumb {
-        background: #ccc; /* 滾動條的顏色 */
-        border-radius: 4px; /* 滾動條圓角 */
+        background: #ccc;
+        border-radius: 4px;
       }
 
       ::-webkit-scrollbar-track {
-        background: transparent; /* 滾動條軌道顏色 */
+        background: transparent;
       }
     }
   }
@@ -50,7 +50,7 @@
 
   &__product {
     &-type {
-      padding: 2rem 0;
+      padding-top: 2rem;
     }
 
     &-box {

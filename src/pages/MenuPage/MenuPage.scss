@@ -18,7 +18,7 @@
 
   &__top-box {
     @include flex($justify: space-between);
-    padding-bottom: 2rem;
+    // padding-bottom: 2rem;
   }
 
   &__go-back-bt {
@@ -29,8 +29,8 @@
 
   &__title {
     @include flex;
-    font-size: 4rem;
-    padding-bottom: 2.5rem;
+    @include h1;
+    padding-bottom: 1.5rem;
     text-align: center;
   }
 
