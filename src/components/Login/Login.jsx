@@ -34,7 +34,6 @@ export default function Login({ handleCancelLogIn }) {
       navigate("/orders");
     } catch (error) {
       console.log("Error login, error: " + error);
-      // setErrorMessage("Error login, error: " + error);
     }
   };
 

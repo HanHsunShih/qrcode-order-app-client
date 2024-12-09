@@ -63,6 +63,9 @@ export const creatNewUser = async (Data) => {
 export const login = async (data) => {
   try {
     const response = await axios.post(`${api_url}/api/users/login`, data);
+
+    // console.log("response.data.authToken = ");
+    // console.log(response.data.authToken);
     return response;
   } catch (error) {
     console.log(`Error login, error: ${error}`);

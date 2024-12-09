@@ -9,7 +9,7 @@ export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
   const [completedOrderId, setCompletedOrderId] = useState({});
 
-  const ordersRender = async (authToken) => {
+  const ordersRender = async () => {
     try {
       const allOrders = await getProcessingOrders(authToken);
       setOrders(allOrders);
