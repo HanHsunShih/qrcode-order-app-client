@@ -20,11 +20,7 @@ export default function MenuPage({
   const initialScrollPosition = location.state ? location.state : 0;
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
 
-  console.log("location.state = ");
-  console.log(location.state);
-
-  console.log("initialScrollPosition = ");
-  console.log(initialScrollPosition);
+  window.scrollTo({ top: scrollPosition, behavior: "smooth" });
 
   const menuRender = async () => {
     try {
@@ -42,20 +38,10 @@ export default function MenuPage({
 
   useEffect(() => {
     menuRender();
-    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
   }, []);
 
-  useEffect(() => {
-    console.log("MenuPage, 🪀Updated scrollPosition:");
-    console.log(scrollPosition);
-
-    console.log("😡initialScrollPosition = ");
-    console.log(initialScrollPosition);
-  }, [scrollPosition]);
-
-  useEffect(() => {
-    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-  }, [scrollPosition]);
+  //   window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+  // }, [scrollPosition]);
 
   return (
     <>
@@ -70,12 +56,11 @@ export default function MenuPage({
           >
             <h3>←</h3>
           </button>
+          <h1 className="menu-page__title">Menu</h1>
           <Link to="https://www.instagram.com/seaward.m.plan_coffee.diving/?hl=zh-tw">
             <img className="menu-page__ig-icon" src={igIcon} alt="" />
           </Link>
         </div>
-
-        <h1 className="menu-page__title">Menu</h1>
 
         {productsInfo.length > 0 ? (
           <MenuCard
@@ -88,7 +73,7 @@ export default function MenuPage({
           <p>loading...</p>
         )}
         <Link to="/cart" className="menu-page__cart">
-          <h1>Cart {cartInfo.length}</h1>
+          <h3>Cart {cartInfo.length}</h3>
         </Link>
       </main>
     </>

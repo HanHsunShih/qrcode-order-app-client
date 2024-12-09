@@ -17,7 +17,6 @@ export default function PaymentSuccessPage({ setCartInfo }) {
         autoPlay
         loop
         poster={cavePoster}
-        controls
       >
         <source src={caveVideo} type="video/mp4" />
       </video>

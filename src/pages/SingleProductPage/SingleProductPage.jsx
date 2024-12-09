@@ -36,9 +36,6 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
   const handleBtPlus = (event) => {
     event.preventDefault();
 
-    console.log("Single +, scrollPosition = ");
-    console.log(scrollPosition);
-
     return setPurchaseQuantity(purchaseQuantity + 1);
   };
 
@@ -52,13 +49,8 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
     }
 
     setCartInfo([...cartInfo, ...updatedBasket]);
-    console.log("🥎Single, scrollPosition = ");
-    console.log(scrollPosition);
 
     navigate("/menu", { state: scrollPosition });
-
-    console.log("🏀Single, scrollPosition = ");
-    console.log(scrollPosition);
   };
 
   useEffect(() => {

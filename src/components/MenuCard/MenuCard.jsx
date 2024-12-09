@@ -84,9 +84,9 @@ export default function MenuCard({
                   return (
                     <div className="menuCard__product-box" key={productInfo.id}>
                       <div>
-                        <h2 className="menuCard__product-name">
+                        <h3 className="menuCard__product-name">
                           {productInfo.product_name}
-                        </h2>
+                        </h3>
                         <p>£{productInfo.price_gbp}</p>
                         <p>{productInfo.description}</p>
                         <button
@@ -95,15 +95,18 @@ export default function MenuCard({
                             handleReadMore(productInfo.id);
                           }}
                         >
-                          read more...
+                          <p>read more...</p>
                         </button>
                       </div>
                       <div className="menuCard__product-box-right">
-                        <img
-                          className="menuCard__image"
-                          src={`http://localhost:8081/menu-images/${productInfo.image}`}
-                          alt={`${productInfo.image}`}
-                        />
+                        {productInfo.image && (
+                          <img
+                            className="menuCard__image"
+                            src={`http://localhost:8081/menu-images/${productInfo.image}`}
+                            alt={`${productInfo.image}`}
+                          />
+                        )}
+
                         <div>
                           <button
                             onClick={() => handleAddToCart(productInfo)}

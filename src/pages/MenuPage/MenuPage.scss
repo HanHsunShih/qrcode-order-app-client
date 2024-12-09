@@ -17,12 +17,13 @@
   }
 
   &__top-box {
-    @include flex($justify: space-between);
+    @include flex($justify: space-between, $align: center);
     // padding-bottom: 2rem;
   }
 
   &__go-back-bt {
     @include button;
+    padding: 0.3rem 0.8rem;
     justify-content: flex-start;
     cursor: pointer;
   }
@@ -30,8 +31,6 @@
   &__title {
     @include flex;
     @include h1;
-    padding-bottom: 1.5rem;
-    text-align: center;
   }
 
   &__cart {

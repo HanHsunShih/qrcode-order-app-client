@@ -44,7 +44,6 @@ export default function HomePage({ tableNumber, setTableNumber }) {
           autoPlay
           loop
           poster={turtlePoster}
-          controls
         >
           <source src={turtleVideo} type="video/mp4" />
         </video>

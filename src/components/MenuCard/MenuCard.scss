@@ -4,8 +4,8 @@
 
 .menuCard {
   &__type {
-    padding: 1rem;
-    margin: 1rem;
+    padding: 0.5rem;
+    margin: 0.3rem;
     background-color: $color3;
     white-space: nowrap;
     border-radius: 10px;
@@ -23,7 +23,7 @@
       position: sticky;
       top: 0;
       background-color: $color7;
-      margin: -2rem;
+      margin: 2rem -2rem 0 -2rem;
       box-sizing: content-box;
 
       ::-webkit-scrollbar {
