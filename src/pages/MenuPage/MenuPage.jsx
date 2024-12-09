@@ -4,15 +4,21 @@ import MenuCard from "../../components/MenuCard/MenuCard";
 import { getAllProducts } from "../../../utils/apiUtils.mjs";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import igIcon from "../../assets/images/instagram.png";
+import { useLocation } from "react-router-dom";
 
 export default function MenuPage({
   handleAddToCart,
   cartInfo,
   handleCartReset,
 }) {
+  // const [scrollPosition, setScrollPosition] = useState();
   const [productsInfo, setProductsInfo] = useState([]);
   const navigate = useNavigate();
   const { userId } = useParams();
+
+  const location = useLocation();
+  const initialScrollPosition = location.state?.scrollPosition || 0;
+  const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
 
   const menuRender = async () => {
     try {
@@ -24,13 +30,26 @@ export default function MenuPage({
         })
       );
     } catch (error) {
-      console.error("Error invoke getAllProducts function" + error);
+      console.error("❄️Error invoke getAllProducts function" + error);
     }
   };
 
   useEffect(() => {
     menuRender();
+    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
   }, []);
+
+  useEffect(() => {
+    console.log("MenuPage, 🪀Updated scrollPosition:");
+    console.log(scrollPosition);
+
+    console.log("😡initialScrollPosition = ");
+    console.log(initialScrollPosition);
+  }, [scrollPosition]);
+
+  useEffect(() => {
+    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+  }, [scrollPosition]);
 
   return (
     <>
@@ -56,6 +75,8 @@ export default function MenuPage({
           <MenuCard
             productsInfoArr={productsInfo}
             handleAddToCart={handleAddToCart}
+            setScrollPosition={setScrollPosition}
+            scrollPosition={scrollPosition}
           />
         ) : (
           <p>loading...</p>

@@ -1,9 +1,14 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./MenuCard.scss";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-export default function MenuCard({ productsInfoArr, handleAddToCart }) {
+export default function MenuCard({
+  productsInfoArr,
+  handleAddToCart,
+  setScrollPosition,
+}) {
   const menuRef = useRef(null);
+  const navigate = useNavigate();
   const [activeType, setActiveType] = useState(false);
   const types = [...new Set(productsInfoArr.map((product) => product.type))];
 
@@ -21,12 +26,6 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
   };
 
   const handleScrollToTag = (tagIndex) => {
-    console.log("menuRef = ");
-    console.log(menuRef);
-
-    console.log("menuRef.current = ");
-    console.log(menuRef.current);
-
     if (menuRef.current) {
       const tags = menuRef.current.children;
       const targetTag = tags[tagIndex];
@@ -37,6 +36,15 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
         block: "nearest",
       });
     }
+  };
+
+  const handleReadMore = (productId) => {
+    setScrollPosition(window.scrollY);
+    navigate(`/menu/${productId}`, {
+      state: { scrollPosition: window.scrollY },
+    });
+    console.log("MenuCard, window.scrollY = ");
+    console.log(window.scrollY);
   };
 
   return (
@@ -52,7 +60,7 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
               onClick={() => {
                 handleScrollerToProduct(i);
 
-                setTimeout(() => handleScrollToTag(i), 1000);
+                setTimeout(() => handleScrollToTag(i), 300);
               }}
             >
               {type}
@@ -81,14 +89,14 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
                         </h2>
                         <p>£{productInfo.price_gbp}</p>
                         <p>{productInfo.description}</p>
-                        <p>
-                          <Link
-                            to={`/menu/${productInfo.id}`}
-                            className="menuCard__link"
-                          >
-                            read more...
-                          </Link>
-                        </p>
+                        <button
+                          className="menuCard__link"
+                          onClick={() => {
+                            handleReadMore(productInfo.id);
+                          }}
+                        >
+                          read more...
+                        </button>
                       </div>
                       <div className="menuCard__product-box-right">
                         <img
@@ -112,59 +120,6 @@ export default function MenuCard({ productsInfoArr, handleAddToCart }) {
           );
         })}
       </div>
-      {/* <div>
-        {productsInfoArr.map((productInfo) => {
-          return (
-            <article
-              key={productInfo.id}
-              className={`menuCard-box menuCard-box${
-                productInfo.category === "Drinks" ? "__drinks" : "__food"
-              }`}
-            >
-              <div className="menuCard__product-box">
-                <div>
-                  <h2>{productInfo.product_name}</h2>
-                  <p>£{productInfo.price_gbp}</p>
-                  <p>{productInfo.description}</p>
-                  <p>
-                    <Link
-                      to={`/menu/${productInfo.id}`}
-                      className="menuCard__link"
-                    >
-                      read more...
-                    </Link>
-                  </p>
-                </div>
-                <div className="menuCard__product-box-right">
-                  <img
-                    className="menuCard__image"
-                    src={`http://localhost:8081/menu-images/${productInfo.image}`}
-                    alt={`${productInfo.image}`}
-                  />
-                  <div>
-                    <button
-                      onClick={() => handleAddToCart(productInfo)}
-                      className="menuCard__bt"
-                    >
-                      <h3> + </h3>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </div> */}
-      {/* <div>
-        <p>Pour-over Coffee</p>
-        {productsInfoArr
-          .filter((productInfo) => {
-            return productInfo.type === "Pour-over Coffee";
-          })
-          .map((productInfo) => {
-            return <p key={productInfo.id}>{productInfo.product_name}</p>;
-          })}
-      </div> */}
     </>
   );
 }

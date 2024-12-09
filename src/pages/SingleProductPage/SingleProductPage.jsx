@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./SingleProductPage.scss";
 import { getProductById } from "../../../utils/apiUtils.mjs";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function SingleProductPage({ cartInfo, setCartInfo }) {
   const navigate = useNavigate();
   const { product_id } = useParams();
+  const location = useLocation();
+  const scrollPosition = location.state?.scrollPosition || 0;
 
   const [product, setProduct] = useState(null);
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
@@ -34,6 +36,9 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
   const handleBtPlus = (event) => {
     event.preventDefault();
 
+    console.log("Single +, scrollPosition = ");
+    console.log(scrollPosition);
+
     return setPurchaseQuantity(purchaseQuantity + 1);
   };
 
@@ -47,8 +52,13 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
     }
 
     setCartInfo([...cartInfo, ...updatedBasket]);
+    console.log("🥎Single, scrollPosition = ");
+    console.log(scrollPosition);
 
-    navigate("/menu");
+    navigate("/menu", { state: scrollPosition });
+
+    console.log("🏀Single, scrollPosition = ");
+    console.log(scrollPosition);
   };
 
   useEffect(() => {

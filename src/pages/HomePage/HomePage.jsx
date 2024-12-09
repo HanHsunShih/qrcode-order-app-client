@@ -3,7 +3,7 @@ import "./HomePage.scss";
 import { useState } from "react";
 import turtlePoster from "../../assets/media/home-page-poster-seaturtle.png";
 import turtleVideo from "../../assets/media/home-page-video-seaturtle.mp4";
-import Login from "../../components/LogIn/LogIn";
+import Login from "../../components/Login/Login";
 
 export default function HomePage({ tableNumber, setTableNumber }) {
   const navigate = useNavigate();
