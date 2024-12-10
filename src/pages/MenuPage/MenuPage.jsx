@@ -35,6 +35,10 @@ export default function MenuPage({
     }
   };
 
+  const handleAddToCartPosition = () => {
+    setScrollPosition(window.scrollY);
+  };
+
   useEffect(() => {
     menuRender();
   }, []);
@@ -64,6 +68,7 @@ export default function MenuPage({
             handleAddToCart={handleAddToCart}
             setScrollPosition={setScrollPosition}
             scrollPosition={scrollPosition}
+            handleAddToCartPosition={handleAddToCartPosition}
           />
         ) : (
           <p>loading...</p>

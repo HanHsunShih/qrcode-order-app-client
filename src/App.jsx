@@ -18,6 +18,7 @@ function App() {
 
   const handleAddToCart = (product) => {
     setCartInfo((preCartInfo) => [...preCartInfo, product]);
+    document.body.classList.add("no-scroll");
   };
 
   const handleCartReset = () => {

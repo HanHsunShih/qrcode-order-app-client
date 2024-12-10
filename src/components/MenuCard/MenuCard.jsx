@@ -6,6 +6,7 @@ export default function MenuCard({
   productsInfoArr,
   handleAddToCart,
   setScrollPosition,
+  handleAddToCartPosition,
 }) {
   const menuRef = useRef(null);
   const navigate = useNavigate();
@@ -109,7 +110,10 @@ export default function MenuCard({
 
                         <div>
                           <button
-                            onClick={() => handleAddToCart(productInfo)}
+                            onClick={() => {
+                              handleAddToCart(productInfo),
+                                handleAddToCartPosition();
+                            }}
                             className="menuCard__bt"
                           >
                             <h3> + </h3>
