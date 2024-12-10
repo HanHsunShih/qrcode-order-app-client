@@ -21,14 +21,14 @@ export default function CartPage({
 
   const handlePayClick = () => {
     if (formattedTotalPrice === "0.00") {
-      setPaymentessage("You haven't order anything😳");
+      setPaymentessage("You haven't order anything yet 😳");
       return;
     } else if (tableNumber === "") {
-      setTableMessage("Please enter your table number🍽️");
+      setTableMessage("Please enter your table number 🥪");
       setShowTableInput(true);
       return;
     } else if (isNaN(tableNumber) || tableNumber < 0 || tableNumber > 20) {
-      setTableMessage("Please enter the right table number🍽️");
+      setTableMessage("Please enter the right table number ☕️");
       setShowTableInput(true);
       return;
     }
@@ -86,8 +86,10 @@ export default function CartPage({
             className="cart-page__table-number-input"
           ></input>
         )}
-        {tableMessage && <p>{tableMessage}</p>}
-        {paymentMessage && <p>{paymentMessage}</p>}
+        {tableMessage && <p className="cart-page__message">{tableMessage}</p>}
+        {paymentMessage && (
+          <p className="cart-page__message">{paymentMessage}</p>
+        )}
         <button
           className="cart-page__bt cart-page__bt-pay"
           onClick={handlePayClick}

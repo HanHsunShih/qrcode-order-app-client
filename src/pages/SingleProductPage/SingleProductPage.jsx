@@ -8,6 +8,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
   const { product_id } = useParams();
   const location = useLocation();
   const scrollPosition = location.state?.scrollPosition || 0;
+  const baseUrl = import.meta.env.VITE_SERVER_URL;
 
   const [product, setProduct] = useState(null);
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
@@ -75,7 +76,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
             </h1>
             <img
               className="single-product-page__image"
-              src={`http://localhost:8081/menu-images/${product.image}`}
+              src={`${baseUrl}/menu-images/${product.image}`}
               alt=""
             />
             <p className="single-product-page__price">£{product.price_gbp}</p>

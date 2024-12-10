@@ -44,16 +44,22 @@
 
   &__text {
     @include h2-bold;
+    padding-top: 0.2rem;
   }
 
   &__table-number-input {
     width: 80%;
-    height: 4rem;
+    height: 2rem;
     border-radius: 10px;
     border: none;
     box-shadow: 0px 0px 3px rgb(86, 86, 86);
     @include h3;
     font-size: 1.5rem;
-    padding: 0 1rem;
+    padding: 0rem 1rem;
+    margin-top: 3rem;
+  }
+
+  &__message {
+    padding: 0.5rem 0;
   }
 }

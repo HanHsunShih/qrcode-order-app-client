@@ -56,18 +56,18 @@ export default function HomePage({ tableNumber, setTableNumber }) {
         </div>
         <section>
           <form onSubmit={handleSubmit} className="home-page__middle-box">
-            <label
+            {/* <label
               className="home-page__table-number-label"
               name="table_number"
             >
               Enter Table Number
-            </label>
+            </label> */}
             <input
               onChange={handleTableNumberChange}
               className="home-page__table-number"
               name="table_number"
               type="text"
-              placeholder="type your table number..."
+              placeholder="enter table number..."
             />
             {errorMessage && <p> {errorMessage} </p>}
             <button className="home-page__bottom-bt" type="submit">
