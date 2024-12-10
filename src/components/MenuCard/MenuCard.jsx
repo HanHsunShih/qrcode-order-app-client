@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./MenuCard.scss";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
+const api_url = import.meta.env.VITE_SERVER_URL;
 export default function MenuCard({
   productsInfoArr,
   handleAddToCart,
@@ -102,7 +102,7 @@ export default function MenuCard({
                         {productInfo.image && (
                           <img
                             className="menuCard__image"
-                            src={`http://localhost:8081/menu-images/${productInfo.image}`}
+                            src={`${api_url}/menu-images/${productInfo.image}`}
                             alt={`${productInfo.image}`}
                           />
                         )}
