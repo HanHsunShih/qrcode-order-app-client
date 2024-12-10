@@ -4,7 +4,7 @@
 
 .login {
   background-color: $color1;
-  padding: 2rem;
+  padding: 1rem;
   @include flex;
   flex-direction: column;
   position: absolute;
@@ -15,9 +15,8 @@
   border-radius: 20px;
 
   &__title {
-    padding: 1rem 0;
+    padding-top: 1rem;
     color: $color3;
-    font-size: 3rem;
   }
 
   &__form {
@@ -28,20 +27,19 @@
       &-samll {
         // display: flexbox;
         // gap: 10rem;
-        padding: 1rem 0;
+        padding: 0.5rem 0;
       }
     }
 
     &-label {
       @include flex;
       color: $color3;
-      font-size: 2rem;
       padding: 1rem 0;
     }
 
     &-input {
-      width: 15rem;
-      height: 3rem;
+      width: 10rem;
+      height: 2rem;
       border-radius: 10px;
       border: none;
       padding: 0 1rem;

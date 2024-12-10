@@ -43,7 +43,7 @@ export default function Login({ handleCancelLogIn }) {
       <form className="login__form-box" onSubmit={submitForm}>
         <div className="login__form-box-samll">
           <label htmlFor="name">
-            <h3 className="login__form-label">user name:</h3>
+            <h2 className="login__form-label">user name:</h2>
           </label>
           <input
             className="login__form-input"
@@ -54,7 +54,7 @@ export default function Login({ handleCancelLogIn }) {
         </div>
         <div className="login__form-box-samll">
           <label htmlFor="password">
-            <h3 className="login__form-label">password:</h3>
+            <h2 className="login__form-label">password:</h2>
           </label>
           <input
             className="login__form-input"

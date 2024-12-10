@@ -47,7 +47,7 @@
 @mixin h2 {
   font-family: Quattrocento;
   font-size: 1.5rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
 @mixin h3 {
@@ -59,7 +59,7 @@
 @mixin p {
   font-family: Lora;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.2rem;
 }
 
 @mixin h1-bold {
@@ -71,7 +71,7 @@
 @mixin h2-bold {
   font-family: Quattrocento-Bold;
   font-size: 1.5rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
 @mixin h3-bold {
@@ -83,5 +83,5 @@
 @mixin p-italic {
   font-family: Lora-Italic;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.2rem;
 }

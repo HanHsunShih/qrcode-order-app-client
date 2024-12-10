@@ -46,7 +46,7 @@ export default function MenuCard({
   };
 
   return (
-    <>
+    <main className="menuCard__box">
       <div className="menuCard__type-scroller" ref={menuRef}>
         {types.map((type, i) => {
           return (
@@ -82,10 +82,12 @@ export default function MenuCard({
                   return (
                     <div className="menuCard__product-box" key={productInfo.id}>
                       <div>
-                        <h3 className="menuCard__product-name">
+                        <h2 className="menuCard__product-name">
                           {productInfo.product_name}
-                        </h3>
-                        <p>£{productInfo.price_gbp}</p>
+                        </h2>
+                        <p className="menuCard__product-price">
+                          £{productInfo.price_gbp}
+                        </p>
                         <p>{productInfo.description}</p>
                         <button
                           className="menuCard__link"
@@ -121,6 +123,6 @@ export default function MenuCard({
           );
         })}
       </div>
-    </>
+    </main>
   );
 }
