@@ -19,6 +19,15 @@
     margin: 2rem 0;
     @include flex($justify: space-between);
     border-radius: 10px;
+
+    &-time {
+      padding-bottom: 1rem;
+      // border-bottom: 1px solid $color2;
+
+      &-text {
+        @include h3-bold;
+      }
+    }
   }
 
   &__complete-bt {

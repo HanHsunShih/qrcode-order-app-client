@@ -63,8 +63,14 @@ export default function OrdersPage() {
           return (
             <div key={order[0]} className="order-page__box">
               <div className="order-page__box-left">
-                <p>table: {order[1][0].table_number}</p>
-                <p>ordered time: {formatIsoDate(order[1][0].created_at)}</p>
+                <div className="order-page__box-time">
+                  <p className="order-page__box-time-text">
+                    table: {order[1][0].table_number}
+                  </p>
+                  <p className="order-page__box-time-text">
+                    ordered time: {formatIsoDate(order[1][0].created_at)}
+                  </p>
+                </div>
                 {order[1].map((item, i) => {
                   return (
                     <p key={i}>

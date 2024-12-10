@@ -17,9 +17,27 @@
 
   &__price-box {
     padding: 3rem 0;
+
+    &-text {
+      padding: 1rem 0;
+    }
   }
 
   &__pay-bt {
     @include button;
+  }
+
+  &__animation {
+    &-box {
+      overflow: hidden;
+    }
+
+    position: relative;
+    width: 200%;
+    height: 20rem;
+    margin-top: 0rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: none;
   }
 }

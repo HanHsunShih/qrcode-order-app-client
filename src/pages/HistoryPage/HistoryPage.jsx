@@ -101,7 +101,7 @@ export default function HistoryPage() {
 
   return (
     <main className="order-history">
-      <Link to={-1} className="order-history__back-bt">
+      <Link to={"/orders"} className="order-history__back-bt">
         <h3>←</h3>
       </Link>
       <h1 className="order-history__title">Order History:</h1>

@@ -45,10 +45,12 @@
     padding: 1rem;
     background-color: $color3;
     margin-bottom: 1.5rem;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   &__ordered-date {
-    border-bottom: 1px solid $color2;
+    // border-bottom: 1px solid $color2;
+    padding-bottom: 1rem;
+    @include h3-bold;
   }
 }

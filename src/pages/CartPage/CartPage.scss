@@ -5,6 +5,16 @@
 .cart-page {
   padding: 2rem;
 
+  &__animation {
+    &-box {
+      position: absolute;
+      right: -10%;
+      overflow: hidden;
+    }
+    position: relative;
+    border: none;
+  }
+
   &__title {
     @include h1;
     padding: 2rem 0;

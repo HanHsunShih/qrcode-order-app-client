@@ -49,6 +49,12 @@ export default function CartPage({
 
   return (
     <main className="cart-page">
+      <div className="cart-page__animation-box">
+        <iframe
+          className="cart-page__animation"
+          src="https://lottie.host/embed/7a203e77-1382-4000-86d0-5d57e5d52723/3AKtCYFLwz.lottie"
+        ></iframe>
+      </div>
       <Link to="/menu" className="cart-page__bt">
         <h3>←</h3>
       </Link>
