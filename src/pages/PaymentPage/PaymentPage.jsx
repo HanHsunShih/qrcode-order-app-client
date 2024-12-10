@@ -47,7 +47,7 @@ export default function Payment({ tableNumber, cartInfo }) {
         <h3 className="payment-page__back-bt">←</h3>
       </Link>
       <div className="payment-page__price-box">
-        <h1>total price:</h1>
+        <h2>total price:</h2>
         <h1>{state}</h1>
       </div>
       <div className="payment-page__bt-box">

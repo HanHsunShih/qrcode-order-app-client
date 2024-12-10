@@ -20,7 +20,7 @@
   align-items: $align;
 }
 
-@mixin button($bg-color: null, $opacity: 1) {
+@mixin button($bg-color: null, $opacity: 1, $color: $color6) {
   display: inline-block;
   background: if(
     $bg-color != null,
@@ -32,7 +32,8 @@
       rgba(186, 216, 255, 1) 100%
     )
   );
-  padding: 1rem 1.5rem;
+  color: $color6;
+  padding: 0.5rem 1rem;
   border-radius: 15px;
   border: none;
 }
@@ -50,13 +51,37 @@
 }
 
 @mixin h3 {
-  font-family: Quattrocento-Bold;
+  font-family: Quattrocento;
   font-size: 1rem;
   line-height: 1rem;
 }
 
 @mixin p {
   font-family: Lora;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin h1-bold {
+  font-family: Quattrocento-Bold;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+@mixin h2-bold {
+  font-family: Quattrocento-Bold;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@mixin h3-bold {
+  font-family: Quattrocento-Bold;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+@mixin p-italic {
+  font-family: Lora-Italic;
   font-size: 1rem;
   line-height: 1.5rem;
 }

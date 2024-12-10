@@ -11,7 +11,6 @@ export default function MenuPage({
   cartInfo,
   handleCartReset,
 }) {
-  // const [scrollPosition, setScrollPosition] = useState();
   const [productsInfo, setProductsInfo] = useState([]);
   const navigate = useNavigate();
   const { userId } = useParams();
@@ -39,9 +38,6 @@ export default function MenuPage({
   useEffect(() => {
     menuRender();
   }, []);
-
-  //   window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-  // }, [scrollPosition]);
 
   return (
     <>

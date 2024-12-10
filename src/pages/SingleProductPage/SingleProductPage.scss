@@ -6,13 +6,11 @@
 .single-product-page {
   &__box {
     background-color: $color2;
-    // background: linear-gradient(180deg, $color5 0%, $color3 100%);
     padding: 2rem;
-    height: 100vh;
   }
 
   &__product-title {
-    padding: 2rem 0;
+    padding: 2rem 0 1rem 0;
   }
 
   &__content {
@@ -25,6 +23,10 @@
     border-radius: 30px;
   }
 
+  &__price {
+    @include h2-bold;
+  }
+
   &__description {
     text-align: center;
   }
@@ -35,7 +37,6 @@
     @include p;
     background-color: $color3;
     border: none;
-    font-size: 1.5rem;
     border-radius: 15px;
   }
 
@@ -47,7 +48,6 @@
     @include button;
     justify-content: flex-start;
     cursor: pointer;
-    background-color: $color2;
 
     &-cart {
       margin: 2rem 0;

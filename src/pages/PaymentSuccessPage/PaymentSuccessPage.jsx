@@ -11,6 +11,13 @@ export default function PaymentSuccessPage({ setCartInfo }) {
   };
   return (
     <main className="payment-success-page">
+      <div className="payment-success-page__animetion-box">
+        <iframe
+          className="payment-success-page__animetion-ribbon"
+          src="https://lottie.host/embed/12bd8988-081b-4ca2-82d1-7884afe3d939/Fbd5DUNcvF.lottie?loop=false&autoplay=true&controls=false"
+          title="Lottie Animation"
+        ></iframe>
+      </div>
       <video
         muted
         className="home-page__bg-video"
@@ -34,7 +41,7 @@ export default function PaymentSuccessPage({ setCartInfo }) {
             handleCartReset();
           }}
         >
-          <h3>Back to home page</h3>
+          <h3 className="payment-success-page__home-bt">Back to home page</h3>
         </button>
       </div>
     </main>

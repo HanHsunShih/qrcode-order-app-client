@@ -51,7 +51,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
         </video>
         <div className="home-page__admin-box">
           <button className="home-page__top-bt" onClick={handleLogIn}>
-            Admin
+            <p>Admin</p>
           </button>
         </div>
         <section>
@@ -69,7 +69,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
               type="text"
               placeholder="type your table number..."
             />
-            {<p> {errorMessage} </p>}
+            {errorMessage && <p> {errorMessage} </p>}
             <button className="home-page__bottom-bt" type="submit">
               Continue
             </button>

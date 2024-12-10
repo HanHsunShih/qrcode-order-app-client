@@ -71,7 +71,7 @@ export default function CartPage({
           );
         })}
         <p>total price</p>
-        <p>£ {formattedTotalPrice}</p>
+        <p className="cart-page__text">£ {formattedTotalPrice}</p>
         {showTableInput && (
           <input
             type="number"
@@ -86,7 +86,7 @@ export default function CartPage({
           className="cart-page__bt cart-page__bt-pay"
           onClick={handlePayClick}
         >
-          <h3>Pay</h3>
+          <h2>Pay</h2>
         </button>
       </div>
     </main>

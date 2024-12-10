@@ -9,13 +9,13 @@ export default function MenuCard({
 }) {
   const menuRef = useRef(null);
   const navigate = useNavigate();
-  const [activeType, setActiveType] = useState(false);
+  const [activeType, setActiveType] = useState(null);
   const types = [...new Set(productsInfoArr.map((product) => product.type))];
 
   const handleScrollerToProduct = (i) => {
     const element = document.getElementById(`section${i}`);
     const offset =
-      parseFloat(getComputedStyle(document.documentElement).fontSize) * 9;
+      parseFloat(getComputedStyle(document.documentElement).fontSize) * 5;
     const yPosition =
       element.getBoundingClientRect().top + window.scrollY - offset;
 
@@ -43,8 +43,6 @@ export default function MenuCard({
     navigate(`/menu/${productId}`, {
       state: { scrollPosition: window.scrollY },
     });
-    console.log("MenuCard, window.scrollY = ");
-    console.log(window.scrollY);
   };
 
   return (
@@ -55,11 +53,11 @@ export default function MenuCard({
             <button
               key={i}
               className={`menuCard__type ${
-                activeType === true ? "menuCard__type-active" : ""
+                activeType === i ? "menuCard__type-active" : ""
               }`}
               onClick={() => {
+                setActiveType(i);
                 handleScrollerToProduct(i);
-
                 setTimeout(() => handleScrollToTag(i), 300);
               }}
             >

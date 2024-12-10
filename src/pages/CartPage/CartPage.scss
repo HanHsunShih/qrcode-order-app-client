@@ -32,6 +32,10 @@
     }
   }
 
+  &__text {
+    @include h2-bold;
+  }
+
   &__table-number-input {
     width: 80%;
     height: 4rem;

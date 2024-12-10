@@ -62,7 +62,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
       <button
         className="single-product-page__bt"
         onClick={() => {
-          navigate("/menu");
+          navigate("/menu", { state: scrollPosition });
         }}
       >
         <h3>←</h3>
@@ -78,7 +78,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
               src={`http://localhost:8081/menu-images/${product.image}`}
               alt=""
             />
-            <h2>£{product.price_gbp}</h2>
+            <p className="single-product-page__price">£{product.price_gbp}</p>
             <p className="single-product-page__description">
               {product.description}
             </p>
