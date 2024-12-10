@@ -74,11 +74,13 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
             <h1 className="single-product-page__product-title">
               {product.product_name}
             </h1>
-            <img
-              className="single-product-page__image"
-              src={`${baseUrl}/menu-images/${product.image}`}
-              alt=""
-            />
+            {product.image && (
+              <img
+                className="single-product-page__image"
+                src={`${baseUrl}/menu-images/${product.image}`}
+                alt=""
+              />
+            )}
             <p className="single-product-page__price">£{product.price_gbp}</p>
             <p className="single-product-page__description">
               {product.description}
