@@ -3,17 +3,28 @@
 @use "../../styles/_partials/mixin" as *;
 
 .menu-page {
-  &__ig-icon {
-    width: 1.5rem;
-  }
-
-  &__top-box {
+  @include tablet {
     @include flex;
   }
 
   &__box {
     position: relative;
     padding: 2rem;
+
+    @include tablet {
+      width: 1020px;
+    }
+  }
+
+  &__ig-icon {
+    width: 1.5rem;
+    @include tablet {
+      width: 2rem;
+    }
+  }
+
+  &__top-box {
+    @include flex;
   }
 
   &__top-box {
@@ -26,11 +37,21 @@
     padding: 0.3rem 0.8rem;
     justify-content: flex-start;
     cursor: pointer;
+
+    &-arrow {
+      @include tablet {
+        @include h3-big;
+      }
+    }
   }
 
   &__title {
     @include flex;
     @include h1;
+
+    @include tablet {
+      @include h1-big;
+    }
   }
 
   &__cart {
@@ -43,5 +64,11 @@
     padding: 1.5rem;
     border-radius: 50px;
     color: $color2;
+
+    &-text {
+      @include tablet {
+        @include h2-big;
+      }
+    }
   }
 }

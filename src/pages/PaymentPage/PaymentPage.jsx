@@ -42,31 +42,33 @@ export default function Payment({ tableNumber, cartInfo }) {
     }
   };
   return (
-    <main className="payment-page">
-      <Link to="/cart">
-        <h3 className="payment-page__back-bt">←</h3>
-      </Link>
-      <div className="payment-page__price-box">
-        <h2 className="payment-page__price-box-text">total price:</h2>
-        <h1>{state}</h1>
-      </div>
-      <div className="payment-page__bt-box">
-        <button className="payment-page__pay-bt">
-          <h3>ApplePay</h3>
-        </button>
-        <button className="payment-page__pay-bt">
-          <h3>LinePay</h3>
-        </button>
-        <button className="payment-page__pay-bt" onClick={handlePaymentClick}>
-          <h3>Pay At Counter</h3>
-        </button>
-      </div>
-      <div className="payment-page__animation-box">
-        <iframe
-          className="payment-page__animation"
-          src="https://lottie.host/embed/3892c20d-dcba-4db0-8715-7cef3b9bc92a/tKNcdNeKK8.lottie"
-        ></iframe>
-      </div>
-    </main>
+    <div className="payment-page-box">
+      <main className="payment-page">
+        <Link to="/cart">
+          <h3 className="payment-page__back-bt">←</h3>
+        </Link>
+        <div className="payment-page__price-box">
+          <h2 className="payment-page__price-box-text">total price:</h2>
+          <h1 className="payment-page__price">{state}</h1>
+        </div>
+        <div className="payment-page__bt-box">
+          <button className="payment-page__pay-bt">
+            <h3 className="payment-page__pay-bt-text">ApplePay</h3>
+          </button>
+          <button className="payment-page__pay-bt">
+            <h3 className="payment-page__pay-bt-text">LinePay</h3>
+          </button>
+          <button className="payment-page__pay-bt" onClick={handlePaymentClick}>
+            <h3 className="payment-page__pay-bt-text">Pay At Counter</h3>
+          </button>
+        </div>
+        <div className="payment-page__animation-box">
+          <iframe
+            className="payment-page__animation"
+            src="https://lottie.host/embed/3892c20d-dcba-4db0-8715-7cef3b9bc92a/tKNcdNeKK8.lottie"
+          ></iframe>
+        </div>
+      </main>
+    </div>
   );
 }

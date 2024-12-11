@@ -5,12 +5,30 @@
 .order-history {
   padding: 2rem;
 
+  &__big-box {
+    @include tablet {
+      @include flex;
+    }
+  }
+
+  @include tablet {
+    width: 1020px;
+  }
+
   &__back-bt {
     @include button;
+    &-arrow {
+      @include tablet {
+        @include h3-big;
+      }
+    }
   }
 
   &__title {
     padding: 2rem 0;
+    @include tablet {
+      @include h1-big;
+    }
   }
 
   &__dropdown {
@@ -30,6 +48,9 @@
         box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
       }
       @include h3;
+      @include tablet {
+        @include p-big;
+      }
     }
 
     &-option {
@@ -52,5 +73,14 @@
     // border-bottom: 1px solid $color2;
     padding-bottom: 1rem;
     @include h3-bold;
+    @include tablet {
+      @include h3-bold-big;
+    }
+  }
+
+  &__orders {
+    @include tablet {
+      @include p-big;
+    }
   }
 }

@@ -36,7 +36,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   };
 
   return (
-    <>
+    <section className="home-page">
       {/* <SignUp /> */}
       {adminPopUp && <Login handleCancelLogIn={handleCancelLogIn} />}
       <main className="home-page__box">
@@ -75,6 +75,6 @@ export default function HomePage({ tableNumber, setTableNumber }) {
           </Link>
         </section>
       </main>
-    </>
+    </section>
   );
 }

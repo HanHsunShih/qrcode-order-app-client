@@ -50,50 +50,52 @@ export default function OrdersPage() {
   }
 
   return (
-    <main className="order-page">
-      <h1 className="order-page__title">Waiting Orders: </h1>
-      <Link to="/history">
-        <button className="order-page__history-bt">
-          <h2>Order History</h2>
-        </button>
-      </Link>
+    <div className="order-page__big-box">
+      <main className="order-page">
+        <h1 className="order-page__title">Waiting Orders: </h1>
+        <Link to="/history">
+          <button className="order-page__history-bt">
+            <h2 className="order-page__history-bt-text">Order History</h2>
+          </button>
+        </Link>
 
-      {orders ? (
-        orders.map((order) => {
-          return (
-            <div key={order[0]} className="order-page__box">
-              <div className="order-page__box-left">
-                <div className="order-page__box-time">
-                  <p className="order-page__box-time-text">
-                    table: {order[1][0].table_number}
-                  </p>
-                  <p className="order-page__box-time-text">
-                    ordered time: {formatIsoDate(order[1][0].created_at)}
-                  </p>
-                </div>
-                {order[1].map((item, i) => {
-                  return (
-                    <p key={i}>
-                      {item.product_name} x {item.quantity}
+        {orders ? (
+          orders.map((order) => {
+            return (
+              <div key={order[0]} className="order-page__box">
+                <div className="order-page__box-left">
+                  <div className="order-page__box-time">
+                    <p className="order-page__box-time-text">
+                      table: {order[1][0].table_number}
                     </p>
-                  );
-                })}
+                    <p className="order-page__box-time-text">
+                      ordered time: {formatIsoDate(order[1][0].created_at)}
+                    </p>
+                  </div>
+                  {order[1].map((item, i) => {
+                    return (
+                      <p className="order-page__product" key={i}>
+                        {item.product_name} x {item.quantity}
+                      </p>
+                    );
+                  })}
+                </div>
+                <button
+                  className="order-page__complete-bt"
+                  name="status"
+                  onClick={() => {
+                    handleCompleteClick(order[0]);
+                  }}
+                >
+                  <p className="order-page__complete-bt-text">Complete</p>
+                </button>
               </div>
-              <button
-                className="order-page__complete-bt"
-                name="status"
-                onClick={() => {
-                  handleCompleteClick(order[0]);
-                }}
-              >
-                Complete
-              </button>
-            </div>
-          );
-        })
-      ) : (
-        <p>loading...</p>
-      )}
-    </main>
+            );
+          })
+        ) : (
+          <p>loading...</p>
+        )}
+      </main>
+    </div>
   );
 }

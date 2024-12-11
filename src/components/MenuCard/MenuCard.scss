@@ -11,6 +11,10 @@
     border-radius: 10px;
     border: none;
     @include p;
+    @include tablet {
+      @include p-big;
+      padding: 1rem;
+    }
 
     &-active {
       background-color: $color1;
@@ -43,8 +47,6 @@
   }
 
   &-box {
-    // padding: 1.5rem;
-    // margin: 1rem;
     border-radius: 25px;
     gap: 1rem;
   }
@@ -52,6 +54,10 @@
   &__product {
     &-type {
       padding-top: 2rem;
+      @include tablet {
+        @include h1-big;
+        padding: 2rem 0;
+      }
     }
 
     &-box {
@@ -62,10 +68,29 @@
     &-name {
       padding: 0 0 1rem 0;
       @include h3-bold;
+      @include tablet {
+        padding: 0 0 2rem 0;
+        @include h3-big;
+      }
     }
 
     &-price {
       padding: 0 0 0.5rem 0;
+      @include tablet {
+        @include p-big;
+      }
+    }
+
+    &-description {
+      @include tablet {
+        @include p-big;
+      }
+    }
+
+    &-read-more {
+      @include tablet {
+        @include p-big;
+      }
     }
   }
 
@@ -90,6 +115,15 @@
     border-radius: 20px;
     background-color: $color3;
     color: $color6;
+    @include tablet {
+      @include h1-big;
+    }
+
+    &-text {
+      @include tablet {
+        @include h3-big;
+      }
+    }
   }
 
   &__link {

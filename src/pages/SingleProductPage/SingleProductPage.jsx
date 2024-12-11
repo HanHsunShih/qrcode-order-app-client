@@ -59,68 +59,73 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
   }, []);
 
   return (
-    <main className="single-product-page__box">
-      <button
-        className="single-product-page__bt"
-        onClick={() => {
-          navigate("/menu", { state: scrollPosition });
-        }}
-      >
-        <h3>←</h3>
-      </button>
-      <div className="single-product-page__content">
-        {product ? (
-          <div className="single-product-page__content">
-            <h1 className="single-product-page__product-title">
-              {product.product_name}
-            </h1>
-            {product.image && (
-              <img
-                className="single-product-page__image"
-                src={`${baseUrl}/menu-images/${product.image}`}
-                alt=""
-              />
-            )}
-            <p className="single-product-page__price">£{product.price_gbp}</p>
-            <p className="single-product-page__description">
-              {product.description}
-            </p>
-          </div>
-        ) : (
-          <p>loading...</p>
-        )}
-
-        <form onSubmit={handleAddToCart} className="single-product-page__form">
-          <textarea
-            className="single-product-page__text-area"
-            rows="5"
-            cols="30"
-            placeholder="type in special request..."
-          ></textarea>
-          <div className="single-product-page__bt-box">
-            <div className="single-product-page__count-box">
-              <button
-                className="single-product-page__bt"
-                onClick={handleBtMinus}
-              >
-                <h1> - </h1>
-              </button>
-              <h1 className="single-product-page__purchase-count">
-                {purchaseQuantity}
+    <div className="single-product-page">
+      <main className="single-product-page__box">
+        <button
+          className="single-product-page__bt"
+          onClick={() => {
+            navigate("/menu", { state: scrollPosition });
+          }}
+        >
+          <h3 className="single-product-page__bt-arrow">←</h3>
+        </button>
+        <div className="single-product-page__content">
+          {product ? (
+            <div className="single-product-page__content">
+              <h1 className="single-product-page__product-title">
+                {product.product_name}
               </h1>
-              <button
-                className="single-product-page__bt"
-                onClick={handleBtPlus}
-              >
-                <h1> + </h1>
+              {product.image && (
+                <img
+                  className="single-product-page__image"
+                  src={`${baseUrl}/menu-images/${product.image}`}
+                  alt=""
+                />
+              )}
+              <p className="single-product-page__price">£{product.price_gbp}</p>
+              <p className="single-product-page__description">
+                {product.description}
+              </p>
+            </div>
+          ) : (
+            <p>loading...</p>
+          )}
+
+          <form
+            onSubmit={handleAddToCart}
+            className="single-product-page__form"
+          >
+            <textarea
+              className="single-product-page__text-area"
+              rows="5"
+              cols="30"
+              placeholder="type in special request..."
+            ></textarea>
+            <div className="single-product-page__bt-box">
+              <div className="single-product-page__count-box">
+                <button
+                  className="single-product-page__bt"
+                  onClick={handleBtMinus}
+                >
+                  <h1> - </h1>
+                </button>
+                <h1 className="single-product-page__purchase-count">
+                  {purchaseQuantity}
+                </h1>
+                <button
+                  className="single-product-page__bt"
+                  onClick={handleBtPlus}
+                >
+                  <h1> + </h1>
+                </button>
+              </div>
+              <button className="single-product-page__bt single-product-page__bt-cart">
+                <h2 className="single-product-page__bt-text">Add to cart</h2>
               </button>
             </div>
-            <button className="single-product-page__bt single-product-page__bt-cart">
-              <h2>Add to cart</h2>
-            </button>
-          </div>
-        </form>
-      </div>
-    </main>
+          </form>
+        </div>
+      </main>
+    </div>
   );
 }

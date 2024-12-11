@@ -100,52 +100,55 @@ export default function HistoryPage() {
   }, []);
 
   return (
-    <main className="order-history">
-      <Link to={"/orders"} className="order-history__back-bt">
-        <h3>←</h3>
-      </Link>
-      <h1 className="order-history__title">Order History:</h1>
-      <select
-        name="choose-date"
-        id=""
-        className="order-history__dropdown-menu"
-        onChange={handleDropDownMenu}
-      >
-        <option className="order-history__dropdown-option" value="all">
-          all
-        </option>
-        <option className="order-history__dropdown-option" value="yesterday">
-          yesterday
-        </option>
-        <option className="order-history__dropdown-option" value="last7days">
-          last 7 dyas
-        </option>
-        <option className="order-history__dropdown-option" value="last30days">
-          last 30 dyas
-        </option>
-      </select>
-      {renderedOrders ? (
-        renderedOrders.map((renderedOrder) => {
-          return (
-            <section key={renderedOrder[0]} className="order-history__box">
-              <div className="order-box">
-                <p className="order-history__ordered-date">
-                  ordered date: {formatIsoDate(renderedOrder[1][0].created_at)}
-                </p>
-                {renderedOrder[1].map((item, i) => {
-                  return (
-                    <p key={i}>
-                      {item.product_name} x {item.quantity}
-                    </p>
-                  );
-                })}
-              </div>
-            </section>
-          );
-        })
-      ) : (
-        <p>loading...</p>
-      )}
-    </main>
+    <div className="order-history__big-box">
+      <main className="order-history">
+        <Link to={"/orders"} className="order-history__back-bt">
+          <h3 className="order-history__back-bt-arrow">←</h3>
+        </Link>
+        <h1 className="order-history__title">Order History:</h1>
+        <select
+          name="choose-date"
+          id=""
+          className="order-history__dropdown-menu"
+          onChange={handleDropDownMenu}
+        >
+          <option className="order-history__dropdown-option" value="all">
+            all
+          </option>
+          <option className="order-history__dropdown-option" value="yesterday">
+            yesterday
+          </option>
+          <option className="order-history__dropdown-option" value="last7days">
+            last 7 dyas
+          </option>
+          <option className="order-history__dropdown-option" value="last30days">
+            last 30 dyas
+          </option>
+        </select>
+        {renderedOrders ? (
+          renderedOrders.map((renderedOrder) => {
+            return (
+              <section key={renderedOrder[0]} className="order-history__box">
+                <div className="order-box">
+                  <p className="order-history__ordered-date">
+                    ordered date:{" "}
+                    {formatIsoDate(renderedOrder[1][0].created_at)}
+                  </p>
+                  {renderedOrder[1].map((item, i) => {
+                    return (
+                      <p key={i} className="order-history__orders">
+                        {item.product_name} x {item.quantity}
+                      </p>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })
+        ) : (
+          <p>loading...</p>
+        )}
+      </main>
+    </div>
   );
 }

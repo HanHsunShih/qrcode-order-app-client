@@ -3,6 +3,11 @@
 @use "../../styles/_partials/mixin" as *;
 
 .home-page {
+  @include tablet {
+    @include flex;
+    width: 100%;
+  }
+
   &__bg-video {
     width: 100vw;
     height: 100vh;
@@ -21,6 +26,10 @@
     flex-direction: column;
     height: 100vh;
     padding: 2rem 2rem 5rem 2rem;
+
+    @include tablet {
+      width: 768px;
+    }
   }
 
   &__admin-box {

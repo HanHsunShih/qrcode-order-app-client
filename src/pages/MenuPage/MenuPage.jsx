@@ -48,7 +48,7 @@ export default function MenuPage({
   }, []);
 
   return (
-    <>
+    <div className="menu-page">
       <main className="menu-page__box">
         <div className="menu-page__top-box">
           <button
@@ -58,7 +58,7 @@ export default function MenuPage({
               navigate(`/`);
             }}
           >
-            <h3>←</h3>
+            <h3 className="menu-page__go-back-bt-arrow">←</h3>
           </button>
           <h1 className="menu-page__title">Menu</h1>
           <Link to="https://www.instagram.com/seaward.m.plan_coffee.diving/?hl=zh-tw">
@@ -78,9 +78,9 @@ export default function MenuPage({
           <p>loading...</p>
         )}
         <button onClick={handleGoToCart} className="menu-page__cart">
-          <h3>Cart {cartInfo.length}</h3>
+          <h3 className="menu-page__cart-text">Cart {cartInfo.length}</h3>
         </button>
       </main>
-    </>
+    </div>
   );
 }

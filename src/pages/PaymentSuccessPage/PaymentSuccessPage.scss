@@ -36,10 +36,15 @@
 
   &__message {
     padding: 2rem 0;
-    // color: $color2;
+    @include tablet {
+      @include h3-big;
+    }
   }
 
   &__home-bt {
     @include button;
+    @include tablet {
+      @include h3-big;
+    }
   }
 }

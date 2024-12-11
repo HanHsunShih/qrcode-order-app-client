@@ -3,13 +3,23 @@
 @use "../../styles/_partials/mixin" as *;
 
 .cart-page {
+  &__big-box {
+    @include flex;
+  }
   padding: 2rem;
+  @include tablet {
+    width: 1020px;
+  }
 
   &__animation {
     &-box {
       position: absolute;
       right: -10%;
       overflow: hidden;
+      @include tablet {
+        right: 20%;
+        z-index: 100;
+      }
     }
     position: relative;
     border: none;
@@ -18,6 +28,9 @@
   &__title {
     @include h1;
     padding: 2rem 0;
+    @include tablet {
+      @include h1-big;
+    }
   }
   &__box {
     display: flex;
@@ -34,17 +47,54 @@
     }
   }
 
+  &__product {
+    @include tablet {
+      @include h3-big;
+    }
+  }
+
+  &__price {
+    @include tablet {
+      padding: 1rem 0;
+      @include h3-big;
+    }
+  }
+
+  &__delete {
+    @include tablet {
+      @include h3-big;
+    }
+  }
+
   &__bt {
     @include button;
 
+    &-delete {
+      @include tablet {
+        margin-left: 2rem;
+      }
+    }
+
+    &-text {
+      @include tablet {
+        @include h3-big;
+      }
+    }
+
     &-pay {
       margin: 2rem 0;
+      @include tablet {
+        margin: 5rem 0;
+      }
     }
   }
 
   &__text {
     @include h2-bold;
     padding-top: 0.2rem;
+    @include tablet {
+      @include h2-bold-big;
+    }
   }
 
   &__table-number-input {
@@ -57,9 +107,29 @@
     font-size: 1.5rem;
     padding: 0rem 1rem;
     margin-top: 3rem;
+    @include tablet {
+      @include h3-big;
+      height: 3rem;
+      width: 100%;
+    }
+  }
+
+  &__total-price {
+    @include tablet {
+      @include p-big;
+    }
   }
 
   &__message {
     padding: 0.5rem 0;
+    @include tablet {
+      @include p-big;
+    }
+  }
+
+  &__pay-bt {
+    @include tablet {
+      @include h2-big;
+    }
   }
 }

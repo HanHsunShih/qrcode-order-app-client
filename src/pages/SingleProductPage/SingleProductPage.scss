@@ -4,6 +4,10 @@
 @use "../../styles/_partials/resets.scss";
 
 .single-product-page {
+  background-color: $color2;
+  @include tablet {
+    @include flex;
+  }
   &__box {
     background-color: $color2;
     padding: 2rem;
@@ -12,6 +16,9 @@
 
   &__product-title {
     padding: 2rem 0 1rem 0;
+    @include tablet {
+      @include h1-big;
+    }
   }
 
   &__content {
@@ -26,10 +33,18 @@
 
   &__price {
     @include h2-bold;
+    @include tablet {
+      @include h2-big;
+      padding: 2rem 0;
+    }
   }
 
   &__description {
     text-align: center;
+    @include tablet {
+      @include p-big;
+      padding-bottom: 1rem;
+    }
   }
 
   &__text-area {
@@ -39,6 +54,10 @@
     background-color: $color3;
     border: none;
     border-radius: 15px;
+    @include tablet {
+      @include p-big;
+      padding-bottom: 1rem;
+    }
   }
 
   &__purchase-count {
@@ -49,10 +68,21 @@
     @include button;
     justify-content: flex-start;
     cursor: pointer;
+    &-text {
+      @include tablet {
+        @include h2-big;
+      }
+    }
 
     &-cart {
       margin: 2rem 0;
       width: 80%;
+    }
+
+    &-arrow {
+      @include tablet {
+        @include h3-big;
+      }
     }
   }
 

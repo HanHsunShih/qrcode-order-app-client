@@ -89,9 +89,6 @@ export default function MenuCard({
       });
 
       if (activeTag !== -1) {
-        console.log("activeTag = ");
-        console.log(activeTag);
-
         const tagElement = menuRef.current?.children[activeTag];
         if (tagElement) {
           tagElement.scrollIntoView({
@@ -161,14 +158,18 @@ export default function MenuCard({
                         <p className="menuCard__product-price">
                           £{productInfo.price_gbp}
                         </p>
-                        <p>{productInfo.description}</p>
+                        <p className="menuCard__product-description">
+                          {productInfo.description}
+                        </p>
                         <button
                           className="menuCard__link"
                           onClick={() => {
                             handleReadMore(productInfo.id);
                           }}
                         >
-                          <p>read more...</p>
+                          <p className="menuCard__product-read-more">
+                            read more...
+                          </p>
                         </button>
                       </div>
                       <div className="menuCard__product-box-right">
@@ -188,7 +189,7 @@ export default function MenuCard({
                             }}
                             className="menuCard__bt"
                           >
-                            <h3> + </h3>
+                            <h3 className="menuCard__bt-text"> + </h3>
                           </button>
                         </div>
                       </div>

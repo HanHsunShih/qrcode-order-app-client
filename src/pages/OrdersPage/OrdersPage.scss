@@ -3,14 +3,37 @@
 @use "../../styles/_partials/mixin" as *;
 
 .order-page {
+  &__big-box {
+    @include tablet {
+      @include flex;
+    }
+  }
   padding: 2rem;
+  @include tablet {
+    width: 1020px;
+  }
 
   &__title {
     padding: 2rem 0;
+    @include tablet {
+      @include h1-big;
+    }
   }
 
   &__history-bt {
     @include button;
+
+    &-text {
+      @include tablet {
+        @include h2-big;
+      }
+    }
+  }
+
+  &__product {
+    @include tablet {
+      @include p-big;
+    }
   }
 
   &__box {
@@ -26,6 +49,9 @@
 
       &-text {
         @include h3-bold;
+        @include tablet {
+          @include p-big;
+        }
       }
     }
   }
@@ -33,5 +59,11 @@
   &__complete-bt {
     @include button($bg-color: $color2);
     @include h3;
+
+    &-text {
+      @include tablet {
+        @include p-big;
+      }
+    }
   }
 }

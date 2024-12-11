@@ -13,6 +13,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 20px;
+  @include tablet {
+    width: 600px;
+  }
 
   &__title {
     padding-top: 1rem;
