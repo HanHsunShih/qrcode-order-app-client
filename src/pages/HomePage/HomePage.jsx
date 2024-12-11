@@ -56,12 +56,6 @@ export default function HomePage({ tableNumber, setTableNumber }) {
         </div>
         <section>
           <form onSubmit={handleSubmit} className="home-page__middle-box">
-            {/* <label
-              className="home-page__table-number-label"
-              name="table_number"
-            >
-              Enter Table Number
-            </label> */}
             <input
               onChange={handleTableNumberChange}
               className="home-page__table-number"

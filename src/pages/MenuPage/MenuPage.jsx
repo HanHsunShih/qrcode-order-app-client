@@ -11,13 +11,12 @@ export default function MenuPage({
   cartInfo,
   handleCartReset,
 }) {
-  const [productsInfo, setProductsInfo] = useState([]);
   const navigate = useNavigate();
-  const { userId } = useParams();
-
+  // const { userId } = useParams();
   const location = useLocation();
   const initialScrollPosition = location.state ? location.state : 0;
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
+  const [productsInfo, setProductsInfo] = useState([]);
 
   window.scrollTo({ top: scrollPosition, behavior: "smooth" });
 
@@ -37,6 +36,11 @@ export default function MenuPage({
 
   const handleAddToCartPosition = () => {
     setScrollPosition(window.scrollY);
+  };
+
+  const handleGoToCart = () => {
+    setScrollPosition(window.scrollY);
+    navigate("/cart", { state: { scrollPosition: window.scrollY } });
   };
 
   useEffect(() => {
@@ -73,9 +77,9 @@ export default function MenuPage({
         ) : (
           <p>loading...</p>
         )}
-        <Link to="/cart" className="menu-page__cart">
+        <button onClick={handleGoToCart} className="menu-page__cart">
           <h3>Cart {cartInfo.length}</h3>
-        </Link>
+        </button>
       </main>
     </>
   );

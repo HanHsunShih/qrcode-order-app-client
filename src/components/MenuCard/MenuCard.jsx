@@ -10,7 +10,7 @@ export default function MenuCard({
 }) {
   const menuRef = useRef(null);
   const navigate = useNavigate();
-  const [activeType, setActiveType] = useState(null);
+  const [activeType, setActiveType] = useState("Pour-over Coffee");
   const types = [...new Set(productsInfoArr.map((product) => product.type))];
 
   const handleScrollerToProduct = (i) => {
@@ -24,6 +24,20 @@ export default function MenuCard({
       top: yPosition,
       behavior: "smooth",
     });
+    // element.scrollIntoView({
+    //   behavior: "smooth",
+    //   block: "start",
+    // });
+
+    // setTimeout(() => {
+    //   const rem = parseFloat(
+    //     getComputedStyle(document.documentElement).fontSize
+    //   );
+    //   window.scrollTo({
+    //     top: window.scrollY + rem * 2,
+    //     behavior: "smooth",
+    //   });
+    // }, 5000);
   };
 
   const handleScrollToTag = (tagIndex) => {
@@ -45,6 +59,56 @@ export default function MenuCard({
       state: { scrollPosition: window.scrollY },
     });
   };
+
+  //when browsing the menu, scroll active tag to center
+  const typeRefs = useRef([]);
+  const [tagRanges, setTagRanges] = useState([]);
+
+  useEffect(() => {
+    const ranges = typeRefs.current.map((typeRef) => {
+      const offsetTop = typeRef?.offsetTop || 0;
+      const remValue = parseFloat(
+        getComputedStyle(document.documentElement).fontSize
+      );
+      return offsetTop - 15 * remValue;
+    });
+
+    const calculateRange = ranges.map((start, i) => {
+      return [start, ranges[i + 1] ? ranges[i + 1] - 1 : Infinity];
+    });
+
+    setTagRanges(calculateRange);
+  }, [productsInfoArr]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      const activeTag = tagRanges.findIndex(([start, end]) => {
+        return scrollY >= start && scrollY <= end;
+      });
+
+      if (activeTag !== -1) {
+        console.log("activeTag = ");
+        console.log(activeTag);
+
+        const tagElement = menuRef.current?.children[activeTag];
+        if (tagElement) {
+          tagElement.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+      }
+      setActiveType(activeTag);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [tagRanges]);
 
   return (
     <main className="menuCard__box">
@@ -79,9 +143,17 @@ export default function MenuCard({
                 .filter((productInfo) => {
                   return productInfo.type === type;
                 })
-                .map((productInfo) => {
+                .map((productInfo, productIndex) => {
                   return (
-                    <div className="menuCard__product-box" key={productInfo.id}>
+                    <div
+                      className="menuCard__product-box"
+                      key={productInfo.id}
+                      ref={
+                        productIndex === 0
+                          ? (el) => (typeRefs.current[i] = el)
+                          : null
+                      }
+                    >
                       <div>
                         <h2 className="menuCard__product-name">
                           {productInfo.product_name}

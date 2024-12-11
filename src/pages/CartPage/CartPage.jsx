@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./CartPage.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function CartPage({
   cartInfo,
@@ -9,9 +9,11 @@ export default function CartPage({
   setTableNumber,
 }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [tableMessage, setTableMessage] = useState("");
   const [showTableInput, setShowTableInput] = useState(false);
   const [paymentMessage, setPaymentessage] = useState("");
+  const scrollPosition = location.state?.scrollPosition || 0;
 
   let totalPrice = 0;
   for (let i = 0; i < cartInfo.length; i++) {
@@ -47,6 +49,14 @@ export default function CartPage({
     setTableNumber(event.target.value);
   };
 
+  const handleGoBack = () => {
+    navigate("/menu", { state: scrollPosition });
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="cart-page">
       <div className="cart-page__animation-box">
@@ -55,9 +65,9 @@ export default function CartPage({
           src="https://lottie.host/embed/7a203e77-1382-4000-86d0-5d57e5d52723/3AKtCYFLwz.lottie"
         ></iframe>
       </div>
-      <Link to="/menu" className="cart-page__bt">
+      <button onClick={handleGoBack} className="cart-page__bt">
         <h3>←</h3>
-      </Link>
+      </button>
       <div className="cart-page__box">
         <h1 className="cart-page__title">Your Cart</h1>
         {cartInfo.map((item, index) => {
