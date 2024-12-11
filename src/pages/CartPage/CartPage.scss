@@ -4,7 +4,9 @@
 
 .cart-page {
   &__big-box {
-    @include flex;
+    @include tablet {
+      @include flex;
+    }
   }
   padding: 2rem;
   @include tablet {

@@ -41,6 +41,7 @@ export default function MenuPage({
   const handleGoToCart = () => {
     setScrollPosition(window.scrollY);
     navigate("/cart", { state: { scrollPosition: window.scrollY } });
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
