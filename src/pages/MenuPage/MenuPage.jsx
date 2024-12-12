@@ -20,6 +20,8 @@ export default function MenuPage({
 
   window.scrollTo({ top: scrollPosition, behavior: "smooth" });
 
+  console.log(location.state);
+
   const menuRender = async () => {
     try {
       const products = await getAllProducts();
