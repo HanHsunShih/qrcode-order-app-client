@@ -21,6 +21,8 @@ export default function MenuPage({
   window.scrollTo({ top: scrollPosition, behavior: "smooth" });
 
   console.log(location.state);
+  console.log(scrollPosition);
+  console.log(typeof scrollPosition);
 
   const menuRender = async () => {
     try {
