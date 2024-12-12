@@ -18,7 +18,9 @@ export default function MenuPage({
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
   const [productsInfo, setProductsInfo] = useState([]);
 
-  window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+  setTimeout(() => {
+    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+  }, 1000);
 
   console.log(location.state);
   console.log(scrollPosition);
