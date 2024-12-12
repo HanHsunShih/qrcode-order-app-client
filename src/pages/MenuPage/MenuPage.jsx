@@ -27,7 +27,6 @@ export default function MenuPage({
           return product;
         })
       );
-      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
     } catch (error) {
       console.error("❄️Error invoke getAllProducts function" + error);
     }
@@ -43,8 +42,13 @@ export default function MenuPage({
     window.scrollTo(0, 0);
   };
 
+  const renderMenuAndScroll = async () => {
+    await menuRender();
+    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+  };
+
   useEffect(() => {
-    menuRender();
+    renderMenuAndScroll();
   }, []);
 
   return (
