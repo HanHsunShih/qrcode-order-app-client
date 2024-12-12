@@ -18,14 +18,6 @@ export default function MenuPage({
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
   const [productsInfo, setProductsInfo] = useState([]);
 
-  setTimeout(() => {
-    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-  }, 1000);
-
-  console.log(location.state);
-  console.log(scrollPosition);
-  console.log(typeof scrollPosition);
-
   const menuRender = async () => {
     try {
       const products = await getAllProducts();
@@ -35,6 +27,7 @@ export default function MenuPage({
           return product;
         })
       );
+      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
     } catch (error) {
       console.error("❄️Error invoke getAllProducts function" + error);
     }
