@@ -42,14 +42,15 @@ export default function MenuPage({
     window.scrollTo(0, 0);
   };
 
-  const renderMenuAndScroll = async () => {
-    await menuRender();
-    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-  };
+  useEffect(() => {
+    menuRender();
+  }, []);
 
   useEffect(() => {
-    renderMenuAndScroll();
-  }, []);
+    if (productsInfo.length) {
+      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+    }
+  }, [productsInfo]);
 
   return (
     <div className="menu-page">
