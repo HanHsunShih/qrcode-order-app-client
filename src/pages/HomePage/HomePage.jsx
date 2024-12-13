@@ -5,6 +5,7 @@ import turtlePoster from "../../assets/media/home-page-poster-seaturtle.png";
 import turtleVideo from "../../assets/media/home-page-video-seaturtle.mp4";
 import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
+import turtleGif from "../../assets/media/home-page-video-seaturtle.gif";
 
 export default function HomePage({ tableNumber, setTableNumber }) {
   const navigate = useNavigate();
@@ -40,15 +41,17 @@ export default function HomePage({ tableNumber, setTableNumber }) {
       {/* <SignUp /> */}
       {adminPopUp && <Login handleCancelLogIn={handleCancelLogIn} />}
       <main className="home-page__box">
-        <video
-          muted
+        {/* <video
           className="home-page__bg-video"
-          autoPlay
-          loop
+          loop={true}
+          muted={true}
+          autoPlay={true}
+          playsInline={true}
           poster={turtlePoster}
         >
           <source src={turtleVideo} type="video/mp4" />
-        </video>
+        </video> */}
+        <iframe className="home-page__bg-video" src={turtleGif}></iframe>
         <div className="home-page__admin-box">
           <button className="home-page__top-bt" onClick={handleLogIn}>
             <p>Admin</p>

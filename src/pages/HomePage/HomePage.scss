@@ -7,10 +7,11 @@
     @include flex;
     width: 100%;
   }
+  overflow: hidden;
 
   &__bg-video {
-    width: 100vw;
-    height: 100vh;
+    width: 1000px;
+    height: 200vh;
     object-fit: cover;
     position: fixed;
     left: 0;
