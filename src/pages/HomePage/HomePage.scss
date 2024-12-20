@@ -10,8 +10,10 @@
   overflow: hidden;
 
   &__bg-video {
-    width: 1000px;
-    height: 200vh;
+    // display: flex;
+    // justify-content: center;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     position: fixed;
     left: 0;

@@ -119,10 +119,10 @@ export default function HistoryPage() {
             yesterday
           </option>
           <option className="order-history__dropdown-option" value="last7days">
-            last 7 dyas
+            last 7 days
           </option>
           <option className="order-history__dropdown-option" value="last30days">
-            last 30 dyas
+            last 30 days
           </option>
         </select>
         {renderedOrders ? (

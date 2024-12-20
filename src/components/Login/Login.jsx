@@ -58,7 +58,7 @@ export default function Login({ handleCancelLogIn }) {
           </label>
           <input
             className="login__form-input"
-            type="text"
+            type="password"
             name="password"
             onChange={handleChange}
           />

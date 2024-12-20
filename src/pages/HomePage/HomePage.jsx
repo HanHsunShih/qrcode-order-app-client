@@ -41,7 +41,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
       {/* <SignUp /> */}
       {adminPopUp && <Login handleCancelLogIn={handleCancelLogIn} />}
       <main className="home-page__box">
-        {/* <video
+        <video
           className="home-page__bg-video"
           loop={true}
           muted={true}
@@ -50,8 +50,8 @@ export default function HomePage({ tableNumber, setTableNumber }) {
           poster={turtlePoster}
         >
           <source src={turtleVideo} type="video/mp4" />
-        </video> */}
-        <iframe className="home-page__bg-video" src={turtleGif}></iframe>
+        </video>
+        {/* <iframe className="home-page__bg-video" src={turtleGif}></iframe> */}
         <div className="home-page__admin-box">
           <button className="home-page__top-bt" onClick={handleLogIn}>
             <p>Admin</p>
