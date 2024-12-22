@@ -5,6 +5,7 @@ import { getAllProducts } from "../../../utils/apiUtils.mjs";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import igIcon from "../../assets/images/instagram.png";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function MenuPage({
   handleAddToCart,
@@ -12,8 +13,8 @@ export default function MenuPage({
   handleCartReset,
 }) {
   const navigate = useNavigate();
-  // const { userId } = useParams();
   const location = useLocation();
+  const { t } = useTranslation();
   const initialScrollPosition = location.state ? location.state : 0;
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
   const [productsInfo, setProductsInfo] = useState([]);
@@ -65,7 +66,7 @@ export default function MenuPage({
           >
             <h3 className="menu-page__go-back-bt-arrow">←</h3>
           </button>
-          <h1 className="menu-page__title">Menu</h1>
+          <h1 className="menu-page__title">{t("menu")}</h1>
           <Link to="https://www.instagram.com/seaward.m.plan_coffee.diving/?hl=zh-tw">
             <img className="menu-page__ig-icon" src={igIcon} alt="" />
           </Link>
@@ -83,7 +84,9 @@ export default function MenuPage({
           <p>loading...</p>
         )}
         <button onClick={handleGoToCart} className="menu-page__cart">
-          <h3 className="menu-page__cart-text">Cart {cartInfo.length}</h3>
+          <h3 className="menu-page__cart-text">
+            {t("cart")} {cartInfo.length}
+          </h3>
         </button>
       </main>
     </div>

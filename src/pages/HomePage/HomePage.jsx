@@ -6,6 +6,9 @@ import Login from "../../components/Login/Login";
 import LanguageSelector from "../../components/LanguageSelector/LanguageSelector";
 import turtlePoster from "../../assets/media/home-page-poster-seaturtle.png";
 import turtleVideo from "../../assets/media/home-page-video-seaturtle.mp4";
+// import "../../../public/locales/ch";
+// import "../../../public/locales/en";
+
 import SignUp from "../../components/SignUp/SignUp";
 import turtleGif from "../../assets/media/home-page-video-seaturtle.gif";
 

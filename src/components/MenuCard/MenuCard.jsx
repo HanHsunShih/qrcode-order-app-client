@@ -24,20 +24,6 @@ export default function MenuCard({
       top: yPosition,
       behavior: "smooth",
     });
-    // element.scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "start",
-    // });
-
-    // setTimeout(() => {
-    //   const rem = parseFloat(
-    //     getComputedStyle(document.documentElement).fontSize
-    //   );
-    //   window.scrollTo({
-    //     top: window.scrollY + rem * 2,
-    //     behavior: "smooth",
-    //   });
-    // }, 5000);
   };
 
   const handleScrollToTag = (tagIndex) => {

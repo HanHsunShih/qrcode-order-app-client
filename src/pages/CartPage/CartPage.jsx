@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./CartPage.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function CartPage({
   cartInfo,
@@ -10,6 +11,7 @@ export default function CartPage({
 }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const [tableMessage, setTableMessage] = useState("");
   const [showTableInput, setShowTableInput] = useState(false);
   const [paymentMessage, setPaymentessage] = useState("");
@@ -23,14 +25,14 @@ export default function CartPage({
 
   const handlePayClick = () => {
     if (formattedTotalPrice === "0.00") {
-      setPaymentessage("You haven't order anything yet 😳");
+      setPaymentessage(t("paymentMessage"));
       return;
     } else if (tableNumber === "") {
-      setTableMessage("Please enter your table number 🥪");
+      setTableMessage(t("showTableInput"));
       setShowTableInput(true);
       return;
     } else if (isNaN(tableNumber) || tableNumber < 0 || tableNumber > 20) {
-      setTableMessage("Please enter the right table number ☕️");
+      setTableMessage(t("tableMessage"));
       setShowTableInput(true);
       return;
     }
@@ -70,24 +72,26 @@ export default function CartPage({
           <h3 className="cart-page__bt-text">←</h3>
         </button>
         <div className="cart-page__box">
-          <h1 className="cart-page__title">Your Cart</h1>
+          <h1 className="cart-page__title">{t("yourCart")}</h1>
           {cartInfo.map((item, index) => {
             return (
               <div key={index} className="cart-page__box-small">
                 <div className="cart-page__box-left">
                   <h3 className="cart-page__product">{item.product_name}</h3>
-                  <p className="cart-page__price">£ {item.price_gbp}</p>
+                  <p className="cart-page__price">
+                    {t("priceIcon")} {item.price_gbp}
+                  </p>
                 </div>
                 <button
                   className="cart-page__bt cart-page__bt-delete"
                   onClick={() => handleDelete(index)}
                 >
-                  <h3 className="cart-page__delete">Delete</h3>
+                  <h3 className="cart-page__delete">{t("delete")}</h3>
                 </button>
               </div>
             );
           })}
-          <p className="cart-page__total-price">total price</p>
+          <p className="cart-page__total-price">{t("totalPrice")}</p>
           <p className="cart-page__text">£ {formattedTotalPrice}</p>
           {showTableInput && (
             <input
@@ -105,7 +109,7 @@ export default function CartPage({
             className="cart-page__bt cart-page__bt-pay"
             onClick={handlePayClick}
           >
-            <h2 className="cart-page__pay-bt">Pay</h2>
+            <h2 className="cart-page__pay-bt">{t("paybtn")}</h2>
           </button>
         </div>
       </main>

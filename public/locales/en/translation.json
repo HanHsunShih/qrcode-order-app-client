@@ -1,0 +1,16 @@
+{
+  "login": "admin",
+  "tableNumber": "enter table number",
+  "continueBt": "continue",
+  "browseMenuBt": "Browse the Menu",
+  "menu": "Menu",
+  "cart": "Cart",
+  "yourCart": "Your Cart",
+  "priceIcon": "£",
+  "delete": "Delete",
+  "totalPrice": "total price",
+  "paybtn": "Pay",
+  "paymentMessage": "You haven't order anything yet 😳",
+  "showTableInput": "Please enter your table number 🥪",
+  "tableMessage": "Please enter the right table number ☕️"
+}
