@@ -10,8 +10,6 @@
   overflow: hidden;
 
   &__bg-video {
-    // display: flex;
-    // justify-content: center;
     width: 100vw;
     height: 100vh;
     object-fit: cover;
@@ -36,7 +34,7 @@
   }
 
   &__admin-box {
-    @include flex($justify: flex-end);
+    @include flex($justify: space-between);
   }
 
   &__top-box {

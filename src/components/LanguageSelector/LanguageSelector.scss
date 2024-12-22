@@ -1,0 +1,24 @@
+@use "../../styles/_partials/typography" as *;
+@use "../../styles/_partials/variables" as *;
+@use "../../styles/_partials/mixin" as *;
+
+.lang-btn {
+  &-box {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  height: 1.5rem;
+  padding: 0 0.5rem 0 0.5rem;
+  @include h3;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-family: "Quattrocento";
+
+  &--selected {
+    background-color: $color1;
+    color: $color2;
+    border: none;
+  }
+}
