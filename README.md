@@ -2,6 +2,8 @@
 
 ### Live Demo 🏄🏻‍♀️
 Check out the live demo: [QR Code Order Application](https://seaward-migration-plan.netlify.app/)</br>
+
+### Backend 🏄
 Check out the backend README: [backend README](https://github.com/HanHsunShih/qrcode-order-app-server)
 
 This QR code ordering app is built for my sister's cafe in Taiwan, allowing customers to order online. The client side handles menu display and ordering, while the admin dashboard, with login access, lets authorized users view orders and history.
@@ -9,6 +11,8 @@ This QR code ordering app is built for my sister's cafe in Taiwan, allowing cust
 client-side|admin-side
 --|--
 <img src="https://github.com/HanHsunShih/qrcode-order-app-client/blob/main/images/client-side_compressed.gif" width="300" />|<img src="https://github.com/HanHsunShih/qrcode-order-app-client/blob/main/images/admin-side_compressed.gif" width="300" />
+
+# Build With
 
 <p align="left">
   <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
@@ -21,11 +25,6 @@ client-side|admin-side
   <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> 
   <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
 </p>
-
-# Build With
-
-<img src="https://skillicons.dev/icons?i=html,css,react,js,nodejs,express,postman,mysql,git," />
-
 # Getting Started 🤩
 
 ## Prerequisities
