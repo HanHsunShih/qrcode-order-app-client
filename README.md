@@ -1,4 +1,4 @@
-# About the project
+# Online order System for my sister's cafe shop☕️
 
 ### Live Demo 🏄🏻‍♀️
 Check out the live demo: [QR Code Order Application](https://seaward-migration-plan.netlify.app/)</br>
@@ -6,11 +6,23 @@ Check out the live demo: [QR Code Order Application](https://seaward-migration-p
 ### Backend 🏄
 Check out the backend README: [backend README](https://github.com/HanHsunShih/qrcode-order-app-server)
 
+# About this Project
 This QR code ordering app is built for my sister's cafe in Taiwan, allowing customers to order online. The client side handles menu display and ordering, while the admin dashboard, with login access, lets authorized users view orders and history.
 
 client-side|admin-side
 --|--
 <img src="https://github.com/HanHsunShih/qrcode-order-app-client/blob/main/images/client-side_compressed.gif" width="300" />|<img src="https://github.com/HanHsunShih/qrcode-order-app-client/blob/main/images/admin-side_compressed.gif" width="300" />
+
+# Features 🤿
+### Customer Interface:
+- Browse the menu and place orders.
+- Add meals to or remove them from the cart.
+- Navigate through tabs with scroll synchronization.
+
+### Admin Dashboard:
+- View all pending orders.
+- Mark orders as "complete" to save them to the order history.
+
 
 # Build With
 
@@ -25,6 +37,7 @@ client-side|admin-side
   <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> 
   <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
 </p>
+
 # Getting Started 🤩
 
 ## Prerequisities
