@@ -1,7 +1,7 @@
 # About the project
 
 ### Live Demo 🏄🏻‍♀️
-Check out the live demo: [QR Code Order Application](https://seaward-migration-plan.netlify.app/)
+Check out the live demo: [QR Code Order Application](https://seaward-migration-plan.netlify.app/)</br>
 Check out the backend README: [backend README](https://github.com/HanHsunShih/qrcode-order-app-server)
 
 This QR code order application is designed for my sister, who runs a cafe in Taiwan, allowing customers to place orders online. The menu reflects what she actually uses in her cafe.
