@@ -18,6 +18,7 @@ export default function MenuPage({
   const initialScrollPosition = location.state ? location.state : 0;
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
   const [productsInfo, setProductsInfo] = useState([]);
+  const lanStatus = location.state?.lanStatus;
 
   const menuRender = async () => {
     try {
@@ -79,6 +80,7 @@ export default function MenuPage({
             setScrollPosition={setScrollPosition}
             scrollPosition={scrollPosition}
             handleAddToCartPosition={handleAddToCartPosition}
+            lanStatus={lanStatus}
           />
         ) : (
           <p>loading...</p>

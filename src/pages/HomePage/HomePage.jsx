@@ -47,6 +47,9 @@ export default function HomePage({ tableNumber, setTableNumber }) {
     navigate(`/menu`, { state: { lanStatus } });
   };
 
+  console.log("lanStatus: ");
+  console.log(lanStatus);
+
   //, { state: { lanStatue } }
 
   return (

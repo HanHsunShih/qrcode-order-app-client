@@ -14,6 +14,9 @@ export default function LanguageSelector({ setLanStatus }) {
   const handleSelectLang = (lang) => {
     i18n.changeLanguage(lang);
     setLanStatus(lang);
+
+    console.log("current language: ");
+    console.log(lang);
   };
 
   return (

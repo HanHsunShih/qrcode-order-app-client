@@ -7,6 +7,7 @@ export default function MenuCard({
   handleAddToCart,
   setScrollPosition,
   handleAddToCartPosition,
+  lanStatus,
 }) {
   const menuRef = useRef(null);
   const navigate = useNavigate();
