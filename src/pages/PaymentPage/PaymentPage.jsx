@@ -2,10 +2,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./PaymentPage.scss";
 import { useState } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 export default function Payment({ tableNumber, cartInfo }) {
   const { state } = useLocation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const baseUrl = import.meta.env.VITE_SERVER_URL;
 
   const payload = {
@@ -52,14 +54,16 @@ export default function Payment({ tableNumber, cartInfo }) {
           <h1 className="payment-page__price">{state}</h1>
         </div>
         <div className="payment-page__bt-box">
+          <button className="payment-page__pay-bt" onClick={handlePaymentClick}>
+            <h3 className="payment-page__pay-bt-text">
+              {t("payAtCounterbtn")}
+            </h3>
+          </button>
           <button className="payment-page__pay-bt">
             <h3 className="payment-page__pay-bt-text">ApplePay</h3>
           </button>
           <button className="payment-page__pay-bt">
             <h3 className="payment-page__pay-bt-text">LinePay</h3>
-          </button>
-          <button className="payment-page__pay-bt" onClick={handlePaymentClick}>
-            <h3 className="payment-page__pay-bt-text">Pay At Counter</h3>
           </button>
         </div>
         <div className="payment-page__animation-box">

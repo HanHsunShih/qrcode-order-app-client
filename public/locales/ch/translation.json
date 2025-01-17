@@ -12,5 +12,8 @@
   "paybtn": "付款",
   "paymentMessage": "請先點餐 😳",
   "showTableInput": "請輸入桌號 🥪",
-  "tableMessage": "請輸入正確的桌號 ☕️"
+  "tableMessage": "請輸入正確的桌號 ☕️",
+  "payAtCounterbtn": "櫃檯結帳",
+  "paymentSucceed": "結帳成功",
+  "BackToMenuPageBtn": "回到菜單"
 }

@@ -12,5 +12,8 @@
   "paybtn": "Pay",
   "paymentMessage": "You haven't order anything yet 😳",
   "showTableInput": "Please enter your table number 🥪",
-  "tableMessage": "Please enter the right table number ☕️"
+  "tableMessage": "Please enter the right table number ☕️",
+  "payAtCounterbtn": "Pay At Counter",
+  "paymentSucceed": "Your payment is Success",
+  "BackToMenuPageBtn": "Back to home page"
 }

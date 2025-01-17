@@ -17,6 +17,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const { t } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
   const [adminPopUp, setAdminPopUp] = useState(false);
+  const [lanStatus, setLanStatus] = useState("ch");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +28,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
     }
 
     setErrorMessage("");
-    navigate(`/menu`);
+    navigate(`/menu`, { state: { language: { lanStatus } } });
   };
 
   const handleLogIn = () => {
@@ -41,6 +42,12 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const handleCancelLogIn = () => {
     setAdminPopUp(false);
   };
+
+  const handleNavToMenu = () => {
+    navigate(`/menu`, { state: { lanStatus } });
+  };
+
+  //, { state: { lanStatue } }
 
   return (
     <section className="home-page">
@@ -59,7 +66,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
         </video>
         {/* <iframe className="home-page__bg-video" src={turtleGif}></iframe> */}
         <div className="home-page__admin-box">
-          <LanguageSelector />
+          <LanguageSelector setLanStatus={setLanStatus} />
           <button className="home-page__top-bt" onClick={handleLogIn}>
             <p>{t("login")}</p>
           </button>
@@ -80,9 +87,9 @@ export default function HomePage({ tableNumber, setTableNumber }) {
           </form>
         </section>
         <section className="home-page__bottom-box">
-          <Link to="/menu" className="home-page__bottom-bt">
+          <button onClick={handleNavToMenu} className="home-page__bottom-bt">
             <p className="home-page__bottom-bt">{t("browseMenuBt")}</p>
-          </Link>
+          </button>
         </section>
       </main>
     </section>

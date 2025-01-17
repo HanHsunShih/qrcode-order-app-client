@@ -2,9 +2,11 @@ import "./PaymentSuccessPage.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import cavePoster from "../../assets/media/home-page-poster-cave.png";
 import caveVideo from "../../assets/media/home-page-video-cave.mov";
+import { useTranslation } from "react-i18next";
 
 export default function PaymentSuccessPage({ setCartInfo }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleCartReset = () => {
     setCartInfo([]);
@@ -32,7 +34,7 @@ export default function PaymentSuccessPage({ setCartInfo }) {
       </Link> */}
       <div className="payment-success-page__box">
         <h3 className="payment-success-page__message">
-          Your payment is Success🎉
+          {t("paymentSucceed")}🎉
         </h3>
         <button
           className="payment-success-page__home-bt"
@@ -41,7 +43,9 @@ export default function PaymentSuccessPage({ setCartInfo }) {
             handleCartReset();
           }}
         >
-          <h3 className="payment-success-page__home-bt">Back to home page</h3>
+          <h3 className="payment-success-page__home-bt">
+            {t("BackToMenuPageBtn")}
+          </h3>
         </button>
       </div>
     </main>

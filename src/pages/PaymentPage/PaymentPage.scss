@@ -55,6 +55,10 @@
         @include h3-big;
       }
     }
+
+    &-text {
+      font-weight: normal;
+    }
   }
 
   &__animation {

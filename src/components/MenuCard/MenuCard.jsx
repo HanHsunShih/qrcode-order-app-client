@@ -12,6 +12,9 @@ export default function MenuCard({
   const navigate = useNavigate();
   const [activeType, setActiveType] = useState("Pour-over Coffee");
   const types = [...new Set(productsInfoArr.map((product) => product.type))];
+  const typesCh = [
+    ...new Set(productsInfoArr.map((product) => product.type_ch)),
+  ];
 
   const handleScrollerToProduct = (i) => {
     const element = document.getElementById(`section${i}`);

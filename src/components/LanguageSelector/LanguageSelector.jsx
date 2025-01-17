@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
 import "./LanguageSelector.scss";
+import { useState } from "react";
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ setLanStatus }) {
+  // const [lanStatus, setLanStatus] = useState("ch");
   const languages = [
     { code: "en", lang: "English" },
     { code: "ch", lang: "中文" },
@@ -11,6 +13,7 @@ export default function LanguageSelector() {
 
   const handleSelectLang = (lang) => {
     i18n.changeLanguage(lang);
+    setLanStatus(lang);
   };
 
   return (
