@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./MenuCard.scss";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
 const api_url = import.meta.env.VITE_SERVER_URL;
+
 export default function MenuCard({
   productsInfoArr,
   handleAddToCart,
@@ -10,12 +12,22 @@ export default function MenuCard({
   lanStatus,
 }) {
   const menuRef = useRef(null);
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [activeType, setActiveType] = useState("Pour-over Coffee");
   const types = [...new Set(productsInfoArr.map((product) => product.type))];
   const typesCh = [
     ...new Set(productsInfoArr.map((product) => product.type_ch)),
   ];
+  const [selectedLanInfo, setSelectedLanInfo] = useState({
+    typeArr: [],
+    category_lan: "",
+    type_lan: "",
+    product_name_lan: "",
+    price_lan: "",
+    description_lan: "",
+    option_lan: "",
+  });
 
   const handleScrollerToProduct = (i) => {
     const element = document.getElementById(`section${i}`);
@@ -46,13 +58,40 @@ export default function MenuCard({
   const handleReadMore = (productId) => {
     setScrollPosition(window.scrollY);
     navigate(`/menu/${productId}`, {
-      state: { scrollPosition: window.scrollY },
+      state: { scrollPosition: window.scrollY, lanStatus },
     });
   };
 
   //when browsing the menu, scroll active tag to center
   const typeRefs = useRef([]);
   const [tagRanges, setTagRanges] = useState([]);
+
+  const typeLan = () => {
+    console.log("manu card lanStatus: ");
+    console.log(lanStatus);
+
+    if (lanStatus === "en") {
+      setSelectedLanInfo({
+        typeArr: types,
+        category_lan: "category",
+        type_lan: "type",
+        product_name_lan: "product_name",
+        price_lan: "price_gbp",
+        description_lan: "description",
+        option_lan: "option",
+      });
+    } else {
+      setSelectedLanInfo({
+        typeArr: typesCh,
+        category_lan: "category_ch",
+        type_lan: "type_ch",
+        product_name_lan: "product_name_ch",
+        price_lan: "price_ntd",
+        description_lan: "description_ch",
+        option_lan: "option_ch",
+      });
+    }
+  };
 
   useEffect(() => {
     const ranges = typeRefs.current.map((typeRef) => {
@@ -68,6 +107,7 @@ export default function MenuCard({
     });
 
     setTagRanges(calculateRange);
+    typeLan();
   }, [productsInfoArr]);
 
   useEffect(() => {
@@ -100,7 +140,7 @@ export default function MenuCard({
   return (
     <main className="menuCard__box">
       <div className="menuCard__type-scroller" ref={menuRef}>
-        {types.map((type, i) => {
+        {selectedLanInfo.typeArr?.map((type, i) => {
           return (
             <button
               key={i}
@@ -120,7 +160,7 @@ export default function MenuCard({
       </div>
 
       <div>
-        {types.map((type, i) => {
+        {selectedLanInfo.typeArr.map((type, i) => {
           return (
             <div key={i}>
               <h1 className="menuCard__product-type" id={`section${i}`}>
@@ -128,7 +168,7 @@ export default function MenuCard({
               </h1>
               {productsInfoArr
                 .filter((productInfo) => {
-                  return productInfo.type === type;
+                  return productInfo[selectedLanInfo.type_lan] === type;
                 })
                 .map((productInfo, productIndex) => {
                   return (
@@ -143,13 +183,13 @@ export default function MenuCard({
                     >
                       <div>
                         <h2 className="menuCard__product-name">
-                          {productInfo.product_name}
+                          {productInfo[selectedLanInfo.product_name_lan]}
                         </h2>
                         <p className="menuCard__product-price">
-                          £{productInfo.price_gbp}
+                          {productInfo[selectedLanInfo.price_lan]}
                         </p>
                         <p className="menuCard__product-description">
-                          {productInfo.description}
+                          {productInfo[selectedLanInfo.description_lan]}
                         </p>
                         <button
                           className="menuCard__link"
@@ -158,7 +198,7 @@ export default function MenuCard({
                           }}
                         >
                           <p className="menuCard__product-read-more">
-                            read more...
+                            {t("readMore")}
                           </p>
                         </button>
                       </div>

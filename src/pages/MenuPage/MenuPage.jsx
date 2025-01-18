@@ -20,6 +20,9 @@ export default function MenuPage({
   const [productsInfo, setProductsInfo] = useState([]);
   const lanStatus = location.state?.lanStatus;
 
+  console.log("menu page lanStatus: ");
+  console.log(lanStatus);
+
   const menuRender = async () => {
     try {
       const products = await getAllProducts();
@@ -40,7 +43,7 @@ export default function MenuPage({
 
   const handleGoToCart = () => {
     setScrollPosition(window.scrollY);
-    navigate("/cart", { state: { scrollPosition: window.scrollY } });
+    navigate("/cart", { state: { scrollPosition: window.scrollY, lanStatus } });
     window.scrollTo(0, 0);
   };
 

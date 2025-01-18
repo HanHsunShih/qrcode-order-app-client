@@ -6,8 +6,6 @@ import Login from "../../components/Login/Login";
 import LanguageSelector from "../../components/LanguageSelector/LanguageSelector";
 import turtlePoster from "../../assets/media/home-page-poster-seaturtle.png";
 import turtleVideo from "../../assets/media/home-page-video-seaturtle.mp4";
-// import "../../../public/locales/ch";
-// import "../../../public/locales/en";
 
 import SignUp from "../../components/SignUp/SignUp";
 import turtleGif from "../../assets/media/home-page-video-seaturtle.gif";
@@ -19,7 +17,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const [adminPopUp, setAdminPopUp] = useState(false);
   const [lanStatus, setLanStatus] = useState("ch");
 
-  const handleSubmit = (event) => {
+  const handleTableNumSubmit = (event) => {
     event.preventDefault();
 
     if (isNaN(tableNumber) || tableNumber < 0 || tableNumber > 20) {
@@ -28,7 +26,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
     }
 
     setErrorMessage("");
-    navigate(`/menu`, { state: { language: { lanStatus } } });
+    navigate(`/menu`, { state: { lanStatus } });
   };
 
   const handleLogIn = () => {
@@ -46,9 +44,6 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const handleNavToMenu = () => {
     navigate(`/menu`, { state: { lanStatus } });
   };
-
-  console.log("lanStatus: ");
-  console.log(lanStatus);
 
   //, { state: { lanStatue } }
 
@@ -75,7 +70,10 @@ export default function HomePage({ tableNumber, setTableNumber }) {
           </button>
         </div>
         <section>
-          <form onSubmit={handleSubmit} className="home-page__middle-box">
+          <form
+            onSubmit={handleTableNumSubmit}
+            className="home-page__middle-box"
+          >
             <input
               onChange={handleTableNumberChange}
               className="home-page__table-number"

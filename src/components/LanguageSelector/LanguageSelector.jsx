@@ -15,8 +15,8 @@ export default function LanguageSelector({ setLanStatus }) {
     i18n.changeLanguage(lang);
     setLanStatus(lang);
 
-    console.log("current language: ");
-    console.log(lang);
+    // console.log("lanStatus: ");
+    // console.log(lanStatus);
   };
 
   return (

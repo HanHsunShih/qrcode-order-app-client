@@ -9,6 +9,12 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
   const location = useLocation();
   const scrollPosition = location.state?.scrollPosition || 0;
   const baseUrl = import.meta.env.VITE_SERVER_URL;
+  const lanStatus = location.state?.lanStatus;
+  const [selectedLanInfo, setSelectedLanInfo] = useState({
+    product_name_lan: "",
+    price_lan: "",
+    description_lan: "",
+  });
 
   const [product, setProduct] = useState(null);
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
@@ -23,6 +29,9 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
       console.log(error);
     }
   };
+
+  console.log("sinlge product page lanStatus: ");
+  console.log(lanStatus);
 
   const handleBtMinus = (event) => {
     event.preventDefault();
@@ -64,7 +73,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
         <button
           className="single-product-page__bt"
           onClick={() => {
-            navigate("/menu", { state: scrollPosition });
+            navigate("/menu", { state: scrollPosition, lanStatus });
           }}
         >
           <h3 className="single-product-page__bt-arrow">←</h3>
