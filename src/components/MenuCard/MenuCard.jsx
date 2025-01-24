@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./MenuCard.scss";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const api_url = import.meta.env.VITE_SERVER_URL;
 
 export default function MenuCard({
@@ -58,7 +58,7 @@ export default function MenuCard({
   const handleReadMore = (productId) => {
     setScrollPosition(window.scrollY);
     navigate(`/menu/${productId}`, {
-      state: { scrollPosition: window.scrollY, lanStatus },
+      state: { scrollPosition: window.scrollY, lanStatus: lanStatus },
     });
   };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import "./SingleProductPage.scss";
 import { getProductById } from "../../../utils/apiUtils.mjs";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -15,9 +15,26 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
     price_lan: "",
     description_lan: "",
   });
+  const { t } = useTransition();
 
   const [product, setProduct] = useState(null);
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
+
+  const typeLan = () => {
+    if (lanStatus === "en") {
+      setSelectedLanInfo({
+        product_name_lan: "product_name",
+        price_lan: "price_gbp",
+        description_lan: "description",
+      });
+    } else {
+      setSelectedLanInfo({
+        product_name_lan: "product_name_ch",
+        price_lan: "price_ntd",
+        description_lan: "description_ch",
+      });
+    }
+  };
 
   const productRender = async () => {
     try {
@@ -65,6 +82,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
 
   useEffect(() => {
     productRender();
+    typeLan();
   }, []);
 
   return (
@@ -73,7 +91,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
         <button
           className="single-product-page__bt"
           onClick={() => {
-            navigate("/menu", { state: scrollPosition, lanStatus });
+            navigate("/menu", { state: { scrollPosition, lanStatus } });
           }}
         >
           <h3 className="single-product-page__bt-arrow">←</h3>
@@ -82,7 +100,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
           {product ? (
             <div className="single-product-page__content">
               <h1 className="single-product-page__product-title">
-                {product.product_name}
+                {product[selectedLanInfo.product_name_lan]}
               </h1>
               {product.image && (
                 <img
@@ -91,9 +109,11 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
                   alt=""
                 />
               )}
-              <p className="single-product-page__price">£{product.price_gbp}</p>
+              <p className="single-product-page__price">
+                {product[selectedLanInfo.price_lan]}
+              </p>
               <p className="single-product-page__description">
-                {product.description}
+                {product[selectedLanInfo.description_lan]}
               </p>
             </div>
           ) : (
