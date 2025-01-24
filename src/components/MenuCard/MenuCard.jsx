@@ -186,6 +186,7 @@ export default function MenuCard({
                           {productInfo[selectedLanInfo.product_name_lan]}
                         </h2>
                         <p className="menuCard__product-price">
+                          {t("priceIcon")}&nbsp;
                           {productInfo[selectedLanInfo.price_lan]}
                         </p>
                         <p className="menuCard__product-description">

@@ -44,7 +44,7 @@ export default function PaymentSuccessPage({ setCartInfo }) {
           }}
         >
           <h3 className="payment-success-page__home-bt">
-            {t("BackToMenuPageBtn")}
+            {t("backToMenuPageBtn")}
           </h3>
         </button>
       </div>

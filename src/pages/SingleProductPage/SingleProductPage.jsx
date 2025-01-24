@@ -2,6 +2,7 @@ import { useEffect, useState, useTransition } from "react";
 import "./SingleProductPage.scss";
 import { getProductById } from "../../../utils/apiUtils.mjs";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function SingleProductPage({ cartInfo, setCartInfo }) {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
     price_lan: "",
     description_lan: "",
   });
-  const { t } = useTransition();
+  const { t } = useTranslation();
 
   const [product, setProduct] = useState(null);
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
@@ -110,6 +111,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
                 />
               )}
               <p className="single-product-page__price">
+                {t("priceIcon")}&nbsp;
                 {product[selectedLanInfo.price_lan]}
               </p>
               <p className="single-product-page__description">
@@ -149,7 +151,9 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
                 </button>
               </div>
               <button className="single-product-page__bt single-product-page__bt-cart">
-                <h2 className="single-product-page__bt-text">Add to cart</h2>
+                <h2 className="single-product-page__bt-text">
+                  {t("addToCart")}
+                </h2>
               </button>
             </div>
           </form>

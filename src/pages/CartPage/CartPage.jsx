@@ -16,12 +16,36 @@ export default function CartPage({
   const [showTableInput, setShowTableInput] = useState(false);
   const [paymentMessage, setPaymentessage] = useState("");
   const scrollPosition = location.state?.scrollPosition || 0;
+  const lanStatus = location.state?.lanStatus;
+  const [selectedLanInfo, setSelectedLanInfo] = useState({
+    product_name_lan: "",
+    price_lan: "",
+  });
 
   let totalPrice = 0;
   for (let i = 0; i < cartInfo.length; i++) {
-    totalPrice += parseFloat(cartInfo[i].price_gbp);
+    totalPrice += parseFloat(cartInfo[i][selectedLanInfo.price_lan]);
   }
-  const formattedTotalPrice = totalPrice.toFixed(2);
+
+  console.log("Cart page lanStatus");
+  console.log(lanStatus);
+
+  const formattedTotalPrice = totalPrice;
+
+  const typeLan = () => {
+    if (lanStatus === "en") {
+      setSelectedLanInfo({
+        product_name_lan: "product_name",
+        price_lan: "price_gbp",
+      });
+      formattedTotalPrice = totalPrice.toFixed(2);
+    } else {
+      setSelectedLanInfo({
+        product_name_lan: "product_name_ch",
+        price_lan: "price_ntd",
+      });
+    }
+  };
 
   const handlePayClick = () => {
     if (formattedTotalPrice === "0.00") {
@@ -36,7 +60,7 @@ export default function CartPage({
       setShowTableInput(true);
       return;
     }
-    navigate("/payment", { state: formattedTotalPrice });
+    navigate("/payment", { state: { formattedTotalPrice, lanStatus } });
   };
 
   const handleDelete = (indexToDelete) => {
@@ -52,11 +76,12 @@ export default function CartPage({
   };
 
   const handleGoBack = () => {
-    navigate("/menu", { state: scrollPosition });
+    navigate("/menu", { state: { scrollPosition, lanStatus } });
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    typeLan();
   }, []);
 
   return (
@@ -77,9 +102,11 @@ export default function CartPage({
             return (
               <div key={index} className="cart-page__box-small">
                 <div className="cart-page__box-left">
-                  <h3 className="cart-page__product">{item.product_name}</h3>
+                  <h3 className="cart-page__product">
+                    {item[selectedLanInfo.product_name_lan]}
+                  </h3>
                   <p className="cart-page__price">
-                    {t("priceIcon")} {item.price_gbp}
+                    {t("priceIcon")} {item[selectedLanInfo.price_lan]}
                   </p>
                 </div>
                 <button
@@ -92,7 +119,10 @@ export default function CartPage({
             );
           })}
           <p className="cart-page__total-price">{t("totalPrice")}</p>
-          <p className="cart-page__text">£ {formattedTotalPrice}</p>
+          <p className="cart-page__text">
+            {t("priceIcon")}&nbsp;
+            {formattedTotalPrice}
+          </p>
           {showTableInput && (
             <input
               type="number"

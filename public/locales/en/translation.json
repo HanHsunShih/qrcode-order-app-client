@@ -16,5 +16,6 @@
   "tableMessage": "Please enter the right table number ☕️",
   "payAtCounterbtn": "Pay At Counter",
   "paymentSucceed": "Your payment is Success",
-  "BackToMenuPageBtn": "Back to home page"
+  "backToMenuPageBtn": "Back to home page",
+  "addToCart": "Add to cart"
 }

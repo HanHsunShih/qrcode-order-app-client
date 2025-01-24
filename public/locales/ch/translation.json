@@ -16,5 +16,6 @@
   "tableMessage": "請輸入正確的桌號 ☕️",
   "payAtCounterbtn": "櫃檯結帳",
   "paymentSucceed": "結帳成功",
-  "BackToMenuPageBtn": "回到菜單"
+  "backToMenuPageBtn": "回到菜單",
+  "addToCart": "加到購物車"
 }

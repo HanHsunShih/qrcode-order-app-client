@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./PaymentPage.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
@@ -9,10 +9,24 @@ export default function Payment({ tableNumber, cartInfo }) {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const baseUrl = import.meta.env.VITE_SERVER_URL;
+  const location = useLocation();
+  const lanStatus = location.state?.lanStatus;
+  const [priceLan, setPriceLan] = useState("");
 
   const payload = {
     table_number: tableNumber,
     products: cartInfo,
+  };
+
+  console.log("Payment page lanStatus: ");
+  console.log(lanStatus);
+
+  const typeLan = () => {
+    if (lanStatus === "en") {
+      setPriceLan("price_gbp");
+    } else {
+      setPriceLan("price_ntd");
+    }
   };
 
   const handlePaymentClick = async () => {
@@ -43,6 +57,11 @@ export default function Payment({ tableNumber, cartInfo }) {
       console.log("🥀Can not post new order: " + error);
     }
   };
+
+  useEffect(() => {
+    typeLan();
+  });
+
   return (
     <div className="payment-page-box">
       <main className="payment-page">
@@ -50,8 +69,8 @@ export default function Payment({ tableNumber, cartInfo }) {
           <h3 className="payment-page__back-bt">←</h3>
         </Link>
         <div className="payment-page__price-box">
-          <h2 className="payment-page__price-box-text">total price:</h2>
-          <h1 className="payment-page__price">{state}</h1>
+          <h2 className="payment-page__price-box-text">{t("totalPrice")}</h2>
+          <h1 className="payment-page__price">{t("priceIcon")}&nbsp;</h1>
         </div>
         <div className="payment-page__bt-box">
           <button className="payment-page__pay-bt" onClick={handlePaymentClick}>
