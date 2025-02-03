@@ -1,4 +1,4 @@
-# Online order System for my sister's cafe shop☕️
+# Online Order System for my sister's cafe shop☕️
 
 ### Live Demo 🏄🏻‍♀️
 Check out the live demo: [QR Code Order Application](https://seaward-migration-plan.netlify.app/)</br>
