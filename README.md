@@ -1,4 +1,4 @@
-# Online Order System for a cafe shop☕️
+# QR Code Online Ordering System ☕️
 
 ### Live Demo 🏄🏻‍♀️
 Check out the live demo: [QR Code Order Application](https://seaward-migration-plan.netlify.app/)</br>
