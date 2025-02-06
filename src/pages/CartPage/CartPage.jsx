@@ -61,6 +61,8 @@ export default function CartPage({
       return;
     }
     navigate("/payment", { state: { formattedTotalPrice, lanStatus } });
+    console.log("formattedTotalPrice: ");
+    console.log(formattedTotalPrice);
   };
 
   const handleDelete = (indexToDelete) => {

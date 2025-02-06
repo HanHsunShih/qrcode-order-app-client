@@ -11,6 +11,7 @@ export default function Payment({ tableNumber, cartInfo }) {
   const baseUrl = import.meta.env.VITE_SERVER_URL;
   const location = useLocation();
   const lanStatus = location.state?.lanStatus;
+  const totalPrice = location.state?.formattedTotalPrice;
   const [priceLan, setPriceLan] = useState("");
 
   const payload = {
@@ -65,12 +66,18 @@ export default function Payment({ tableNumber, cartInfo }) {
   return (
     <div className="payment-page-box">
       <main className="payment-page">
-        <Link to="/cart">
+        <button
+          onClick={() => {
+            navigate("/cart", { state: lanStatus });
+          }}
+        >
           <h3 className="payment-page__back-bt">←</h3>
-        </Link>
+        </button>
         <div className="payment-page__price-box">
           <h2 className="payment-page__price-box-text">{t("totalPrice")}</h2>
-          <h1 className="payment-page__price">{t("priceIcon")}&nbsp;</h1>
+          <h1 className="payment-page__price">
+            {t("priceIcon")}&nbsp;{totalPrice}
+          </h1>
         </div>
         <div className="payment-page__bt-box">
           <button className="payment-page__pay-bt" onClick={handlePaymentClick}>
