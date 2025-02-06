@@ -15,7 +15,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const { t } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
   const [adminPopUp, setAdminPopUp] = useState(false);
-  const [lanStatus, setLanStatus] = useState("ch");
+  const [lanStatus, setLanStatus] = useState("en");
 
   const handleTableNumSubmit = (event) => {
     event.preventDefault();
@@ -44,8 +44,6 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const handleNavToMenu = () => {
     navigate(`/menu`, { state: { lanStatus } });
   };
-
-  //, { state: { lanStatue } }
 
   return (
     <section className="home-page">

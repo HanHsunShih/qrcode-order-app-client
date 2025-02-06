@@ -3,7 +3,6 @@ import "./LanguageSelector.scss";
 import { useState } from "react";
 
 export default function LanguageSelector({ setLanStatus }) {
-  // const [lanStatus, setLanStatus] = useState("ch");
   const languages = [
     { code: "en", lang: "English" },
     { code: "ch", lang: "中文" },
@@ -14,9 +13,6 @@ export default function LanguageSelector({ setLanStatus }) {
   const handleSelectLang = (lang) => {
     i18n.changeLanguage(lang);
     setLanStatus(lang);
-
-    // console.log("lanStatus: ");
-    // console.log(lanStatus);
   };
 
   return (
