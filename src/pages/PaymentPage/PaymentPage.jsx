@@ -53,7 +53,7 @@ export default function Payment({ tableNumber, cartInfo }) {
 
       const response = await axios.post(`${baseUrl}/api/order`, newPayLoad);
 
-      navigate("/payment-success");
+      navigate("/payment-success", { state: { lanStatus } });
     } catch (error) {
       console.log("🥀Can not post new order: " + error);
     }

@@ -50,9 +50,6 @@ export default function MenuPage({
     menuRender();
   }, []);
 
-  console.log("scrollPosition: ");
-  console.log(scrollPosition);
-
   useEffect(() => {
     if (productsInfo.length) {
       window.scrollTo({ top: scrollPosition, behavior: "smooth" });

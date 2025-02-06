@@ -6,7 +6,9 @@ import { useTranslation } from "react-i18next";
 
 export default function PaymentSuccessPage({ setCartInfo }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation();
+  const lanStatus = location.state?.lanStatus;
 
   const handleCartReset = () => {
     setCartInfo([]);
@@ -39,7 +41,7 @@ export default function PaymentSuccessPage({ setCartInfo }) {
         <button
           className="payment-success-page__home-bt"
           onClick={() => {
-            navigate("/menu");
+            navigate("/menu", { state: { lanStatus } });
             handleCartReset();
           }}
         >
