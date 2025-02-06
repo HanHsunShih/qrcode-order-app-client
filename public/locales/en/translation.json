@@ -1,6 +1,7 @@
 {
   "login": "admin",
   "tableNumber": "enter table number",
+  "tableNumberErrorMessage": "It is not a valid table number😓",
   "continueBt": "continue",
   "browseMenuBt": "Browse the Menu",
   "menu": "Menu",

@@ -1,6 +1,7 @@
 {
   "login": "登入",
   "tableNumber": "請輸入桌號",
+  "tableNumberErrorMessage": "請輸入正確的桌號😓",
   "continueBt": "繼續",
   "browseMenuBt": "瀏覽菜單",
   "menu": "菜單",

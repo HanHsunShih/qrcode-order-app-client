@@ -26,7 +26,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
       tableNumber > 20 ||
       !tableNumber
     ) {
-      setErrorMessage("It is not a valid table number😓");
+      setErrorMessage(t("tableNumberErrorMessage"));
       return;
     } else {
       navigate(`/menu`, { state: { lanStatus } });
