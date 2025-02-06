@@ -61,6 +61,9 @@ export default function Payment({ tableNumber, cartInfo }) {
 
   useEffect(() => {
     typeLan();
+
+    console.log("payment page lanStatus:");
+    console.log(lanStatus);
   });
 
   return (
@@ -68,7 +71,7 @@ export default function Payment({ tableNumber, cartInfo }) {
       <main className="payment-page">
         <button
           onClick={() => {
-            navigate("/cart", { state: lanStatus });
+            navigate("/cart", { state: { lanStatus } });
           }}
         >
           <h3 className="payment-page__back-bt">←</h3>
