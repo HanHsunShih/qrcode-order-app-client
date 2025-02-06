@@ -15,13 +15,12 @@ export default function MenuPage({
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
-  const initialScrollPosition = location.state ? location.state : 0;
+  const initialScrollPosition = location.state
+    ? location.state.scrollPosition
+    : 0;
   const [scrollPosition, setScrollPosition] = useState(initialScrollPosition);
   const [productsInfo, setProductsInfo] = useState([]);
   const lanStatus = location.state?.lanStatus;
-
-  console.log("menu page lanStatus: ");
-  console.log(lanStatus);
 
   const menuRender = async () => {
     try {
@@ -50,6 +49,9 @@ export default function MenuPage({
   useEffect(() => {
     menuRender();
   }, []);
+
+  console.log("scrollPosition: ");
+  console.log(scrollPosition);
 
   useEffect(() => {
     if (productsInfo.length) {
