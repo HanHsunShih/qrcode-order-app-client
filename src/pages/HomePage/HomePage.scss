@@ -70,6 +70,13 @@
       @include h1;
       // color: $color2;
     }
+
+    &-error {
+      color: $color2;
+      background-color: red;
+      padding: 0.5rem;
+      border-radius: 10pt;
+    }
   }
 
   &__bottom-box {

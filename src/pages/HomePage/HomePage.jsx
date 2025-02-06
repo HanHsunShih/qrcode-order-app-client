@@ -20,13 +20,19 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const handleTableNumSubmit = (event) => {
     event.preventDefault();
 
-    if (isNaN(tableNumber) || tableNumber < 0 || tableNumber > 20) {
+    if (
+      isNaN(tableNumber) ||
+      tableNumber < 0 ||
+      tableNumber > 20 ||
+      !tableNumber
+    ) {
       setErrorMessage("It is not a valid table number😓");
       return;
+    } else {
+      navigate(`/menu`, { state: { lanStatus } });
     }
 
     setErrorMessage("");
-    navigate(`/menu`, { state: { lanStatus } });
   };
 
   const handleLogIn = () => {
@@ -79,7 +85,9 @@ export default function HomePage({ tableNumber, setTableNumber }) {
               type="text"
               placeholder={t("tableNumber")}
             />
-            {errorMessage && <p> {errorMessage} </p>}
+            {errorMessage && (
+              <p className="home-page__table-number-error"> {errorMessage} </p>
+            )}
             <button className="home-page__bottom-bt" type="submit">
               {t("continueBt")}
             </button>
