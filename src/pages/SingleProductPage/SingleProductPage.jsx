@@ -78,7 +78,7 @@ export default function SingleProductPage({ cartInfo, setCartInfo }) {
 
     setCartInfo([...cartInfo, ...updatedBasket]);
 
-    navigate("/menu", { state: scrollPosition });
+    navigate("/menu", { state: { scrollPosition, lanStatus } });
   };
 
   useEffect(() => {
