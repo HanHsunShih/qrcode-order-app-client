@@ -23,5 +23,10 @@
   "payAtCounterbtn": "Pay At Counter",
   "paymentSucceed": "Your payment is Success",
   "backToMenuPageBtn": "Back to home page",
-  "addToCart": "Add to cart"
+  "addToCart": "Add to cart",
+  "waitingOrders": "Waiting Orders",
+  "orderHistory": "Order History",
+  "table": "table",
+  "orderTime": "ordered time",
+  "completeBt": "Complete"
 }

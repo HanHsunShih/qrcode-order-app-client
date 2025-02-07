@@ -23,5 +23,10 @@
   "payAtCounterbtn": "櫃檯結帳",
   "paymentSucceed": "結帳成功",
   "backToMenuPageBtn": "回到菜單",
-  "addToCart": "加到購物車"
+  "addToCart": "加到購物車",
+  "waitingOrders": "待出餐點",
+  "orderHistory": "歷史訂單",
+  "table": "桌號",
+  "orderTime": "點餐時間",
+  "completeBt": "完成"
 }

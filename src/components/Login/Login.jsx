@@ -4,7 +4,7 @@ import { login } from "../../../utils/apiUtils.mjs";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-export default function Login({ handleCancelLogIn }) {
+export default function Login({ handleCancelLogIn, lanStatus }) {
   const { t } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
@@ -33,7 +33,7 @@ export default function Login({ handleCancelLogIn }) {
 
       localStorage.setItem("authToken", data.authToken);
 
-      navigate("/orders");
+      navigate("/orders", { state: { lanStatus } });
     } catch (error) {
       console.log("Error login, error: " + error);
     }

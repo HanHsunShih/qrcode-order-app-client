@@ -67,9 +67,6 @@ export default function MenuCard({
   const [tagRanges, setTagRanges] = useState([]);
 
   const typeLan = () => {
-    console.log("manu card lanStatus: ");
-    console.log(lanStatus);
-
     if (lanStatus === "en") {
       setSelectedLanInfo({
         typeArr: types,

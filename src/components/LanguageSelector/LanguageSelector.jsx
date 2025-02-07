@@ -13,6 +13,8 @@ export default function LanguageSelector({ setLanStatus }) {
   const handleSelectLang = (lang) => {
     i18n.changeLanguage(lang);
     setLanStatus(lang);
+
+    localStorage.setItem("lanPre", lang);
   };
 
   return (

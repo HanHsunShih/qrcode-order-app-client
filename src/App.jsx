@@ -9,12 +9,15 @@ import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage/PaymentSuccessPage";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
+import { useTranslation } from "react-i18next";
 
 function App() {
   const [cartInfo, setCartInfo] = useState(
     JSON.parse(localStorage.getItem("cartInfo")) || []
   );
   const [tableNumber, setTableNumber] = useState("");
+  const { i18n } = useTranslation();
+  const preferLan = localStorage.getItem("lanPre");
 
   const handleAddToCart = (product) => {
     setCartInfo((preCartInfo) => [...preCartInfo, product]);
@@ -24,6 +27,10 @@ function App() {
     setCartInfo([]);
     setTableNumber("");
   };
+
+  useEffect(() => {
+    i18n.changeLanguage(preferLan);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("cartInfo", JSON.stringify(cartInfo));

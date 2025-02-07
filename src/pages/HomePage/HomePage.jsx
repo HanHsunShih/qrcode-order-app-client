@@ -17,9 +17,6 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const [adminPopUp, setAdminPopUp] = useState(false);
   const [lanStatus, setLanStatus] = useState("en");
 
-  console.log("localStorage.getItem authToken");
-  console.log(localStorage.getItem("authToken"));
-
   const handleTableNumSubmit = (event) => {
     event.preventDefault();
 
@@ -57,9 +54,11 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   return (
     <section className="home-page">
       {/* <SignUp /> */}
-      {adminPopUp && <Login handleCancelLogIn={handleCancelLogIn} />}
+      {adminPopUp && (
+        <Login handleCancelLogIn={handleCancelLogIn} lanStatus={lanStatus} />
+      )}
       <main className="home-page__box">
-        <video
+        {/* <video
           className="home-page__bg-video"
           loop={true}
           muted={true}
@@ -68,7 +67,7 @@ export default function HomePage({ tableNumber, setTableNumber }) {
           poster={turtlePoster}
         >
           <source src={turtleVideo} type="video/mp4" />
-        </video>
+        </video> */}
         {/* <iframe className="home-page__bg-video" src={turtleGif}></iframe> */}
         <div className="home-page__admin-box">
           <LanguageSelector setLanStatus={setLanStatus} />
