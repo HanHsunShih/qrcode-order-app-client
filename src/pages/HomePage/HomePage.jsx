@@ -17,6 +17,9 @@ export default function HomePage({ tableNumber, setTableNumber }) {
   const [adminPopUp, setAdminPopUp] = useState(false);
   const [lanStatus, setLanStatus] = useState("en");
 
+  console.log("localStorage.getItem authToken");
+  console.log(localStorage.getItem("authToken"));
+
   const handleTableNumSubmit = (event) => {
     event.preventDefault();
 

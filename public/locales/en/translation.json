@@ -1,5 +1,10 @@
 {
   "login": "admin",
+  "userName": "user name",
+  "password": "password",
+  "loginBt": "Login",
+  "cancelBt": "Cancel",
+  "loginError": "Incorrect username or password.",
   "tableNumber": "enter table number",
   "tableNumberErrorMessage": "It is not a valid table number😓",
   "continueBt": "continue",

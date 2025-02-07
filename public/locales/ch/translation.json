@@ -1,5 +1,10 @@
 {
   "login": "登入",
+  "userName": "帳號",
+  "password": "密碼",
+  "loginBt": "登入",
+  "cancelBt": "取消",
+  "loginError": "帳號或密碼有誤",
   "tableNumber": "請輸入桌號",
   "tableNumberErrorMessage": "請輸入正確的桌號😓",
   "continueBt": "繼續",

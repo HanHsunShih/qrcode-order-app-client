@@ -2,8 +2,10 @@ import { useState } from "react";
 import "./Login.scss";
 import { login } from "../../../utils/apiUtils.mjs";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Login({ handleCancelLogIn }) {
+  const { t } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
@@ -19,7 +21,7 @@ export default function Login({ handleCancelLogIn }) {
     event.preventDefault();
 
     if (!formData.name || !formData.password) {
-      setErrorMessage("You must provide a username and a password");
+      setErrorMessage(t("loginError"));
     }
 
     try {
@@ -39,11 +41,11 @@ export default function Login({ handleCancelLogIn }) {
 
   return (
     <section className="login">
-      <h1 className="login__title">Login</h1>
+      <h1 className="login__title">{t("login")}</h1>
       <form className="login__form-box" onSubmit={submitForm}>
         <div className="login__form-box-samll">
           <label htmlFor="name">
-            <h2 className="login__form-label">user name:</h2>
+            <h2 className="login__form-label">{t("userName")}</h2>
           </label>
           <input
             className="login__form-input"
@@ -54,7 +56,7 @@ export default function Login({ handleCancelLogIn }) {
         </div>
         <div className="login__form-box-samll">
           <label htmlFor="password">
-            <h2 className="login__form-label">password:</h2>
+            <h2 className="login__form-label">{t("password")}</h2>
           </label>
           <input
             className="login__form-input"
@@ -66,10 +68,10 @@ export default function Login({ handleCancelLogIn }) {
         {errorMessage && <p className="login__form-message">{errorMessage}</p>}
         <div>
           <button className="login__form-bt">
-            <h3>Login</h3>
+            <h3>{t("loginBt")}</h3>
           </button>
           <button className="login__form-bt" onClick={handleCancelLogIn}>
-            <h3>Cancel</h3>
+            <h3>{t("cancelBt")}</h3>
           </button>
         </div>
       </form>
