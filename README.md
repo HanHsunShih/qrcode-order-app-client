@@ -7,7 +7,7 @@ Check out the live demo: [QR Code Order Application](https://seaward-migration-p
 Check out the backend README: [backend README](https://github.com/HanHsunShih/qrcode-order-app-server)
 
 ## About this Project
-This QR code ordering app is built for café - seaward migration plans, using React, Node.js, and MySQL, allowing customers to order online. The client side handles menu display and ordering, while the admin dashboard, with login access, lets authorized users view orders and history.
+This QR code ordering app is built for café - [seaward migration plans](https://www.instagram.com/seaward.m.plan_coffee.diving/?hl=zh-tw), using React, Node.js, and MySQL, allowing customers to order online. The client side handles menu display and ordering, while the admin dashboard, with login access, lets authorized users view orders and history.
 
 client-side|admin-side
 --|--
@@ -15,8 +15,9 @@ client-side|admin-side
 
 ## Features 🤿
 ### Customer Interface:
+- Bilingual menu selections
 - Browse the menu and place orders.
-- Add meals to or remove them from the cart.
+- Add or remove meals from the cart🛒.
 - Navigate through tabs with scroll synchronization.
 
 ### Admin Dashboard:
@@ -69,7 +70,7 @@ client-side|admin-side
    - Access the order history for management purposes.
   
 ## Roadmap 🚀
-- [ ] Add a Chinese version for Taiwanese users.
+- [x] Add a Chinese version for Taiwanese users.
 - [ ] Integrate a payments API for seamless online transactions.
 - [ ] Implement a feature to allow real-time menu updates.
 
