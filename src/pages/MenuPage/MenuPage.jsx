@@ -55,7 +55,7 @@ export default function MenuPage({
       requestAnimationFrame(() => {
         window.scrollTo({ top: scrollPosition, behavior: "smooth" });
       });
-    }, 500);
+    }, 300);
   };
 
   useEffect(() => {
@@ -64,16 +64,11 @@ export default function MenuPage({
 
   useEffect(() => {
     if (cartInfo.length > 0 && scrollPosition > 0) {
-      console.log("Cart loaded, now scrolling to:", scrollPosition);
       setTimeout(() => {
         requestAnimationFrame(() => {
-          console.log(
-            "Executing scrollTo after cartInfo load:",
-            scrollPosition
-          );
           window.scrollTo({ top: scrollPosition, behavior: "smooth" });
         });
-      }, 500);
+      }, 300);
     }
   }, [cartInfo]);
 
