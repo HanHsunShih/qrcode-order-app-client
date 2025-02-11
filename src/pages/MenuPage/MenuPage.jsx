@@ -55,7 +55,7 @@ export default function MenuPage({
       requestAnimationFrame(() => {
         window.scrollTo({ top: scrollPosition, behavior: "smooth" });
       });
-    }, 2000);
+    }, 500);
   };
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function MenuPage({
           );
           window.scrollTo({ top: scrollPosition, behavior: "smooth" });
         });
-      }, 2000);
+      }, 500);
     }
   }, [cartInfo]);
 
