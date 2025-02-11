@@ -17,16 +17,22 @@ export default function CartPage({
   const [paymentMessage, setPaymentessage] = useState("");
   const scrollPosition = location.state?.scrollPosition || 0;
   const lanStatus = location.state?.lanStatus;
-  const [formattedTotalPrice, setFormattedTotalPrice] = useState();
+  // const [totalPrice, setTotalPrice] = useState(0);
+  const [formattedTotalPrice, setFormattedTotalPrice] = useState(0);
   const [selectedLanInfo, setSelectedLanInfo] = useState({
     product_name_lan: "",
     price_lan: "",
   });
 
-  let totalPrice = 0;
-  for (let i = 0; i < cartInfo.length; i++) {
-    totalPrice += parseFloat(cartInfo[i][selectedLanInfo.price_lan]);
-  }
+  // let totalPrice = 0;
+  // for (let i = 0; i < cartInfo.length; i++) {
+  //   totalPrice += parseFloat(cartInfo[i][selectedLanInfo.price_lan]);
+  // }
+
+  const totalPrice = cartInfo.reduce(
+    (acc, item) => acc + parseFloat(item[selectedLanInfo.price_lan] || 0),
+    0
+  );
 
   // const formattedTotalPrice = totalPrice.toFixed(1);
 
@@ -36,13 +42,13 @@ export default function CartPage({
         product_name_lan: "product_name",
         price_lan: "price_gbp",
       });
-      setFormattedTotalPrice(totalPrice.toFixed(1));
+      // setFormattedTotalPrice(totalPrice.toFixed(1));
     } else {
       setSelectedLanInfo({
         product_name_lan: "product_name_ch",
         price_lan: "price_ntd",
       });
-      setFormattedTotalPrice(totalPrice);
+      // setFormattedTotalPrice(totalPrice);
     }
   };
 
@@ -85,6 +91,14 @@ export default function CartPage({
     window.scrollTo(0, 0);
     typeLan();
   }, []);
+
+  useEffect(() => {
+    if (lanStatus === "en") {
+      setFormattedTotalPrice(totalPrice.toFixed(1));
+    } else {
+      setFormattedTotalPrice(totalPrice);
+    }
+  }, [totalPrice]);
 
   return (
     <div className="cart-page__big-box">
