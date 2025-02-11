@@ -22,6 +22,9 @@ export default function MenuPage({
   const [productsInfo, setProductsInfo] = useState([]);
   const lanStatus = location.state?.lanStatus;
 
+  console.log("Menu page initialScrollPosition");
+  console.log(initialScrollPosition);
+
   const menuRender = async () => {
     try {
       const products = await getAllProducts();
