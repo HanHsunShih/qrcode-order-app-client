@@ -35,7 +35,6 @@ export default function CartPage({
         product_name_lan: "product_name",
         price_lan: "price_gbp",
       });
-      // let formattedTotalPrice = totalPrice.toFixed(1);
     } else {
       setSelectedLanInfo({
         product_name_lan: "product_name_ch",
@@ -65,6 +64,9 @@ export default function CartPage({
       (pruduct, index) => index !== indexToDelete
     );
     setCartInfo(updatedCart);
+
+    console.log("scrollPosition");
+    console.log(scrollPosition);
   };
 
   const handleTableNumberChange = (event) => {
