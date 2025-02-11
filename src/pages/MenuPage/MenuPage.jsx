@@ -49,15 +49,24 @@ export default function MenuPage({
     window.scrollTo(0, 0);
   };
 
-  useEffect(() => {
-    menuRender();
-  }, []);
+  const fetchMenuAndScroll = async () => {
+    await menuRender();
+    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+  };
 
   useEffect(() => {
-    if (productsInfo.length) {
-      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-    }
-  }, [productsInfo]);
+    fetchMenuAndScroll();
+  }, []);
+
+  // useEffect(() => {
+  //   menuRender();
+  // }, []);
+
+  // useEffect(() => {
+  //   if (productsInfo.length) {
+  //     window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+  //   }
+  // }, [productsInfo]);
 
   return (
     <div className="menu-page">

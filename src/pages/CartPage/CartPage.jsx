@@ -17,6 +17,7 @@ export default function CartPage({
   const [paymentMessage, setPaymentessage] = useState("");
   const scrollPosition = location.state?.scrollPosition || 0;
   const lanStatus = location.state?.lanStatus;
+  const [formattedTotalPrice, setFormattedTotalPrice] = useState();
   const [selectedLanInfo, setSelectedLanInfo] = useState({
     product_name_lan: "",
     price_lan: "",
@@ -27,7 +28,7 @@ export default function CartPage({
     totalPrice += parseFloat(cartInfo[i][selectedLanInfo.price_lan]);
   }
 
-  const formattedTotalPrice = totalPrice.toFixed(1);
+  // const formattedTotalPrice = totalPrice.toFixed(1);
 
   const typeLan = () => {
     if (lanStatus === "en") {
@@ -35,11 +36,13 @@ export default function CartPage({
         product_name_lan: "product_name",
         price_lan: "price_gbp",
       });
+      setFormattedTotalPrice(totalPrice.toFixed(1));
     } else {
       setSelectedLanInfo({
         product_name_lan: "product_name_ch",
         price_lan: "price_ntd",
       });
+      setFormattedTotalPrice(totalPrice);
     }
   };
 
