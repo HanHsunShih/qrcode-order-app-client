@@ -51,7 +51,9 @@ export default function MenuPage({
 
   const fetchMenuAndScroll = async () => {
     await menuRender();
-    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+    setTimeout(() => {
+      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+    }, 300);
   };
 
   useEffect(() => {
