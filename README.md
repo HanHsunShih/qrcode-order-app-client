@@ -73,6 +73,7 @@ client-side|admin-side
 - [x] Add a Chinese version for Taiwanese users.
 - [ ] Integrate a payments API for seamless online transactions.
 - [ ] Implement a feature to allow real-time menu updates.
+- [ ] Add images to the meal
 
 
 
