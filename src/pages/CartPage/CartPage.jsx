@@ -27,10 +27,7 @@ export default function CartPage({
     totalPrice += parseFloat(cartInfo[i][selectedLanInfo.price_lan]);
   }
 
-  console.log("Cart page lanStatus");
-  console.log(lanStatus);
-
-  const formattedTotalPrice = totalPrice;
+  const formattedTotalPrice = totalPrice.toFixed(1);
 
   const typeLan = () => {
     if (lanStatus === "en") {
