@@ -28,5 +28,10 @@
   "orderHistory": "Order History",
   "table": "table",
   "orderTime": "ordered time",
-  "completeBt": "Complete"
+  "completeBt": "Complete",
+  "dropDownAll": "all",
+  "dropDownYesterday": "yesterday",
+  "dropDown7Days": "last 7 days",
+  "dropDown30Days": "last 30 days",
+  "orderedDate": "ordered date"
 }

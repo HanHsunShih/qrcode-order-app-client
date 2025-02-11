@@ -28,5 +28,10 @@
   "orderHistory": "歷史訂單",
   "table": "桌號",
   "orderTime": "點餐時間",
-  "completeBt": "完成"
+  "completeBt": "完成",
+  "dropDownAll": "全部",
+  "dropDownYesterday": "昨天",
+  "dropDown7Days": "過去7天",
+  "dropDown30Days": "過去30天",
+  "orderedDate": "訂單時間"
 }

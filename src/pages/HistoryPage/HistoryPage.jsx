@@ -3,10 +3,22 @@ import { Link } from "react-router-dom";
 import { getCompletedOrders } from "../../../utils/apiUtils.mjs";
 import { useEffect, useState } from "react";
 import Select from "react-select";
+import { useTranslation } from "react-i18next";
 
 export default function HistoryPage() {
   const [completedOrders, setCompletedOrders] = useState([]);
   const [renderedOrders, setRenderedOrders] = useState([]);
+  const lanStatus = localStorage.getItem("lanPre");
+  const [productLan, setProductLan] = useState("");
+  const { t } = useTranslation();
+
+  const typeLan = () => {
+    if (lanStatus == "en") {
+      setProductLan("product_name");
+    } else {
+      setProductLan("product_name_ch");
+    }
+  };
 
   const orderRender = async () => {
     try {
@@ -14,6 +26,9 @@ export default function HistoryPage() {
 
       setRenderedOrders(allOrders);
       setCompletedOrders(allOrders);
+
+      console.log("allOrders: ");
+      console.log(allOrders);
 
       return;
     } catch (error) {
@@ -97,6 +112,7 @@ export default function HistoryPage() {
 
   useEffect(() => {
     orderRender();
+    typeLan();
   }, []);
 
   return (
@@ -105,7 +121,7 @@ export default function HistoryPage() {
         <Link to={"/orders"} className="order-history__back-bt">
           <h3 className="order-history__back-bt-arrow">←</h3>
         </Link>
-        <h1 className="order-history__title">Order History:</h1>
+        <h1 className="order-history__title">{t("orderHistory")}:</h1>
         <select
           name="choose-date"
           id=""
@@ -113,16 +129,16 @@ export default function HistoryPage() {
           onChange={handleDropDownMenu}
         >
           <option className="order-history__dropdown-option" value="all">
-            all
+            {t("dropDownAll")}
           </option>
           <option className="order-history__dropdown-option" value="yesterday">
-            yesterday
+            {t("dropDownYesterday")}
           </option>
           <option className="order-history__dropdown-option" value="last7days">
-            last 7 days
+            {t("dropDown7Days")}
           </option>
           <option className="order-history__dropdown-option" value="last30days">
-            last 30 days
+            {t("dropDown30Days")}
           </option>
         </select>
         {renderedOrders ? (
@@ -131,13 +147,13 @@ export default function HistoryPage() {
               <section key={renderedOrder[0]} className="order-history__box">
                 <div className="order-box">
                   <p className="order-history__ordered-date">
-                    ordered date:{" "}
+                    {t("orderedDate")}:{" "}
                     {formatIsoDate(renderedOrder[1][0].created_at)}
                   </p>
                   {renderedOrder[1].map((item, i) => {
                     return (
                       <p key={i} className="order-history__orders">
-                        {item.product_name} x {item.quantity}
+                        {item[productLan]} x {item.quantity}
                       </p>
                     );
                   })}
