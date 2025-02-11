@@ -35,7 +35,7 @@ export default function CartPage({
         product_name_lan: "product_name",
         price_lan: "price_gbp",
       });
-      let formattedTotalPrice = totalPrice.toFixed(2);
+      // let formattedTotalPrice = totalPrice.toFixed(1);
     } else {
       setSelectedLanInfo({
         product_name_lan: "product_name_ch",
