@@ -52,13 +52,30 @@ export default function MenuPage({
   const fetchMenuAndScroll = async () => {
     await menuRender();
     setTimeout(() => {
-      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-    }, 300);
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+      });
+    }, 1000);
   };
 
   useEffect(() => {
     fetchMenuAndScroll();
   }, []);
+
+  useEffect(() => {
+    if (cartInfo.length > 0 && scrollPosition > 0) {
+      console.log("Cart loaded, now scrolling to:", scrollPosition);
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          console.log(
+            "Executing scrollTo after cartInfo load:",
+            scrollPosition
+          );
+          window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+        });
+      }, 500);
+    }
+  }, [cartInfo]);
 
   // useEffect(() => {
   //   menuRender();
