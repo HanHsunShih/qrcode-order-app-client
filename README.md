@@ -11,7 +11,7 @@ This QR code ordering app is built for café - [seaward migration plans](https:/
 
 client-side|admin-side
 --|--
-<img src="![Image](https://github.com/user-attachments/assets/f5085f1d-e846-4a67-b76c-05accb77d5ab)" width="300" />|<img src="https://github.com/HanHsunShih/qrcode-order-app-client/blob/main/images/admin-side_compressed.gif" width="300" />
+<img src="https://github.com/user-attachments/assets/f5085f1d-e846-4a67-b76c-05accb77d5ab" width="300" />|<img src="https://github.com/HanHsunShih/qrcode-order-app-client/blob/main/images/admin-side_compressed.gif" width="300" />
 
 ## Features 🤿
 ### Customer Interface:
